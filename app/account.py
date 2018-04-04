@@ -60,6 +60,22 @@ def places():
 def clothes():
     return render_template('clothes.html')
 
+@app.route('/feels')
+def  feels():
+     return  render_template('feels.html')
+	 
+@app.route('/events')
+def  events():
+     return  render_template('events.html')
+	 
+@app.route('/entertainment')
+def  entertainment():
+     return  render_template('entertainment.html')
+	 
+@app.rote('/weather')
+def  weather():
+     return  render_weather('weather.html')
+	 
 @app.route('/parent/<int:acc_id>', methods=['GET'])
 def parent(acc_id):
     myParent = Parent.query.filter_by(acc_id=int(acc_id)).all()
