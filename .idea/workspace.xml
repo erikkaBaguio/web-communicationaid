@@ -2,110 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="415bca38-9d17-4dec-a827-7c4f41079820" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/web-communicationaid.iml" afterPath="$PROJECT_DIR$/.idea/web-communicationaid.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/proj18/account.py" afterPath="$PROJECT_DIR$/proj18/account.py" />
-      <change beforePath="$PROJECT_DIR$/proj18/model.py" afterPath="$PROJECT_DIR$/proj18/model.py" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/ball.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/barbecue.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/burger.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/car.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/chicken.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/church.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/clothes/brief.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/clothes/clothesicon.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/clothes/clothesicon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/clothes/dress.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/clothes/jacket.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/clothes/pants.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/clothes/panty.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/clothes/shirt.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/clothes/shorts.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/clothes/skirt.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/clothes/sweater.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/cookies.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/doodle_pad.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/dress.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/egg.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/flashcards.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/bbq.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/burger.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/cookies.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/eggs.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/foodicon.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/foodicon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/friedchicken.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/fries.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/halo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/hotdog.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/icecream.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/lollipop.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/marshmallow.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/food/pancakes.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/french_fries.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/halo-halo.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/happy.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/hospital.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/hotdog.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/ice_cream.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/jacket.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/jollibee.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/lego.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/lollipop.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/marshmallow.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/mcdonald's.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/pancake.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/pants.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/panty.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/park.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/places/church.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/places/jollibee.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/places/mcdo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/places/placesicon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/places/playground.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/places/pool.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/places/school.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/playground.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/pool.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/puzzle.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/rattle.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/sad.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/school.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/shorts.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/sick.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/skirt.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/sleepy.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/slide.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/special.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/stack.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/sweater.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/swing.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/t-shirt.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/teddy_bear.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/ball.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/car.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/doll.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/doodlepad.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/flashcards.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/lego.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/pic.sql" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/puzzle.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/rattle.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/slide.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/stack.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/swing.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/teddy.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/toyicon.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/toyicon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/toys/trampoline.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/trampoline.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/audio/worry.mp3" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/clothes.html" afterPath="$PROJECT_DIR$/proj18/templates/clothes.html" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/food.html" afterPath="$PROJECT_DIR$/proj18/templates/food.html" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/navigation.html" afterPath="$PROJECT_DIR$/proj18/templates/navigation.html" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/places.html" afterPath="$PROJECT_DIR$/proj18/templates/places.html" />
-      <change beforePath="$PROJECT_DIR$/proj18/templates/toys.html" afterPath="$PROJECT_DIR$/proj18/templates/toys.html" />
+      <change beforePath="$PROJECT_DIR$/proj18/templates/t_prof.html" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -173,7 +70,7 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1523187132022" expanded="true" signature="0:246" ph="import ..." />
+                <marker date="1523187408230" expanded="true" signature="0:246" ph="import ..." />
               </folding>
             </state>
           </provider>
@@ -218,21 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="food.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="food.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proj18/templates/food.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="642">
               <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="t_prof.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/proj18/templates/t_prof.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="71" column="26" lean-forward="false" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -526,8 +413,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -535,7 +421,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13802083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13802083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20885417" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -584,7 +470,7 @@
         <state relative-caret-position="136">
           <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
           <folding>
-            <marker date="1523187132022" expanded="true" signature="0:246" ph="import ..." />
+            <marker date="1523187408230" expanded="true" signature="0:246" ph="import ..." />
           </folding>
         </state>
       </provider>
@@ -593,7 +479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -603,7 +488,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -611,7 +495,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -619,7 +502,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -773,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,7 +718,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1523187132022" expanded="true" signature="0:246" ph="import ..." />
+            <marker date="1523187408230" expanded="true" signature="0:246" ph="import ..." />
           </folding>
         </state>
       </provider>
@@ -859,8 +740,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proj18/templates/t_prof.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="71" column="26" lean-forward="false" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
