@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="415bca38-9d17-4dec-a827-7c4f41079820" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/static/css/bootcards-desktop.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/static/css/bootstrap-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/static/css/bootstrap-theme.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/static/css/bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/static/css/bootstrap-theme.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/static/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/static/css/bootstrap.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/static/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/static/css/bootstrap.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/static/css/bootstrap3-wysihtml5.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/static/css/font-awesome.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/templates/addclass.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/templates/addstudent.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/templates/app.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/templates/background.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/templates/class.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/templates/edit.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/templates/edit_p.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/templates/editstudent.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/templates/student.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/proj18/templates/students.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model.py" afterPath="$PROJECT_DIR$/model.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proj18.py" afterPath="$PROJECT_DIR$/proj18.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/templates - Shortcut.lnk" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/model.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="203">
-              <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -100,10 +77,6 @@
               <caret line="101" column="65" lean-forward="false" selection-start-line="101" selection-start-column="65" selection-end-line="101" selection-end-column="65" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1522786967520" expanded="true" signature="6478:6683" ph="..." />
-                <marker date="1522786967520" expanded="true" signature="6596:6619" ph="..." />
-                <marker date="1522786967520" expanded="true" signature="6644:6683" ph="..." />
-                <marker date="1522786967520" expanded="true" signature="6721:6747" ph="..." />
               </folding>
             </state>
           </provider>
@@ -155,6 +128,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,7 +145,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -299,7 +272,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18740849" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -357,13 +329,48 @@
     <entry file="file://$PROJECT_DIR$/proj18.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1700">
+          <caret line="101" column="65" lean-forward="false" selection-start-line="101" selection-start-column="65" selection-end-line="101" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#98#0" expanded="true" />
+            <marker date="1522804695378" expanded="true" signature="5038:5101" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="38" lean-forward="false" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proj18.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
           <caret line="101" column="65" lean-forward="true" selection-start-line="101" selection-start-column="65" selection-end-line="101" selection-end-column="65" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1522786967520" expanded="true" signature="6478:6683" ph="..." />
-            <marker date="1522786967520" expanded="true" signature="6596:6619" ph="..." />
-            <marker date="1522786967520" expanded="true" signature="6644:6683" ph="..." />
-            <marker date="1522786967520" expanded="true" signature="6721:6747" ph="..." />
           </folding>
         </state>
       </provider>
@@ -412,10 +419,6 @@
           <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1522786967520" expanded="true" signature="6478:6683" ph="..." />
-            <marker date="1522786967520" expanded="true" signature="6596:6619" ph="..." />
-            <marker date="1522786967520" expanded="true" signature="6644:6683" ph="..." />
-            <marker date="1522786967520" expanded="true" signature="6721:6747" ph="..." />
           </folding>
         </state>
       </provider>
@@ -457,10 +460,6 @@
           <caret line="101" column="65" lean-forward="false" selection-start-line="101" selection-start-column="65" selection-end-line="101" selection-end-column="65" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1522786967520" expanded="true" signature="6478:6683" ph="..." />
-            <marker date="1522786967520" expanded="true" signature="6596:6619" ph="..." />
-            <marker date="1522786967520" expanded="true" signature="6644:6683" ph="..." />
-            <marker date="1522786967520" expanded="true" signature="6721:6747" ph="..." />
           </folding>
         </state>
       </provider>
@@ -483,7 +482,7 @@
     <entry file="file://$PROJECT_DIR$/model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
-          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
