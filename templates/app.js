@@ -1,5 +1,5 @@
 function addClass() {
-	var class_name = $('#child_name').val();
+	var class_name = $('#class_name').val();
 
 
 	$.ajax(
