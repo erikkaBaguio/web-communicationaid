@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="student.css">
-    <link rel="stylesheet" href="edit.css">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/student.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/edit.css') }}">
 
 <style>
     body {font-family: "Times New Roman", Georgia, Serif;}
@@ -55,7 +55,7 @@
                   <table class="table table-user-information">
                     <tbody>
                     <form method = "post" action="/addClass">
-                        <table>Class Name:<input id="class_name" name="class_name" type="text"/></table>
+                       <a> ClassName: <input id="class_name" name="class_name" type="text"/></a>
 
                  <div class="panel-footer">
                         <span class="pull-right">
