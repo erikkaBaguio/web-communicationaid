@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<title>FEELS</title>
+<link rel="shortcut icon" href="events/eventssicon.png"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+  <a href="navigation.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Categories</a>
+  <a href="childinfo.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
+  <a href="parent.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
+  <a href="events_rec.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity: EVENTS</a>
+  <a href="welcome.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">
+  <img src="feels/feelsicon.png" alt="logo" width="30px" height="auto"/>EVENTS</span>
+    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+  <!-- FOOD -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="events">
+    <div class="w3-quarter">
+        <img src="events/birthday.jpg" style="width:100%" onclick="document.getElementById('birthday_play').play(); birthday_clicks(); return false;" alt="Birthday">
+        <img src="events/wedding.jpg" style="width:100%" onclick="document.getElementById('wedding_play').play(); wedding_clicks(); return false;" alt="Wedding">
+       </div>
+
+   <div class="w3-quarter">
+      <img src="events/graduation.jpg" style="width:100%" onclick="document.getElementById('graduation_play').play(); graduation_clicks(); return false;" alt="Graduation">
+      <img src="events/festival.jpg" style="width:100%" onclick="document.getElementById('festival_play').play(); festival_clicks(); return false;" alt="Festival">
+    </div>
+
+    <div class="w3-quarter">
+      <img src="events/independence.jpg" style="width:100%" onclick="document.getElementById('independence_play').play(); independence_clicks(); return false;" alt="Independence">
+     <img src="events/triumph.jpg" style="width:100%" onclick="document.getElementById('triumph_play').play(); triumph_clicks(); return false;" alt="Triumph">
+    </div>
+
+    <div class="w3-quarter">
+      <img src="events/thanksgiving.jpg" style="width:100%" onclick="document.getElementById('thanksgiving_play').play(); thanksgiving_clicks(); return false;" alt="Thanksgiving">
+     <img src="events/death.jpg" style="width:100%" onclick="document.getElementById('death_play').play(); death_clicks(); return false;" alt="Death">
+    </div>
+
+  </div>
+
+
+    <audio id="birthday_play">
+    <source src="audio/birthday.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="wedding_play">
+    <source src="audio/happy.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="graduation_play">
+    <source src="audio/graduation.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="festival_play">
+    <source src="audio/festival.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="independence_play">
+    <source src="audio/independence.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="victory_play">
+    <source src="audio/victory.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="thanksgiving_play">
+    <source src="audio/thanksgiving.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="death_play">
+    <source src="audio/death.mp3" type="audio/ogg" />
+    </audio>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+</script>
+
+ <script src="jQuery-2.1.4.min.js"></script>
+ <script src="app.js"></script>
+
+</body>
+</html>
