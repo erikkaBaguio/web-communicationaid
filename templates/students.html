@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/simple-line-icons.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/jquery.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='js/jquery.dataTables.min.js') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/student.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/edit.css') }}">
 
@@ -67,5 +69,7 @@
             elems[i].addEventListener('click', confirmIt, false);
         }
     </script>
+
+
 </body>
 </html>

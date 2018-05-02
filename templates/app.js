@@ -4,7 +4,8 @@ function addClass() {
 
 	$.ajax(
 		{
-			url: 'http://127.0.0.1:5000/addClass',
+			// url: 'http://127.0.0.1:5000/api/addClass',
+			url: 'https://mighty-badlands-16603.herokuapp.com/api/addClass',
 			contentType: 'application/json; charset=utf-8',
 			data: JSON.stringify({
 				'class_name': $("#class_name").val(),
@@ -29,13 +30,16 @@ function addClass() {
 
 function addstudents() {
 	var c_id = $('#c_id').val();
-
+	var fname_c = $('#fname_c').val();
+	var lname_c = $('#lname_c').val();
 
 	$.ajax(
 		{
-			url: 'http://127.0.0.1:5000/addstudents',
+			// url: 'http://127.0.0.1:5000/api/addstudents',
+			url: 'https://mighty-badlands-16603.herokuapp.com/api/addstudents',
 			contentType: 'application/json; charset=utf-8',
 			data: JSON.stringify({
+				'c_id':$("c_id").val(),
 				'fname_c': $("#fname_c").val(),
 				'lname_c': $("#lname_c").val(),
 

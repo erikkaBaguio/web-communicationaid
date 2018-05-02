@@ -3,17 +3,33 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import render_template, request, url_for,redirect,send_from_directory
 from sqlalchemy import *
 from model import Class, Child, Account, Teacher, db
+from flask_cors import CORS
 import json
 import os
 
-
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/db'
-app.config['SECRET_KEY'] = 'secret'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-db = SQLAlchemy(app)
-APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+CORS(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:password@localhost/db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['USE_SESSION_FOR_NEXT'] = True
+app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['SECRET_KEY'] = 'thisissecret'
+app.secret_key = os.urandom(24)
+
+db = SQLAlchemy(app)
+
+def createDB():
+    engine = sqlalchemy.create_engine('postgresql+psycopg2://postgres:password@localhost') #connects to server
+    conn = engine.connect()
+    conn.execute("commit")
+    #engine.execute("CREATE DATABASE IF NOT EXISTS sample") #create db
+    #engine.execute("USE sample") # select new
+    conn.execute("create database communicationaid")
+    conn.close()
+
+def createTables():
+    db.create_all()
 
 ################################################################
 

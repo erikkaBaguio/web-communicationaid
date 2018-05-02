@@ -8,7 +8,9 @@
     <link href="https://code.jquery.com/jquery-1.11.1.min.js">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/student.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/edit.css') }}">
 
@@ -73,8 +75,44 @@
     </div>
 
                 <script src="app.js"></script>
-                <script src="jQuery-2.1.4.min.js"></script>
-                <script src="js/bootstrap.min.js"></script>
+              
+    <script>
+        var tokens = localStorage.getItem('token');
+        $(document).ready(function () {
+            $('#target').submit(function () {
+                var class_name = $("#class_name").val();
+
+                $.ajax({
+                    // url: 'http://127.0.0.1:5000/api/addClass',
+                    url: "https://mighty-badlands-16603.herokuapp.com/api/addClass",
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({
+                        'class_name':class_name,
+
+                    method: "POST",
+                    dataType: "json",
+                    crossDomain: true,
+                    headers: {
+                     'x-access-token': tokens
+                    },
+                    success: function () {
+                        console.log("success");
+                        alert("Added class success!");
+                        window.location.href='/manageclass'
+                    },
+                    error: function () {
+                        console.log('error')
+                    },
+                    complete: function (jqXHR) {
+                        if (jqXHR.status == '401') {
+                            console.log(jqXHR.status)
+                        }
+                    }
+                })
+            });
+        })
+    </script>
+
 
 </body>
 </html>
