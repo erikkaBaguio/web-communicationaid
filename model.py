@@ -204,8 +204,8 @@ class Audio(db.Model):
     def __repr__(self):
         return '<Audio %r>' % self.aud
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+# @app.route('/')
+# def hello_world():
+#     return 'Hello World!'
 
 db.create_all()

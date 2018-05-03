@@ -33,14 +33,13 @@ def createTables():
 
 ################################################################
 
-
 @app.route('/manageclass')
 def manageclass():
     manageclass = Class.query.order_by(Class.class_name).all()
     return render_template('class.html', manageclass=manageclass)
 
 
-################################################################
+################################################################    
 
 
 @app.route('/addClass', methods=['POST', 'GET'])

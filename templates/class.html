@@ -59,13 +59,15 @@
                     <br>                
                    <div class="col-md-6">
                         <a class="btn btn-primary pull-left" href="{{ url_for('addClass') }}">Add</a>
+                    <div id="view_classname"></div>
                     </div> 
                 </div>
             </div>
         </div>
     </div>
 
-
+<!--     // <script src="../static/jquery-3.3.1.min.js"></script> -->
+    
     <script type="text/javascript">
         var elems = document.getElementsByClassName('confirmation');
         var confirmIt = function (e) {
@@ -82,6 +84,49 @@
         $('#myTable').DataTable();
 }       );
     </script>
+
+//     <script>
+//     var tokens = localStorage.getItem('token');
+//         $(document).ready(
+//         function viewClass(){
+//             viewClass();
+//             showRes();
+//          })
+//         function viewClass(){
+//             $("#view_classname").show();
+//         $.ajax({
+//                   // url: 'https://mighty-badlands-16603.herokuapp.com/api/manageclass',
+//                   url: 'http://127.0.0.1:5000/api/manageclass',
+//                   type: "GET",
+//                   dataType: "json",
+//                   crossDomain: true,
+//                    headers: {
+//                         'x-access-token': tokens
+//                             },
+//                   success: function(resp) {
+//                     if (resp.status  === 'ok') {
+//                        for (i = 0; i < resp.count; i++) {
+//                                       class_name = resp.entries[i].class_name;
+//                                       $("#view_classname").append(showRes(class_name));
+//                                                                 }
+//                     } else {
+//                         $("#view_classname").html("");
+//                        alert('No Data')
+//                             }
+//                                             }
+//               });
+//                             }
+//         function showRes(class_name)
+//         {
+//            return '<div class="widget-content">'+
+//                     '<table class="table table-striped table-bordered" id="view_res">'+
+//                         '<tbody><tr class="edit" id="details">'+
+//                             '<td>'+ class_name +'</td>'+
+//                         '</tr></tbody>' +
+//                     '</table>' +
+//                '</div>'
+//         }
+// </script>
 
 
 </body>
