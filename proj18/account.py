@@ -19,6 +19,9 @@ def welcome():
     # session['user'] = 'me'
     return render_template('welcome.html')
 
+@app.route('/register')
+def register():
+    return render_template('register.html')
 
 @app.route('/user', methods=['GET'])
 def getoneuser(acc_id):
