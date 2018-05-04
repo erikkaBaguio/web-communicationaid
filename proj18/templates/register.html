@@ -39,7 +39,7 @@ body{
     <div class="col-sm-4"> </div>
 <div class="col-md-4">
 
-<h1 class="text-center text-success"> Register As</h1>
+<h1 class="text-center text-success">Register As</h1>
 <br/>
 
 <div class="col-sm-12">
@@ -48,9 +48,9 @@ body{
 
 
 
-    <li class="" style="width:50%"><a class="btn btn-lg btn-default" data-toggle="tab" href="#home">Doctor</a></li>
+    <li class="" style="width:50%"><a class="btn btn-lg btn-default" data-toggle="tab" id ="1" href="#home">Parent</a></li>
 
-    <li class=" " style="width:48%"><a class=" btn btn-lg btn-default" data-toggle="tab" href="#menu1">patient</a></li>
+    <li class=" " style="width:50%"><a class=" btn btn-lg btn-default" data-toggle="tab" href="#menu1">Teacher</a></li>
 
 
 
@@ -65,18 +65,8 @@ body{
 <form action="#">
 
   <div class="form-group">
-    <label for="1">Parent</label>
-    <input type="text" class="form-control" id="1">
-  </div>
-
-  <div class="form-group">
-    <label for="fname_p">First Name:</label>
-    <input type="email" class="form-control" id="fname_p">
-  </div>
-
-  <div class="form-group">
-    <label for="lname_p">Last Name:</label>
-    <input type="email" class="form-control" id="lname_p">
+    <label for="username">Username:</label>
+    <input type="text" class="form-control" id="username">
   </div>
 
   <div class="form-group">
@@ -85,23 +75,23 @@ body{
   </div>
 
   <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" id="password">
   </div>
 
   <div class="form-group">
-    <label for="pwd">Confirm Password:</label>
-    <input type="password" class="form-control" id="pwd">
+    <label for="password">Confirm Password:</label>
+    <input type="password" class="form-control" id="password">
   </div>
 
 
 
-  <button type="submit" class="btn btn-default btn-lg">Submit</button>
+  <button type="submit" class="btn btn-default btn-success" onclick="window.location.href='/edit_parent'">Submit</button>
   <button type="submit" class=" pull-right btn-link"><a href="www.google.com">Forget password</a></button>
 
 </form>
 <br/>
-<a href="#" class="pull-right btn btn-block btn-danger" > Already Registered?   </a>
+<a href="#" class="pull-right btn btn-block btn-danger" > Already Registered?</a>
 
 
 
@@ -112,8 +102,8 @@ body{
 <form action="#">
 
   <div class="form-group">
-    <label for="acc_type" id="2">Teacher</label>
-    <input type="text" class="form-control" id="email">
+    <label for="username">Username:</label>
+    <input type="text" class="form-control" id="username">
   </div>
 
   <div class="form-group">
@@ -122,24 +112,23 @@ body{
   </div>
 
   <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" id="pwd">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" id="password">
   </div>
 
   <div class="form-group">
-    <label for="pwd">Confirm Password:</label>
-    <input type="password" class="form-control" id="pwd">
+    <label for="password">Confirm Password:</label>
+    <input type="password" class="form-control" id="password">
   </div>
 
 
-
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-success" onclick="window.location.href='/edit_t'">Submit</button>
 
   <button type="submit" class=" pull-right btn-link"><a href="www.google.com">Forget password</a></button>
 
 </form>
 <br/>
-<a href="#" class="pull-right btn btn-block btn-success" > Already Register ?   </a>
+<a href="#" class="pull-right btn btn-block btn-danger" > Already Registered?   </a>
 
 
 
