@@ -1,11 +1,13 @@
-from flask import Flask
+from flask import Flask, Blueprint
 from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:regards@localhost/db'
 app.config['SECRET_KEY'] = 'hard to guess string'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
 
 # relationship between specifics and logs
 activity = db.Table('activity',
@@ -19,12 +21,10 @@ report = db.Table('report',
 
 class Account(db.Model):
     acc_id = db.Column(db.Integer, primary_key=True)
-    acc_type = db.Column(db.Integer, unique=True)
+    acc_type = db.Column(db.String(50), unique=True)
     username = db.Column(db.String(50), unique=True)
     email = db.Column(db.String(120), unique=True)
-    password = db.Column(db.String(60), unique=True)
-    acc_p = db.relationship("Parent", uselist=False, backref="account")
-    acc_t = db.relation("Teacher", uselist=False, backref="account")
+    password = db.Column(db.String(150), unique=True)
 
     def __init__(self, acc_type, username, email, password):
         self.acc_type = acc_type
@@ -51,8 +51,6 @@ class Parent(db.Model):
     lname_p = db.Column(db.String(80))
     bday_p = db.Column(db.Date)
     add_p = db.Column(db.String(120))
-    acc_id = db.Column(db.Integer, db.ForeignKey('account.acc_id'))
-    child = db.relationship("Child", uselist=False, backref="parent")
 
     def __init__(self, fname_p, lname_p, bday_p, add_p):
         self.fname_p = fname_p
@@ -68,7 +66,6 @@ class Child(db.Model):
     lname_c = db.Column(db.String(80))
     bday_c = db.Column(db.Date)
     diagnosis = db.Column(db.String(50))
-    p_id = db.Column(db.Integer, db.ForeignKey('parent.p_id'))
     pers = db.relationship('Personal', backref='child', lazy='dynamic')
 
     def __init__(self, fname_c, lname_c, bday_c, diagnosis):
@@ -88,7 +85,6 @@ class Teacher(db.Model):
     specialty = db.Column(db.String(120))
     tel_num = db.Column(db.BigInteger)
     add_t = db.Column(db.String(120))
-    acc_id = db.Column(db.Integer, db.ForeignKey('account.acc_id'))
 
     def __init__(self, fname_t, lname_t, bday_t, specialty, tel_num, add_t):
         self.fname_t = fname_t
@@ -206,6 +202,10 @@ class Audio(db.Model):
 
     def __repr__(self):
         return '<Audio %r>' % self.aud
+
+@app.route('/')
+def hello_world():
+    return 'Hello World!'
 
 db.create_all()
 
