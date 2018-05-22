@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Welcome to Pic-A-Talk!</title>
+<title>Pic-A-Talk!</title>
 <link rel="shortcut icon" img src=url("static/images/PATicon.png") />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,66 +15,66 @@
 <link rel="stylesheet" href="static/css/agency.min.css">
 
 <style>
-    /*.button {*/
-  /*display: inline-block;*/
-  /*padding: 15px 25px;*/
-  /*font-size: 15px;*/
-  /*cursor: pointer;*/
-  /*text-align: center;*/
-  /*text-decoration: none;*/
-  /*outline: none;*/
-  /*color: #ffffff;*/
-  /*background-color: #666666;*/
-  /*border: none;*/
-  /*border-radius: 15px;*/
-  /*box-shadow: 0 9px #999;*/
-/*}*/
+    .button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #ffffff;
+  background-color: #666666;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
 
-/*.button:hover {background-color: #262626}*/
+.button:hover {background-color: #262626}
 
-/*.button:active {*/
-  /*background-color: #262626;*/
-  /*box-shadow: 0 5px #666;*/
-  /*transform: translateY(4px);*/
-/*}*/
+.button:active {
+  background-color: #262626;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 
 
-/*body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}*/
-/*body, html {*/
-    /*height: 100%;*/
-    /*color: #777;*/
-    /*line-height: 1.8;*/
-/*}*/
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
 
 /* Create a Parallax Effect */
-/*.bgimg-1, .bgimg-2, .bgimg-3 {*/
-    /*background-attachment: fixed;*/
-    /*background-position: center;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
-/*}*/
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-/*!* First image (Logo. Full height) *!*/
-/*.bgimg-1 {*/
-    /*background-image: url('static/images/PATbg5.jpg');*/
-    /*min-height: 100%;*/
-/*}*/
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('static/images/PATbg5.jpg');
+    min-height: 100%;
+}
 
-/*!* Second image (Portfolio) *!*/
-/*.bgimg-2 {*/
-    /*background-image: url("static/images/origami.jpg");*/
-    /*min-height: 400px;*/
-/*}*/
+/* Second image (Portfolio) */
+.bgimg-2 {
+    background-image: url("static/images/origami.jpg");
+    min-height: 400px;
+}
 
-/*.w3-wide {letter-spacing: 10px;}*/
-/*.w3-hover-opacity {cursor: pointer;}*/
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
 
-/*!* Turn off parallax scrolling for tablets and phones *!*/
-/*@media only screen and (max-device-width: 1024px) {*/
-    /*.bgimg-1, .bgimg-2, .bgimg-3 {*/
-        /*background-attachment: scroll;*/
-    /*}*/
-/*}*/
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
 </style>
 <body>
 
@@ -83,7 +83,7 @@
 <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">About</a>
   <a href="login.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
-  <a href="register.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Sign Up</a>
+  <a href="registration.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Sign Up</a>
   <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Team</a>
 
 </nav>
@@ -100,304 +100,9 @@
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">WELCOME <span class="w3-hide-small">to</span> PIC-A-TALK</span>
+    <span class="w3-center w3-padding-large w3-black w3-xxlarge w3-wide w3-animate-opacity">WELCOME <span class="w3-hide-large">to</span> PIC-A-TALK</span>
   </div>
 </div>
-
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">What is Pic-A-Talk</h3>
-    <p class="w3-center"><em><i>a communication-aide for non-verbal kids</i></em></p>
-  <p>Pic-A-Talk is a communication-aide specifically made for children with special needs. A less-hassle alternative to communicating with your special one!
-            It's easy to use! Coose a category, click an image and an audio plays the image's name. It's like a translator! It's also a good learning experience since they
-            are exposed to the image and the word, helping them identify things. Parents can also use this app to monitor their child's activity, share stories about their
-            child with other parents and contact the right teachers and therapists. Sign up now!</p>
-
-  <!-- Team -->
-    <section class="bg-light" id="team">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-          </div>
-        </div>
-            <center><div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="static/images/malik.jpg" alt="">
-              <h4>Malikey Maulana</h4>
-              <p class="text-muted">Teacher</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div></center>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="static/images/lyn.jpg" alt="">
-              <h4>Lyn Albacete</h4>
-              <p class="text-muted">Web Backend</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="static/images/uma.jpg" alt="">
-              <h4>Uma Roa</h4>
-              <p class="text-muted">Web Frontend</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="static/images/leah.jpg" alt="">
-              <h4>Leah Ermac</h4>
-              <p class="text-muted">Mobile Frontend</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="static/images/ruel.jpg" alt="">
-              <h4>Ruel Bontuyan</h4>
-              <p class="text-muted">Web Backend</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="static/images/def.jpg" alt="">
-              <h4>Def Escala</h4>
-              <p class="text-muted">House Provider</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="static/images/raphael.jpg" alt="">
-              <h4>Raphael Guray</h4>
-              <p class="text-muted">Mobile Frontend</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="static/images/geronyl.jpg" alt="">
-              <h4>Geronyl Paragoso</h4>
-              <p class="text-muted">Mobile Backend</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="static/images/dexter.jpg" alt="">
-              <h4>Dexter Esin</h4>
-              <p class="text-muted">Application Tester</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="static/images/julius.jpg" alt="">
-              <h4>Julius Visto</h4>
-              <p class="text-muted">Mobile Backend</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-          <center><div class="col-sm-4">
-            <div class="team-member">
-              <img class="mx-auto rounded-circle" src="static/images/erikka.jpg" alt="">
-              <h4>Erikka Baguio</h4>
-              <p class="text-muted">Project Manager</p>
-              <ul class="list-inline social-buttons">
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-facebook"></i>
-                  </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="#">
-                    <i class="fa fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div></center>
-      </div>
-    </section>
 
 
 <script>
@@ -456,9 +161,9 @@ function w3_close() {
     document.getElementById("myOverlay").style.display = "none";
 }
 
-
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+<script type="text/javascript" src="static/js/jQuery-2.1.4.min.js"></script>
+<script type="text/javascript" src="static/js/app.js"></script>
 <!--
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
