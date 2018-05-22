@@ -13,6 +13,10 @@
 <link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
 <link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
 <link rel="stylesheet" href="static/css/agency.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
     .button {
@@ -60,11 +64,6 @@ body, html {
     min-height: 100%;
 }
 
-/* Second image (Portfolio) */
-.bgimg-2 {
-    background-image: url("static/images/origami.jpg");
-    min-height: 400px;
-}
 
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
@@ -78,24 +77,31 @@ body, html {
 </style>
 <body>
 
+<div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-blue">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-blue" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Log In</a>
+  <a href="#" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Sign Up</a>
+   <a href="#" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>The Team</a>
+  </a>
+ </div>
+</div>
+
+
+
 <!-- Navbar (sit on top) -->
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+<!-- <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
   <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">About</a>
   <a href="login.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Login</a>
   <a href="registration.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Sign Up</a>
   <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Team</a>
 
-</nav>
+</nav> -->
 
 
 <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
-  <span class="w3-left w3-padding">
-  <!--<img src="food/foodicon.png" alt="logo" width="30px" height="auto"/>Activity Records: TOYS</span>-->
-    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
-  </span>
-</header>
+
 
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
