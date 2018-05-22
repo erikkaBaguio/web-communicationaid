@@ -19,7 +19,7 @@
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<select id="acc_type" class="w3-dropdown-content">
+			    						<select name="acc_type" id="acc_type" class="w3-dropdown-content">
                                             <option value="2">Parent</option>
                                             <option value="1">Teacher</option>
                                         </select>
@@ -47,10 +47,11 @@
     	</div>
     </div>
 <script>
-    function createuser() {
+
+function createuser() {
     console.log('qwertyuiop')
     $.ajax({
-        url: 'https://mighty-badlands-16603.herokuapp.com/api/signup',
+        url: 'http:/127.0.0.1:8080/api/signup',
         contentType: 'application/json; charset=utf-8',
         data: {
             'acc_id': $("#acc_id").val(),
@@ -61,7 +62,7 @@
         },
         type: "POST",
         dataType: "json",
-        //crossDomain: true,
+        crossDomain: true,
         success: function (resp) {
                 console.log("success")
 
@@ -73,6 +74,6 @@
 }
 </script>
 <script src="/static/bootstrap3/js/bootstrap.min.js"></script>
-<script src="/static/bootstrap3/js/jquery-1.11.1.min.js"></script>
+<!--<script src="/static/bootstrap3/js/jquery-1.11.1.min.js"></script>-->
 <script src="/static/js/app.js"></script>
-<!--<script src="/static/js/jQuery-2.1.4.min.js"></script>-->
+<script src="/static/js/jQuery-3.2.1.min.js"></script>
