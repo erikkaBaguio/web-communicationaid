@@ -1,4 +1,125 @@
 <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Home</title>
+    <script src="js/enroll1.js"> </script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/class.css">
+    <link rel="stylesheet" type="text/css" href="css/enroll_home.css">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/simple-line-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="w3_bootstrap/css/menubar.css">
+
+</head>
+
+        <div class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+        <span class="w3-left w3-padding">
+        <img src="PATicon.png" alt="logo" width="40px" height="auto"/>PIC-A-TALK</span><a href="parentmode.html">
+        <span style="float: right; padding-top: 15px; padding-right: 5px; font-size: 60%;">&lt; Back</span></a>
+        </div>
+
+
+<body>
+    <div class=" bgimg container-fluid">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <div class="card">
+                    <br><br><br><br><br><br><br>    
+                   <div class="col-lg-12">
+                        <button type="button" class="btn btn-primary btn-lg" onclick="goto_class2()" style="margin-left: 80%;">Add</button><br><br>
+                    </div> 
+                    <table class="table table-striped table-bordered table-hover" id="class">
+                        <tr>
+                            <thead> 
+                                <th >Action</th>
+                                <th >Class Name</th>  
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                  
+                                </tr>
+<!--                                 <td>
+                                    <a class="btn btn-sm btn-danger confirmation" href="/deleteClass/{{ Class.class_num }}"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>  
+                                <td style="cursor.pointer">
+                                    <a onclick="goto_classpage()" style="text-align: center">{{ Class.class_name}}
+                                </td>  -->              
+                            </tbody>  
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+
+    function classpage(yu) {
+        alert(yu);
+
+        var url  = "http://127.0.0.1:5000/api/search_class="+yu;
+        var xhr  = new XMLHttpRequest()
+        xhr.open('GET', url, true)
+        xhr.onload = function () {
+            
+            if (xhr.readyState == 4 && xhr.status == "200") {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json)
+                localStorage.setItem('class_name', json.class_name);
+
+                location = "class_page.html"
+            } else {
+                alert('igit')
+            }
+        }
+        xhr.send(null);
+
+    }
+
+
+
+    $(document).ready(function(){
+        $.getJSON("http://127.0.0.1:5000/api/class",function(data){
+            var class_data='';
+            $.each(data,function(key,value){
+                class_data += '<tr>';
+                val = value.class_name;
+                yu =value.class_num;
+
+                class_data += '<td><a class="btn btn-sm btn-danger confirmation" onclick="delete_class('+yu+')""><span class="glyphicon glyphicon-trash"></span></a></td>';
+
+            
+                class_data += '<td  onclick="classpage('+yu+')" >'+val+'</td>';
+                
+                class_data += '</tr>';
+            });
+            $('#class').append(class_data);
+        });
+    });
+    // var table = document.getElementById("directory_table"),rIndex;
+    // for(var i = 0; i < table.rows.length; i++){
+    //  table.rows[i].onclick = function(){
+    //      rIndex = this.rowIndex;
+    //      console.log(rIndex);
+    //  };
+    // }
+
+</script>
+
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -10,30 +131,38 @@
     <title>{% block title %}Students{% endblock %}</title>
 
 
-    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/simple-line-icons.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/jquery.dataTables.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('.static', filename='js/jquery.dataTables.min.js') }}">
-    <link rel="stylesheet" href="{{ url_for('.static', filename='css/student.css') }}">
+<!--     <link rel="stylesheet" href="{{ url_for('.static', filename='js/jquery.dataTables.min.js') }}"> -->
+<!--     <link rel="stylesheet" href="{{ url_for('.static', filename='css/student.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/edit.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/W3.css') }}">
+  
 
-</head>
+
+</head> -->
 
 
-{% block content %}
+
+<!-- {% block content %}
 <body>
+
+    <header>
+        <br><br>
+        <center><h1>Students</h1></center>
+    </header>
+
     <div class=" bgimg container-fluid">
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <div class="card">
-                    <br><br><br><br><br><br><br>
-                    <table class="table table-hover">
+                    <br><br><br>
+                    <table class="table table-hover" id="myTable">
                         <thead>
                             <tr>
                                 <th style="text-align: center">Actions</th>
-                                <th style="text-align: center">Child ID</th>
                                 <th style="text-align: center">Name</th>
                             </tr>
                         </thead>
@@ -41,9 +170,8 @@
 
                             {% for Child in Child %}
                                 <tr>
-                                    <!-- <td><a class="btn btn-sm btn-success" href="/editstudents{{ Child.c_id }}"><span class="glyphicon glyphicon-pencil"></span></a></td> -->
+                                    <td><a class="btn btn-sm btn-success" href="/editstudents{{ Child.c_id }}"><span class="glyphicon glyphicon-pencil"></span></a></td>
                                     <td><a class="btn btn-sm btn-danger confirmation" href="/deletestudent/{{ Child.c_id }}"><span class="glyphicon glyphicon-trash"></span></a></td>
-                                    <td style="text-align: center">{{ Child.c_id }}</td>
                                     <td style="text-align: center">{{ Child.fname_c }} {{Child.lname_c }}</td>
 
                                 </tr>
@@ -53,25 +181,166 @@
                     <div class="col-md-6">
                        <a class="btn btn-primary pull-left" href="{{ url_for('addstudents') }}">Add</a>
                     </div>
+                    <div id="view_c_id"></div>
                 </div>
             </div>
         </div>
     </div>
 
-{% endblock %}
+{% endblock %} -->
 
-    <script src="../static/jquery-3.3.1.min.js"></script>
 
-    <script type="text/javascript">
-        var elems = document.getElementsByClassName('confirmation');
-        var confirmIt = function (e) {
-            if (!confirm('Are you sure?')) e.preventDefault();
-        };
-        for (var i = 0, l = elems.length; i < l; i++) {
-            elems[i].addEventListener('click', confirmIt, false);
-        }
-    </script>
+<!--     // <script src="{{ url_for('.static', filename='js/jquery.min.js') }}"></script> -->
+<!--     // <script src="{{ url_for('.static', filename='js/jquery-3.3.1.min.js') }}"></script> -->
+<!--     // <script src="{{ url_for('.static', filename='js/jquery.dataTables.min.js') }}"></script> -->    
 
+    //  <script type="text/javascript">
+    //      $(document).ready( function () {
+    //      $('#myTable').DataTable();
+    //     });
+    //  </script>
+
+    // <script type="text/javascript">
+    //     var elems = document.getElementsByClassName('confirmation');
+    //     var confirmIt = function (e) {
+    //         if (!confirm('Are you sure?')) e.preventDefault();
+    //     };
+    //     for (var i = 0, l = elems.length; i < l; i++) {
+    //         elems[i].addEventListener('click', confirmIt, false);
+    //     }
+    // </script>
+
+
+ // <script>
+
+ //     var tokens = localStorage.getItem('token');
+ //     $(document).ready(
+ //     function viewstudents(){
+ //         table();
+ //         viewstud();
+ //         showRes();
+ //     })
+
+ //     function viewstud(){
+
+ //         $("#view_c_id").show();
+
+ //     $.ajax({
+ //             // url: 'http://127.0.0.1:5000/api/students',
+ //             url: "https://mighty-badlands-16603.herokuapp.com/api/addstudents",
+ //             type: "GET",
+ //             dataType: "json",
+ //             crossDomain: true,
+ //              headers: {
+ //         'x-access-token': tokens
+ //             },
+ //            success: function(resp) {
+    
+ //              if (resp.status  === 'ok') {
+ //                    for (i = 0; i < resp.count; i++) {
+ //                                   c_id = resp.entries[i].c_id;
+ //                                   fname_c = resp.entries[i].fname_c;
+ //                                   lname_c = resp.entries[i].lname_c;
+ //                                 $("#view_c_id").append(showRes(c_id,fname_c,lname_c));
+ //                                         }
+ //                 } else {
+ //                     $("#view_c_id").html("");
+ //                    alert('No Data')
+ //                         }
+ //                                         }
+ //          });
+ //                     }
+
+ //         function showRes(c_id,fname_c,lname_c)
+ //         {
+ //            return '<div class="widget-content">'+
+ //                   '<table class="table table-striped table-bordered" id="view_res">'+
+ //                         '<tbody><tr class="edit" id="details">'+
+ //                             '<td>'+ c_id +'</td>'+
+ //                             '<td>'+ fname_c +'</td>'+
+ //                             '<td>'+ lname_c +'</td>'+
+ //                         '</tr></tbody>' +
+ //                     '</table>' +
+ //                    '</div>'
+ //         }
+        
+        
+ //         function table()
+ //         {
+ //              $("table.table-bordered").html('<thead><tr>' +
+ //                     '<th>Class ID</th>' +
+ //                     '<th>First Name</th>' +
+ //                     '<th>Last Name</th>' +
+ //                     '</tr></thead>')
+ //         }
+ // </script>
+
+ // <script>
+ //      var tokens = localStorage.getItem('token');
+ //          /*$(document).ready(
+ //          function viewClass(){
+ //              viewClas();
+ //              showRes();
+ //           })*/
+ //          function viewClas(){
+ //              $("#view_classname").show();
+ //          $.ajax({
+
+ //                    // url: 'http://127.0.0.1:5000/api/manageclass',
+ //                    url: 'https://mighty-badlands-16603.herokuapp.com/api/class',
+ //                    type: "GET",
+ //                    dataType: "json",
+ //                    crossDomain: true,
+ //                     // headers: {
+ //                     //      'x-access-token': tokens
+ //                     //          },
+ //                    success: function(resp) {
+ //                     $("#view_classname").html("");
+ //                      //if (resp.status  === 'ok') {
+ //                         for (i = 0; i < resp.length; i++) {
+
+ //                                        classname = resp[i].class_name;
+ //                                        classnum = resp[i].class_num;
+ //                                        console.log(classnum);
+                                       
+ //                                        $("#view_classname").append(showRes2(classname, parseInt(classnum)));
+ //                                                                  }
+ //                      //} else {
+ //                         // $("#view_classname").html("");
+ //                         //alert('No Data')
+ //                             // }
+ //                                              }
+ //                });
+ //                              }
+ //          function showRes(fname_c,lname_c)
+ //          {
+ //             return '<div class="widget-content">'+
+ //                      '<table class="table table-striped table-bordered" id="view_res">'+
+ //                          '<tbody><tr class="edit" id="details">'+
+ //                              '<td>'+fname_c++lname_c+'</td>'+
+ //                          '</tr></tbody>' +
+ //                      '</table>' +
+ //                 '</div>'
+ //          }
+
+ //          function showRes2(fname_c, c_id){
+ //             return '<tr>'+
+ //                 '<td>'+
+ //                 '<a class="btn btn-sm btn-danger confirmation" href="/deleteClass/'+class_num+'"><span class="glyphicon glyphicon-trash"></span></a>'+'</td>'+  
+ //                 '<td style="cursor.pointer">'+
+ //                 '<a href="/students/'+class_name+'" style="text-align: center">'+class_name+'</a>'+
+ //             '</td>'+  
+ //                 '</tr>';
+ //          }
+
+ //          function table()
+ //            {
+ //          $("table.table-bordered").html('<thead><tr>' +
+ //                  '<th>Acton</th>' +
+ //                  '<th>Student Name</th>' +
+ //                  '</tr></thead>')
+ //            }
+  // </script>
 
 </body>
 </html>

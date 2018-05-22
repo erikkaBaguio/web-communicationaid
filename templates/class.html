@@ -10,24 +10,27 @@
     <title>{% block title %}Classes{% endblock %}</title>
 
 
-    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/simple-line-icons.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/jquery.dataTables.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('.static', filename='js/jquery.dataTables.min.js') }}">
+<!--     <link rel="stylesheet" href="{{ url_for('.static', filename='js/jquery.dataTables.min.js') }}"> -->
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/student.css') }}">
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/edit.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/W3.css') }}">
 
 
 </head>
 
-<body>
+<body onload="viewClas();">
     <div class=" bgimg container-fluid">
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <div class="card">
                     <br><br><br><br><br><br><br>
+                    <div class="col-md-12">
+                        <a class="btn btn-primary btn-lg pull-right" style="margin-left: 55%;" href="{{ url_for('addClass') }}">Add Class</a>
+                    </div> 
                     <table class="table table-striped table-bordered table-hover" id="mytable">
                         <thead>
                             <tr>
@@ -36,37 +39,35 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody id="view_classname">
 
 
-                    <form method="post" action = "/addClass">
+                    <!--<form method="post" action = "/addClass">
+                        <div id="view_classname">-->
                         
                             {% for Class in manageclass %}
 
                     <tr>
-                        <td>
-                            <a class="btn btn-sm btn-danger confirmation" href="/deleteClass/{{ Class.class_num }}"><span class="glyphicon glyphicon-trash"></span></a>
-                        </td>  
-                        <td style="cursor.pointer">
-                            <a href="/classPage/{{ Class.class_name }}" style="text-align: center">{{ Class.class_name }}
-                        </td>    
+ 
                             {% endfor %}
-                    </form>
+                    </tr>
+                <!--</div>
+                    </form>-->
                     </tbody>
 
                     </table>
+
                     <br>
                     <br>                
-                   <div class="col-md-6">
-                        <a class="btn btn-primary pull-left" href="{{ url_for('addClass') }}">Add</a>
-                    <div id="view_classname"></div>
-                    </div> 
                 </div>
             </div>
         </div>
     </div>
 
-<!--     // <script src="../static/jquery-3.3.1.min.js"></script> -->
+
+    <script src="{{ url_for('.static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('.static', filename='js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('.static', filename='js/jquery.dataTables.min.js') }}"></script>  
     
     <script type="text/javascript">
         var elems = document.getElementsByClassName('confirmation');
@@ -85,48 +86,72 @@
 }       );
     </script>
 
-//     <script>
-//     var tokens = localStorage.getItem('token');
-//         $(document).ready(
-//         function viewClass(){
-//             viewClass();
-//             showRes();
-//          })
-//         function viewClass(){
-//             $("#view_classname").show();
-//         $.ajax({
-//                   // url: 'https://mighty-badlands-16603.herokuapp.com/api/manageclass',
-//                   url: 'http://127.0.0.1:5000/api/manageclass',
-//                   type: "GET",
-//                   dataType: "json",
-//                   crossDomain: true,
-//                    headers: {
-//                         'x-access-token': tokens
-//                             },
-//                   success: function(resp) {
-//                     if (resp.status  === 'ok') {
-//                        for (i = 0; i < resp.count; i++) {
-//                                       class_name = resp.entries[i].class_name;
-//                                       $("#view_classname").append(showRes(class_name));
-//                                                                 }
-//                     } else {
-//                         $("#view_classname").html("");
-//                        alert('No Data')
-//                             }
-//                                             }
-//               });
-//                             }
-//         function showRes(class_name)
-//         {
-//            return '<div class="widget-content">'+
-//                     '<table class="table table-striped table-bordered" id="view_res">'+
-//                         '<tbody><tr class="edit" id="details">'+
-//                             '<td>'+ class_name +'</td>'+
-//                         '</tr></tbody>' +
-//                     '</table>' +
-//                '</div>'
-//         }
-// </script>
+     <script>
+     var tokens = localStorage.getItem('token');
+         /*$(document).ready(
+         function viewClass(){
+             viewClas();
+             showRes();
+          })*/
+         function viewClas(){
+             $("#view_classname").show();
+         $.ajax({
+
+                   // url: 'http://127.0.0.1:5000/api/manageclass',
+                   url: 'https://mighty-badlands-16603.herokuapp.com/api/class',
+                   type: "GET",
+                   dataType: "json",
+                   crossDomain: true,
+                    // headers: {
+                    //      'x-access-token': tokens
+                    //          },
+                   success: function(resp) {
+                    $("#view_classname").html("");
+                     //if (resp.status  === 'ok') {
+                        for (i = 0; i < resp.length; i++) {
+
+                                       classname = resp[i].class_name;
+                                       classnum = resp[i].class_num;
+                                       console.log(classnum);
+                                       
+                                       $("#view_classname").append(showRes2(classname, parseInt(classnum)));
+                                                                 }
+                     //} else {
+                        // $("#view_classname").html("");
+                        //alert('No Data')
+                            // }
+                                             }
+               });
+                             }
+         function showRes(class_name)
+         {
+            return '<div class="widget-content">'+
+                     '<table class="table table-striped table-bordered" id="view_res">'+
+                         '<tbody><tr class="edit" id="details">'+
+                             '<td>'+ class_name +'</td>'+
+                         '</tr></tbody>' +
+                     '</table>' +
+                '</div>'
+         }
+
+         function showRes2(class_name, class_num){
+            return '<tr>'+
+                '<td>'+
+                '<a class="btn btn-sm btn-danger confirmation" href="/deleteClass/'+class_num+'"><span class="glyphicon glyphicon-trash"></span></a>'+'</td>'+  
+                '<td style="cursor.pointer">'+
+                '<a href="/classPage/'+class_name+'" style="text-align: center">'+class_name+'</a>'+
+            '</td>'+  
+                '</tr>';
+         }
+
+         function table()
+           {
+         $("table.table-bordered").html('<thead><tr>' +
+                 '<th>Acton</th>' +
+                 '<th>Class Name</th>' +
+                 '</tr></thead>')
+           }
+ </script>
 
 
 </body>

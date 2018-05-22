@@ -20,7 +20,7 @@ app.secret_key = os.urandom(24)
 db = SQLAlchemy(app)
 
 def createDB():
-    engine = sqlalchemy.create_engine('postgresql+psycopg2://postgres:password@localhost') #connects to server
+    engine = sqlalchemy.create_engine('postgresql+psycopg2://postgres:password@localhost/comm') #connects to server
     conn = engine.connect()
     conn.execute("commit")
     #engine.execute("CREATE DATABASE IF NOT EXISTS sample") #create db
@@ -32,6 +32,15 @@ def createTables():
     db.create_all()
 
 ################################################################
+
+
+@app.route('/')
+def teacher():
+    return render_template('teacher.html')
+
+
+
+################################################################    
 
 @app.route('/manageclass')
 def manageclass():
@@ -45,33 +54,36 @@ def manageclass():
 @app.route('/addClass', methods=['POST', 'GET'])
 def addClass():
 
-    if request.method == 'POST':
-        classes = Class(Class.class_name)
-        classes.class_name = request.form['class_name']
+    # if request.method == 'POST':
+    #     if request.form['class_name']!="":
+    #         classes = Class(Class.class_name)
+
+    #         classes.class_name = request.form['class_name']
 
 
-        classes = db.session.merge(classes)
-        db.session.add(classes)
-        db.session.commit()
-        return redirect(url_for('manageclass', classes=classes))
-    else:
+    #         classes = db.session.merge(classes)
+    #         db.session.add(classes)
+    #         db.session.commit()
+    #         return redirect(url_for('manageclass'))
+    #     return render_template('addclass.html')
+    # else:
         return render_template('addclass.html')
 
 
 ################################################################
 
 
-@app.route('/deleteClass/<class_num>', methods=['POST', 'GET'])
-def deleteClass(class_num):
-    class_ = Class.query.filter_by(class_num=class_num).first()
-    print class_
-    class_ = db.session.merge(class_)
+@app.route('/deleteClass/<class_name>')
+def deleteClass(class_name):
+    class_name = Class.query.filter_by(class_name=class_name).first()
+    print class_name
+    class_name = db.session.merge(class_name)
     db.session.delete(class_)
     db.session.commit()
     return redirect(url_for('manageclass'))
 
 
-################################################################
+###############################################################
 
 
 @app.route('/classPage/<class_name>')
@@ -95,40 +107,45 @@ def students():
 
 @app.route('/addstudents', methods=['POST', 'GET'])
 def addstudents():
-    if request.method == 'POST':
+    # if request.method == 'POST':
+    #     if request.form['fname_c']!="" and request.form['lname_c']!="": 
+    #         student = Child(fname_c=request.form['fname_c'], lname_c=request.form['lname_c'], bday_c=None, diagnosis=None)
 
-        #student = Child(Child.c_id).first()
-        student = Child(fname_c=request.form['fname_c'], lname_c=request.form['lname_c'], bday_c=None, diagnosis=None)
-        #student.c_id = request.form['c_id']
-        #student.fname_c = request.form['fname_c']
-        #student.lname_c = request.form['lname_c']
+    #         db.session.add(student)
+    #         db.session.commit()
+    #         return redirect(url_for('students', student=student))
+    return render_template('addstudent.html')
+    # else:
+    #     ch = Child.query.order_by(Child.c_id.desc()).first()
+    #     d = 1
+    #     if ch:
+    #         d = int(ch.c_id) + 1    
 
-
-        #student = db.session.merge(student)
-        db.session.add(student)
-        db.session.commit()
-        return redirect(url_for('students', student=student))
-    else:
-        ch = Child.query.order_by(Child.c_id.desc()).first()
-        d = 1
-        if ch:
-            d = int(ch.c_id) + 1
-
-        return render_template('addstudent.html', d=d)
+    #     return render_template('addstudent.html', d=d)
      
 
 ################################################################
 
-
-@app.route('/deletestudent/<c_id>', methods=['POST', 'GET'])
+@app.route('/deletestudent/<c_id>', methods=['GET', 'POST'])
 def deletestudent(c_id):
     students = Child.query.filter_by(c_id=c_id).first()
     students = db.session.merge(students)
+    print students
     db.session.delete(students)
     db.session.commit()
+    return redirect(url_for('students'))
 
-    students_0 = Child.query.order_by(Child.c_id).all()
-    return redirect(url_for('students', students=students_0))
+################################################################
+
+# @app.route('/deletestudent/<c_id>', methods=['POST', 'GET'])
+# def deletestudent(c_id):
+#     students = Child.query.filter_by(c_id=c_id).first()
+#     students = db.session.merge(students)
+#     db.session.delete(students)
+#     db.session.commit()
+
+#     students_0 = Child.query.order_by(Child.c_id).all()
+#     return redirect(url_for('students', students=students_0))
 
 
 ################################################################
