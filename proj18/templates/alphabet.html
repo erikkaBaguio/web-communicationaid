@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <title>ALPHABET</title>
-<link rel="shortcut icon" href="static/images/PATicon.png" />
+<link rel="shortcut icon" href="static/food/foodicon.png" />
 <meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
 <link rel="stylesheet" href="static/css/font.css">
 <link rel="stylesheet" href="static/css/font-awesome.css">
@@ -21,8 +21,8 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
   <a href="/navigation" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Categories</a>
-  <a href="/child" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
-  <a href="/parent" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
+  <a href="/child/1" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
+  <a href="/parent/1" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
   <a href="/activity" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity: FOOD</a>
   <a href="welcome.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
 </nav>
@@ -49,8 +49,11 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <p id="caption"></p>
     </div>
   </div>
+
+
+
   <!-- FOOD -->
-  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="alphabet">
     <div class="w3-quarter hover">
         <img src="static/EDUCATIONAL/ALPHABET/A.jpg" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
         <img src="static/EDUCATIONAL/ALPHABET/E.png" style="width:100%" id="E" onclick="document.getElementById('E_play').play();return false;" alt="E">
@@ -82,7 +85,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
 
     <div class="w3-quarter hover">
-      <img src="static/EDUCATIONAL/ALPHABET/D.png" style="width:100%" id="C" onclick="document.getElementById('D_play').play();return false;" alt="D">
+      <img src="static/EDUCATIONAL/ALPHABET/D.png" style="width:100%" id="D" onclick="document.getElementById('D_play').play();return false;" alt="D">
       <img src="static/EDUCATIONAL/ALPHABET/H.png" style="width:100%" id="H" onclick="document.getElementById('H_play').play();return false;" alt="H">
       <img src="static/EDUCATIONAL/ALPHABET/L.png" style="width:100%" id="L" onclick="document.getElementById('L_play').play();return false;" alt="L">
       <img src="static/EDUCATIONAL/ALPHABET/P.png" style="width:100%" id="P" onclick="document.getElementById('P_play').play();return false;" alt="P">
@@ -90,50 +93,51 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <img src="static/EDUCATIONAL/ALPHABET/X.png" style="width:100%" id="X" onclick="document.getElementById('X_play').play();return false;" alt="X">
     </div>
 
+       <audio id="A_play">
+    <source src="static/audio/A.mp3"/>
+    </audio>
+    <audio id="B_play">
+    <source src="static/audio/B.mp3"/>
+    </audio>
+    <audio id="C_play">
+    <source src="static/audio/C.mp3"/>
+    </audio>
+    <audio id="hotdog_play">
+    <source src="static/audio/hotdog.mp3"/>
+    </audio>
+    <audio id="burger_play">
+    <source src="static/audio/burger.mp3"/>
+    </audio>
+    <audio id="lollipop_play">
+    <source src="static/audio/lollipop.mp3"/>
+    </audio>
+    <audio id="pancake_play">
+    <source src="static/audio/pancake.mp3"/>
+    </audio>
+    <audio id="bbq_play">
+    <source src="static/audio/barbecue.mp3"/>
+    </audio>
+    <audio id="icecream_play">
+    <source src="static/audio/ice_cream.mp3"/>
+    </audio>
+    <audio id="cookies_play">
+    <source src="static/audio/cookies.mp3"/>
+    </audio>
+    <audio id="fries_play">
+    <source src="static/audio/french_fries.mp3"/>
+    </audio>
+    <audio id="halo_play">
+    <source src="static/audio/halo-halo.mp3"/>
+    </audio>
+    <audio id="audio_play">
+    <source src="static/audio/audio1.mp3"/>
+    </audio>
+
+
     <!--<div class="w3-quarter">-->
       <!--<img src= "{{ url_for('static', filename='image_name' ) }}">-->
       <!--</div>-->
 
-
-    <audio id="A_play">
-    <source src="audio/A.mp3"/>
-    </audio>
-    <audio id="B_play">
-    <source src="static/audio/B.mp3" />
-    </audio>
-    <audio id="C_play">
-    <source src="static/audio/educational/C.mp3" />
-    </audio>
-    <audio id="hotdog_play">
-    <source src="static/audio/hotdog.mp3" type="audio/ogg" />
-    </audio>
-    <audio id="burger_play">
-    <source src="static/audio/burger.mp3" type="audio/ogg" />
-    </audio>
-    <audio id="lollipop_play">
-    <source src="static/audio/lollipop.mp3" type="audio/ogg" />
-    </audio>
-    <audio id="pancake_play">
-    <source src="static/audio/pancake.mp3" type="audio/ogg" />
-    </audio>
-    <audio id="bbq_play">
-    <source src="static/audio/barbecue.mp3" type="audio/ogg" />
-    </audio>
-    <audio id="icecream_play">
-    <source src="static/audio/ice_cream.mp3" type="audio/ogg" />
-    </audio>
-    <audio id="cookies_play">
-    <source src="static/audio/cookies.mp3" type="audio/ogg" />
-    </audio>
-    <audio id="fries_play">
-    <source src="static/audio/french_fries.mp3" type="audio/ogg" />
-    </audio>
-    <audio id="halo_play">
-    <source src="static/audio/halo-halo.mp3" type="audio/ogg" />
-    </audio>
-    <audio id="audio_play">
-    <source src="static/audio/audio1.mp3" type="audio/ogg" />
-    </audio>
 
 
   </div>
@@ -191,7 +195,6 @@ function w3_close() {
 </script>
 
  <script src="jQuery-2.1.4.min.js"></script>
- <script src="../static/js/app.js"></script>
 
 
 </body>
