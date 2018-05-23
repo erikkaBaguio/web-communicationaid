@@ -52,77 +52,67 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- FOOD -->
   <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
     <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/SHAPES/circle.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
-        <img src="static/EDUCATIONAL/SHAPES/square.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
-        <img src="static/EDUCATIONAL/SHAPES/hexagon.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/SHAPES/circle.png" style="width:100%" id="A" onclick="document.getElementById('circle_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/SHAPES/square.png" style="width:100%" id="A" onclick="document.getElementById('square_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/SHAPES/hexagon.png" style="width:100%" id="A" onclick="document.getElementById('hexagon_play').play();return false;" alt="A">
    </div>
 
    <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/SHAPES/oval.png" style="width:100%" id="I" onclick="document.getElementById('I_play').play();return false;" alt="I">
-        <img src="static/EDUCATIONAL/SHAPES/rectangle.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
-        <img src="static/EDUCATIONAL/SHAPES/octagon.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/SHAPES/oval.png" style="width:100%" id="I" onclick="document.getElementById('oval_play').play();return false;" alt="I">
+        <img src="static/EDUCATIONAL/SHAPES/rectangle.png" style="width:100%" id="A" onclick="document.getElementById('rectangle_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/SHAPES/octagon.png" style="width:100%" id="A" onclick="document.getElementById('octagon_play').play();return false;" alt="A">
     </div>
 
     <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/SHAPES/triangle.png" style="width:100%" id="Q" onclick="document.getElementById('Q_play').play();return false;" alt="Q">
-        <img src="static/EDUCATIONAL/SHAPES/pentagon.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
-        <img src="static/EDUCATIONAL/SHAPES/diamond.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/SHAPES/triangle.png" style="width:100%" id="Q" onclick="document.getElementById('triangle_play').play();return false;" alt="Q">
+        <img src="static/EDUCATIONAL/SHAPES/pentagon.png" style="width:100%" id="A" onclick="document.getElementById('pentagon_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/SHAPES/diamond.png" style="width:100%" id="A" onclick="document.getElementById('diamond_play').play();return false;" alt="A">
     </div>
 
     <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/SHAPES/star.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
-        <img src="static/EDUCATIONAL/SHAPES/heart.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
-        <img src="static/EDUCATIONAL/SHAPES/arrow.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/SHAPES/star.png" style="width:100%" id="A" onclick="document.getElementById('star_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/SHAPES/heart.png" style="width:100%" id="A" onclick="document.getElementById('heart_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/SHAPES/arrow.png" style="width:100%" id="A" onclick="document.getElementById('arrow_play').play();return false;" alt="A">
     </div>
 
   </div>
 
-    <!--<div class="w3-quarter">-->
-      <!--<img src= "{{ url_for('static', filename='image_name' ) }}">-->
-      <!--</div>-->
-
-
-    <audio id="A_play">
-    <source src="audio/A.mp3"/>
+    <audio id="circle_play">
+    <source src="static/audio/circle.mp3"/>
     </audio>
-    <audio id="B_play">
-    <source src="static/audio/B.mp3" />
+    <audio id="oval_play">
+    <source src="static/audio/oval.mp3" />
     </audio>
-    <audio id="C_play">
-    <source src="static/audio/educational/C.mp3" />
+    <audio id="triangle_play">
+    <source src="static/audio/triangle.mp3" />
     </audio>
-    <audio id="hotdog_play">
-    <source src="static/audio/hotdog.mp3" type="audio/ogg" />
+    <audio id="square_play">
+    <source src="static/audio/square.mp3"/>
     </audio>
-    <audio id="burger_play">
-    <source src="static/audio/burger.mp3" type="audio/ogg" />
+    <audio id="diamond_play">
+    <source src="static/audio/diamond.mp3" />
     </audio>
-    <audio id="lollipop_play">
-    <source src="static/audio/lollipop.mp3" type="audio/ogg" />
+    <audio id="pentagon_play">
+    <source src="static/audio/pentagon.mp3"/>
     </audio>
-    <audio id="pancake_play">
-    <source src="static/audio/pancake.mp3" type="audio/ogg" />
+    <audio id="hexagon_play">
+    <source src="static/audio/hexagon.mp3"/>
     </audio>
-    <audio id="bbq_play">
-    <source src="static/audio/barbecue.mp3" type="audio/ogg" />
+    <audio id="octagon_play">
+    <source src="static/audio/octagon.mp3"/>
     </audio>
-    <audio id="icecream_play">
-    <source src="static/audio/ice_cream.mp3" type="audio/ogg" />
+    <audio id="star_play">
+    <source src="static/audio/star.mp3"/>
     </audio>
-    <audio id="cookies_play">
-    <source src="static/audio/cookies.mp3" type="audio/ogg" />
+    <audio id="heart_play">
+    <source src="static/audio/heart.mp3"/>
     </audio>
-    <audio id="fries_play">
-    <source src="static/audio/french_fries.mp3" type="audio/ogg" />
+    <audio id="arrow_play">
+    <source src="static/audio/arrow.mp3"/>
     </audio>
-    <audio id="halo_play">
-    <source src="static/audio/halo-halo.mp3" type="audio/ogg" />
+    <audio id="rectangle_play">
+    <source src="static/audio/rectangle.mp3"/>
     </audio>
-    <audio id="audio_play">
-    <source src="static/audio/audio1.mp3" type="audio/ogg" />
-    </audio>
-
-
   </div>
 
     <!--<center><<button type="submit" href="edit_food.html">Edit</button></center>-->
