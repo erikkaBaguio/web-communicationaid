@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <title>ALPHABET</title>
-<link rel="shortcut icon" href="static/food/foodicon.png" />
+<link rel="shortcut icon" href="static/images/PATicon.png" />
 <meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
 <link rel="stylesheet" href="static/css/font.css">
 <link rel="stylesheet" href="static/css/font-awesome.css">
@@ -16,13 +16,15 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 .w3-quarter img{margin-bottom: -6px; cursor: pointer}
 .w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
 </style>
+ <script src="jQuery-2.1.4.min.js"></script>
+ <script src="../static/js/app.js"></script>
 <body class="w3-light-grey">
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
   <a href="/navigation" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Categories</a>
-  <a href="/child/1" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
-  <a href="/parent/1" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
+  <a href="/child" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
+  <a href="/parent" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
   <a href="/activity" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity: FOOD</a>
   <a href="welcome.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
 </nav>
@@ -49,95 +51,130 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <p id="caption"></p>
     </div>
   </div>
-
-
-
   <!-- FOOD -->
-  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="alphabet">
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
     <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/ALPHABET/A.jpg" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
-        <img src="static/EDUCATIONAL/ALPHABET/E.png" style="width:100%" id="E" onclick="document.getElementById('E_play').play();return false;" alt="E">
-        <img src="static/EDUCATIONAL/ALPHABET/I.png" style="width:100%" id="I" onclick="document.getElementById('I_play').play();return false;" alt="I">
-        <img src="static/EDUCATIONAL/ALPHABET/M.png" style="width:100%" id="M" onclick="document.getElementById('M_play').play();return false;" alt="M">
-        <img src="static/EDUCATIONAL/ALPHABET/Q.png" style="width:100%" id="Q" onclick="document.getElementById('Q_play').play();return false;" alt="Q">
-        <img src="static/EDUCATIONAL/ALPHABET/U.png" style="width:100%" id="U" onclick="document.getElementById('U_play').play();return false;" alt="U">
-        <img src="static/EDUCATIONAL/ALPHABET/Y.png" style="width:100%" id="Y" onclick="document.getElementById('Y_play').play();return false;" alt="Y">
+        <img src="static/EDUCATIONAL/ALPHABET/A.jpg" style="width:100%" id="A" onclick="document.getElementById('A_play').play(); return false;" alt="A">
+        <img src="static/EDUCATIONAL/ALPHABET/E.png" style="width:100%" id="E" onclick="document.getElementById('E_play').play(); return false;" alt="E">
+        <img src="static/EDUCATIONAL/ALPHABET/I.png" style="width:100%" id="I" onclick="document.getElementById('I_play').play(); return false;" alt="I">
+        <img src="static/EDUCATIONAL/ALPHABET/M.png" style="width:100%" id="M" onclick="document.getElementById('M_play').play(); return false;" alt="M">
+        <img src="static/EDUCATIONAL/ALPHABET/Q.png" style="width:100%" id="Q" onclick="document.getElementById('Q_play').play(); return false;" alt="Q">
+        <img src="static/EDUCATIONAL/ALPHABET/U.png" style="width:100%" id="U" onclick="document.getElementById('U_play').play(); return false;" alt="U">
    </div>
 
    <div class="w3-quarter hover">
-      <img src="static/EDUCATIONAL/ALPHABET/B.png" style="width:100%" id="B" onclick="document.getElementById('B_play').play();return false;" alt="B">
-      <img src="static/EDUCATIONAL/ALPHABET/F.png" style="width:100%" id="F" onclick="document.getElementById('F_play').play();return false;" alt="F">
-      <img src="static/EDUCATIONAL/ALPHABET/J.png" style="width:100%" id="J" onclick="document.getElementById('J_play').play();return false;" alt="J">
-      <img src="static/EDUCATIONAL/ALPHABET/N.png" style="width:100%" id="N" onclick="document.getElementById('N_play').play();return false;" alt="N">
-      <img src="static/EDUCATIONAL/ALPHABET/R.png" style="width:100%" id="R" onclick="document.getElementById('R_play').play();return false;" alt="R">
-      <img src="static/EDUCATIONAL/ALPHABET/V.png" style="width:100%" id="V" onclick="document.getElementById('V_play').play();return false;" alt="V">
-      <img src="static/EDUCATIONAL/ALPHABET/Z.png" style="width:100%" id="Z" onclick="document.getElementById('Z_play').play();return false;" alt="Z">
+      <img src="static/EDUCATIONAL/ALPHABET/B.png" style="width:100%" id="B" onclick="document.getElementById('B_play').play(); return false;" alt="B">
+      <img src="static/EDUCATIONAL/ALPHABET/F.png" style="width:100%" id="F" onclick="document.getElementById('F_play').play(); return false;" alt="F">
+      <img src="static/EDUCATIONAL/ALPHABET/J.png" style="width:100%" id="J" onclick="document.getElementById('J_play').play(); return false;" alt="J">
+      <img src="static/EDUCATIONAL/ALPHABET/N.png" style="width:100%" id="N" onclick="document.getElementById('N_play').play(); return false;" alt="N">
+      <img src="static/EDUCATIONAL/ALPHABET/R.png" style="width:100%" id="R" onclick="document.getElementById('R_play').play(); return false;" alt="R">
+      <img src="static/EDUCATIONAL/ALPHABET/V.png" style="width:100%" id="V" onclick="document.getElementById('V_play').play(); return false;" alt="V">
+      <img src="static/EDUCATIONAL/ALPHABET/Y.png" style="width:100%" id="Y" onclick="document.getElementById('Y_play').play(); return false;" alt="Y">
 
     </div>
 
     <div class="w3-quarter hover">
-      <img src="static/EDUCATIONAL/ALPHABET/C.png" style="width:100%" id="C" onclick="document.getElementById('C_play').play();return false;" alt="C">
-      <img src="static/EDUCATIONAL/ALPHABET/G.png" style="width:100%" id="G" onclick="document.getElementById('G_play').play();return false;" alt="G">
-      <img src="static/EDUCATIONAL/ALPHABET/K.png" style="width:100%" id="K" onclick="document.getElementById('K_play').play();return false;" alt="K">
-      <img src="static/EDUCATIONAL/ALPHABET/O.png" style="width:100%" id="O" onclick="document.getElementById('O_play').play();return false;" alt="O">
-      <img src="static/EDUCATIONAL/ALPHABET/S.png" style="width:100%" id="S" onclick="document.getElementById('S_play').play();return false;" alt="S">
-      <img src="static/EDUCATIONAL/ALPHABET/W.png" style="width:100%" id="W" onclick="document.getElementById('W_play').play();return false;" alt="W">
+      <img src="static/EDUCATIONAL/ALPHABET/C.png" style="width:100%" id="C" onclick="document.getElementById('C_play').play(); return false;" alt="C">
+      <img src="static/EDUCATIONAL/ALPHABET/G.png" style="width:100%" id="G" onclick="document.getElementById('G_play').play(); return false;" alt="G">
+      <img src="static/EDUCATIONAL/ALPHABET/K.png" style="width:100%" id="K" onclick="document.getElementById('K_play').play(); return false;" alt="K">
+      <img src="static/EDUCATIONAL/ALPHABET/O.png" style="width:100%" id="O" onclick="document.getElementById('O_play').play(); return false;" alt="O">
+      <img src="static/EDUCATIONAL/ALPHABET/S.png" style="width:100%" id="S" onclick="document.getElementById('S_play').play(); return false;" alt="S">
+      <img src="static/EDUCATIONAL/ALPHABET/W.png" style="width:100%" id="W" onclick="document.getElementById('W_play').play(); return false;" alt="W">
+      <img src="static/EDUCATIONAL/ALPHABET/Z.png" style="width:100%" id="Z" onclick="document.getElementById('Z_play').play(); return false;" alt="Z">
     </div>
 
     <div class="w3-quarter hover">
-      <img src="static/EDUCATIONAL/ALPHABET/D.png" style="width:100%" id="D" onclick="document.getElementById('D_play').play();return false;" alt="D">
-      <img src="static/EDUCATIONAL/ALPHABET/H.png" style="width:100%" id="H" onclick="document.getElementById('H_play').play();return false;" alt="H">
-      <img src="static/EDUCATIONAL/ALPHABET/L.png" style="width:100%" id="L" onclick="document.getElementById('L_play').play();return false;" alt="L">
-      <img src="static/EDUCATIONAL/ALPHABET/P.png" style="width:100%" id="P" onclick="document.getElementById('P_play').play();return false;" alt="P">
-      <img src="static/EDUCATIONAL/ALPHABET/T.png" style="width:100%" id="T" onclick="document.getElementById('T_play').play();return false;" alt="T">
-      <img src="static/EDUCATIONAL/ALPHABET/X.png" style="width:100%" id="X" onclick="document.getElementById('X_play').play();return false;" alt="X">
+      <img src="static/EDUCATIONAL/ALPHABET/D.png" style="width:100%" id="D" onclick="document.getElementById('D_play').play(); return false;" alt="D">
+      <img src="static/EDUCATIONAL/ALPHABET/H.png" style="width:100%" id="H" onclick="document.getElementById('H_play').play(); return false;" alt="H">
+      <img src="static/EDUCATIONAL/ALPHABET/L.png" style="width:100%" id="L" onclick="document.getElementById('L_play').play(); return false;" alt="L">
+      <img src="static/EDUCATIONAL/ALPHABET/P.png" style="width:100%" id="P" onclick="document.getElementById('P_play').play(); return false;" alt="P">
+      <img src="static/EDUCATIONAL/ALPHABET/T.png" style="width:100%" id="T" onclick="document.getElementById('T_play').play(); return false;" alt="T">
+      <img src="static/EDUCATIONAL/ALPHABET/X.png" style="width:100%" id="X" onclick="document.getElementById('X_play').play(); return false;" alt="X">
     </div>
 
-      <audio id="A_play">
-    <source src="static/audio/A.mp3"/>
-    </audio>
-    <audio id="B_play">
-    <source src="static/audio/B.mp3"/>
-    </audio>
-    <audio id="C_play">
-    <source src="static/audio/C.mp3"/>
-    </audio>
-    <audio id="hotdog_play">
-    <source src="static/audio/hotdog.mp3"/>
-    </audio>
-    <audio id="burger_play">
-    <source src="static/audio/burger.mp3"/>
-    </audio>
-    <audio id="lollipop_play">
-    <source src="static/audio/lollipop.mp3"/>
-    </audio>
-    <audio id="pancake_play">
-    <source src="static/audio/pancake.mp3"/>
-    </audio>
-    <audio id="bbq_play">
-    <source src="static/audio/barbecue.mp3"/>
-    </audio>
-    <audio id="icecream_play">
-    <source src="static/audio/ice_cream.mp3"/>
-    </audio>
-    <audio id="cookies_play">
-    <source src="static/audio/cookies.mp3"/>
-    </audio>
-    <audio id="fries_play">
-    <source src="static/audio/french_fries.mp3"/>
-    </audio>
-    <audio id="halo_play">
-    <source src="static/audio/halo-halo.mp3"/>
-    </audio>
-    <audio id="audio_play">
-    <source src="static/audio/audio1.mp3"/>
-    </audio>
-
-
-    <!--<div class="w3-quarter">-->
+    <!--<div class="w3-quarter">--> 
       <!--<img src= "{{ url_for('static', filename='image_name' ) }}">-->
       <!--</div>-->
 
+
+    <audio id="A_play">
+    <source src="static/audio/A.mp3"/>
+    </audio>
+    <audio id= "B_play">
+    <source src="static/audio/B.mp3" />
+    </audio>
+    <audio id="C_play">
+    <source src="static/audio/C.mp3" />
+    </audio>
+    <audio id="D_play">
+    <source src="static/audio/D.mp3"/>
+    </audio>
+    <audio id="E_play">
+    <source src="static/audio/E.mp3" />
+    </audio>
+    <audio id="F_play">
+    <source src="static/audio/F.mp3" />
+    </audio>
+    <audio id="G_play">
+    <source src="static/audio/G.mp3"/>
+    </audio>
+    <audio id="H_play">
+    <source src="static/audio/H.mp3"/>
+    </audio>
+    <audio id="I_play">
+    <source src="static/audio/I.mp3"/>
+    </audio>
+    <audio id="J_play">
+    <source src="static/audio/J.mp3" />
+    </audio>
+    <audio id="K_play">
+    <source src="static/audio/K.mp3"/>
+    </audio>
+    <audio id="L_play">
+    <source src="static/audio/L.mp3"/>
+    </audio>
+    <audio id="M_play">
+    <source src="static/audio/M.mp3" />
+    </audio>
+    <audio id="N_play">
+    <source src="static/audio/N.mp3" />
+    </audio>
+    <audio id="O_play">
+    <source src="static/audio/O.mp3" />
+    </audio>
+    <audio id="P_play">
+    <source src="static/audio/P.mp3" />
+    </audio>
+    <audio id="Q_play">
+    <source src="static/audio/Q.mp3" />
+    </audio>
+    <audio id="R_play">
+    <source src="static/audio/R.mp3" />
+    </audio>
+    <audio id="S_play">
+    <source src="static/audio/S.mp3" />
+    </audio>
+    <audio id="T_play">
+    <source src="static/audio/T.mp3" />
+    </audio>
+    <audio id="U_play">
+    <source src="static/audio/U.mp3" />
+    </audio>
+    <audio id="V_play">
+    <source src="static/audio/V.mp3" />
+    </audio>
+    <audio id="W_play">
+    <source src="static/audio/W.mp3" />
+    </audio>
+    <audio id="X_play">
+    <source src="static/audio/X.mp3" />
+    </audio>
+    <audio id="Y_play">
+    <source src="static/audio/Y.mp3" />
+    </audio>
+    <audio id="Z_play">
+    <source src="static/audio/Z.mp3" />
+    </audio>
 
 
   </div>
@@ -148,37 +185,6 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- End page content -->
 </div>
 
-<!--<div id="upload-area">-->
-  <!--<div id="preview">-->
-    <!--<img width="100px" height="100px" src="/images/icons/128px/zurb.png" id="thumb">-->
-  <!--</div>-->
-
-  <!--<form action="/playground/ajax_upload" id="newHotnessForm">-->
-    <!--<label>Upload a Picture of Yourself</label>-->
-    <!--<input type="file" size="20" id="imageUpload" class=" ">-->
-    <!--<button class="button" type="submit">Save</button>-->
-  <!--</form>-->
-<!--</div>-->
-
-//Script for click counts
-    <!--<script type="text/javascript">-->
-            <!--function egg_clicks() {-->
-                <!---->
-                <!--egg++;-->
-                <!--alert(egg);-->
-                <!---->
-            <!--}-->
-            <!--function chicken_clicks() {-->
-                <!--chicken++;-->
-                <!--alert(chicken);-->
-            <!--}-->
-
-                <!--var egg = 0;-->
-                <!--var chicken = 0;-->
-            <!--}-->
-
-    <!--</script>-->
-// Script to open and close sidebar
 
 <script>
 
@@ -193,9 +199,6 @@ function w3_close() {
 }
 
 </script>
-
- <script src="jQuery-2.1.4.min.js"></script>
-
 
 </body>
 </html>
