@@ -24,7 +24,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <a href="/child" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
   <a href="/parent" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
   <a href="/activity" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity: FOOD</a>
-  <a href="welcome.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
+  <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
 </nav>
 
 
@@ -52,24 +52,24 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- FOOD -->
   <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
     <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/COLORS/red.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
-        <img src="static/EDUCATIONAL/COLORS/violet.png" style="width:100%" id="E" onclick="document.getElementById('E_play').play();return false;" alt="E">
+        <img src="static/EDUCATIONAL/COLORS/red.png" style="width:100%" id="A" onclick="document.getElementById('red_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/COLORS/violet.png" style="width:100%" id="E" onclick="document.getElementById('violet_play').play();return false;" alt="E">
    </div>
 
    <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/COLORS/blue.png" style="width:100%" id="I" onclick="document.getElementById('I_play').play();return false;" alt="I">
-        <img src="static/EDUCATIONAL/COLORS/green.png" style="width:100%" id="M" onclick="document.getElementById('M_play').play();return false;" alt="M">
+        <img src="static/EDUCATIONAL/COLORS/blue.png" style="width:100%" id="I" onclick="document.getElementById('blue_play').play();return false;" alt="I">
+        <img src="static/EDUCATIONAL/COLORS/green.png" style="width:100%" id="M" onclick="document.getElementById('green_play').play();return false;" alt="M">
 
     </div>
 
     <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/COLORS/yellow.png" style="width:100%" id="Q" onclick="document.getElementById('Q_play').play();return false;" alt="Q">
-        <img src="static/EDUCATIONAL/COLORS/orange.png" style="width:100%" id="U" onclick="document.getElementById('U_play').play();return false;" alt="U">
+        <img src="static/EDUCATIONAL/COLORS/yellow.png" style="width:100%" id="Q" onclick="document.getElementById('yellow_play').play();return false;" alt="Q">
+        <img src="static/EDUCATIONAL/COLORS/orange.png" style="width:100%" id="U" onclick="document.getElementById('orange_play').play();return false;" alt="U">
     </div>
 
     <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/COLORS/white.png" style="width:100%" id="Y" onclick="document.getElementById('Y_play').play();return false;" alt="Y">
-        <img src="static/EDUCATIONAL/COLORS/black.png" style="width:100%" id="Y" onclick="document.getElementById('Y_play').play();return false;" alt="Y">
+        <img src="static/EDUCATIONAL/COLORS/white.png" style="width:100%" id="Y" onclick="document.getElementById('white_play').play();return false;" alt="Y">
+        <img src="static/EDUCATIONAL/COLORS/black.png" style="width:100%" id="Y" onclick="document.getElementById('black_play').play();return false;" alt="Y">
     </div>
 
     <!--<div class="w3-quarter">-->
@@ -77,29 +77,29 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <!--</div>-->
 
 
-    <audio id="A_play">
-    <source src="audio/A.mp3"/>
+    <audio id="red_play">
+    <source src="static/audio/red.mp3"/>
     </audio>
-    <audio id="B_play">
-    <source src="static/audio/B.mp3" />
+    <audio id="blue_play">
+    <source src="static/audio/blue.mp3" />
     </audio>
-    <audio id="C_play">
-    <source src="static/audio/educational/C.mp3" />
+    <audio id="yellow_play">
+    <source src="static/audio/yellow.mp3" />
     </audio>
-    <audio id="hotdog_play">
-    <source src="static/audio/hotdog.mp3" type="audio/ogg" />
+    <audio id="violet_play">
+    <source src="static/audio/violet.mp3"/>
     </audio>
-    <audio id="burger_play">
-    <source src="static/audio/burger.mp3" type="audio/ogg" />
+    <audio id="green_play">
+    <source src="static/audio/green.mp3" />
     </audio>
-    <audio id="lollipop_play">
-    <source src="static/audio/lollipop.mp3" type="audio/ogg" />
+    <audio id="orange_play">
+    <source src="static/audio/orange.mp3"/>
     </audio>
-    <audio id="pancake_play">
-    <source src="static/audio/pancake.mp3" type="audio/ogg" />
+    <audio id="black_play">
+    <source src="static/audio/black.mp3"/>
     </audio>
-    <audio id="bbq_play">
-    <source src="static/audio/barbecue.mp3" type="audio/ogg" />
+    <audio id="white_play">
+    <source src="static/audio/white.mp3"/>
     </audio>
     <audio id="icecream_play">
     <source src="static/audio/ice_cream.mp3" type="audio/ogg" />
