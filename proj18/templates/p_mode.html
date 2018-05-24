@@ -1,169 +1,126 @@
 <!DOCTYPE html>
-    <head>
-        <title>PIC-A-TALK</title>
-        <link rel="shortcut icon" img src =url("static/images/PATicon.png") />
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/static/css/w3.css">
-        <link rel="stylesheet" href="/static/css/font.css">
-        <link rel="stylesheet" href="/static/css/font-awesome.css">
-        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
-        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.css">
-        <link rel="stylesheet" href="/static/bootstrap/js/bootstrap.bundle.js">
-        <link rel="stylesheet" href="/static/bootstrap/js/bootstrap.js">
-        <link rel="stylesheet" href="/static/css/agency.min.css">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <title>Pick A Talk</title>
+  <style>
+  body {
+    background-color:#ffffff;
+    font-family:Roboto;
+    margin:0;
+  }
+  .container {
+    margin-top: 8%;
+    -webkit-box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);
+    -moz-box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);
+    box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);
 
-        <link rel="stylesheet" tpye="text/css" href="/static/bootstrap2/css/bootstrap.min.css"/>
-        <script src="/static/bootstrap2/js/jquery-3.2.1.min.js"></script>
-        <script src="/static/bootstrap2/js/bootstrap.min.js/"></script>
-
-
-        <style>
-        .pp_button {
-            display: inline-block;
-              padding: 15px 25px;
-              font-size: 15px;
-              cursor: pointer;
-              text-align: center;
-              text-decoration: none;
-              outline: none;
-              color: #ffffff;
-              background-color: #666666;
-              border: none;
-              border-radius: 15px;
-              box-shadow: 0 9px #999;
-            }
-
-        .pp_button:hover {background-color: #262626}
-
-        .pp_button:active {
-              background-color: #262626;
-              box-shadow: 0 5px #666;
-              transform: translateY(4px);
-            }
-
-
-            body{
-                background-image: url('/static/images/waves.jpg');
-                min-height: 100%;
-                background-attachment: fixed;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-
-            body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-            .w3-quarter img{margin-bottom: -6px; cursor: pointer}
-            .w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
-        </style>
-    </head>
-
-    <body class="w3-light-grey">
-
-        <!-- Sidebar/menu -->
-        <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
-          <a href="/navigation" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Mode</a>
-          <a href="/records.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity</a>
-          <a href="/records.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child's Class</a>
-          <a href="/child/1" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
-          <a href="/parent/1" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
-          <a href="welcome.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
-        </nav>
-
-
-        <!-- Top menu on small screens -->
-        <header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
-          <span class="w3-left w3-padding">
-          <img src="/static/images/PATicon.png" alt="logo" width="40px" height="auto"/>PIC-A-TALK</span>
-            <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
-        </header>
-
-
-        <!-- Overlay effect when opening sidebar on small screens -->
-        <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-        <!-- !PAGE CONTENT! -->
-        <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
-
-          <!-- Photo grid -->
-          <!--<center><div class="w3-row" id = "nav">-->
-              <!--<button class="pp_button" type="submit" onclick="login();">Parent's Profile</button>-->
-              <!--<a href = "/child/1"><button class="button" type="submit">Child Profile</button></a>-->
-              <!--</div></center>-->
-        <!---->
-            <br>
-            <br>
-            <br>
-            <div class="container" style="padding-top:70px;">
-
-                <div class="row" style="margin-bottom:1%;">
-                    <div class="col-lg-8" style="padding-right:0px;">
-                        <button class="btn btn-primary" style="height:150px; width:100%;">Child Class</button>
-                    </div>
-                    <div class="col-lg-4">
-                        <button class="btn btn-success" style="height:150px; width:100%;">Categories</button>
-                    </div>
-                </div>
-
-                <div class="row" style="margin-bottom:1%;">
-                    <div class="col-lg-8" style="padding-right:0px;">
-                        <button class="btn btn-primary" style="height:150px; width:100%;">Child Activity</button>
-                    </div>
-                    <div class="col-lg-4">
-                        <button class="btn btn-success" style="height:150px; width:100%;">Forum</button>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-4">
-                        <button class="btn btn-warning" style="height:150px; width:100%;">Child Profile</button>
-                    </div>
-                    <div class="col-lg-4" style="padding-left:0px; padding-right:0px;">
-                        <button class="btn btn-success" style="height:150px; width:100%;">Parent Profile</button>
-                    </div>
-                    <div class="col-lg-4">
-                        <button class="btn btn-success" style="height:150px; width:100%;">Directory</button>
-                    </div>
-                </div>
+/*      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      flex-wrap: wrap;
+      width: 80vw;
+      margin: 0 auto;
+      min-height: 100vh;*/
+  }
+  .pad-50 {
+    background-color: #fff;
+    padding: 10% 5%;
+  }
+  .pad-50:first-child {
+    background-color:#f8f9fa;
+    border-bottom-left-radius: 15px;
+      border-top-left-radius: 15px;
+  }
+  .pad-50:last-child {
+    border-bottom-right-radius: 15px;
+      border-top-right-radius: 15px;
+  }
+  .btn-primary {
+    width:100%;
+    margin-top: 13%;
+  }
+  .mar-50 {
+    margin-top: 8%;
+  }
+  .row{
+    border-radius: 25px;
+    text-align: center;
+  }
+  .blue p, .green p,.yellow p {
+    color:#fff;
+    font-size:20px;
+    font-family:Roboto;
+    font-weight: 900;
+    font-size: 30px;
+  }
+  .blue:hover, .green:hover, .yellow:hover {
+    background-position: right center;
+  }
+  .box {
+    flex: 1 1 auto;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+  }
+  .blue {
+    padding:5%;   
+    background-image:linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+    border:solid 1px white;
+  }
+  .green {
+    padding:5%;   
+    background-image:linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+    border:solid 1px white;
+  }
+  .yellow {
+    padding:5%;   
+    background-image:linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
+    border:solid 1px white;
+  }
+  </style>
+</head>
+<body>
+  <nav class="navbar sticky-top navbar-light bg-light">
+     <a class="navbar-brand" href="#">Pic-A-Talk</a>
+  </nav>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue">
+      <p>Child Class</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green">
+      <p>Categories</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue">
+      <p>Child Activity</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green">
+      <p>Forum</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box yellow">
+      <p>Child Profile</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box yellow">
+      <p>Parent Profile</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green">
+      <p>Directory</p>
+    </div>
+  </div>
+</div>
 
 
-            </div>
-          <!-- Modal for full size images on click-->
-          <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-            <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
-            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-              <img id="img01" class="w3-image">
-              <p id="caption"></p>
-            </div>
-          </div>
+</body>
 
-        <!-- End page content -->
-        </div>
-
-        <script>
-        // Script to open and close sidebar
-        function w3_open() {
-            document.getElementById("mySidebar").style.display = "block";
-            document.getElementById("myOverlay").style.display = "block";
-        }
-
-        function w3_close() {
-            document.getElementById("mySidebar").style.display = "none";
-            document.getElementById("myOverlay").style.display = "none";
-        }
-
-        // Modal Image Gallery
-        function onClick(element) {
-          document.getElementById("img01").src = element.src;
-          document.getElementById("modal01").style.display = "block";
-          var captionText = document.getElementById("caption");
-          captionText.innerHTML = element.alt;
-        }
-
-        </script>
-
-
-    </body>
-
-</html>
+</div>
