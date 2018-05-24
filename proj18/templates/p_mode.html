@@ -5,18 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/w3.css">
+  <link rel="stylesheet" href="static/css/font.css">
+  <link rel="stylesheet" href="static/css/font-awesome.css">
+  <link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+  <link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+  <link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+  <link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+  <link rel="stylesheet" href="static/css/agency.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <title>Pick A Talk</title>
   <style>
   body {
+
+    background-image: url('static/bgleaves.jpg');
+    min-height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color:#ffffff;
     font-family:Roboto;
     margin:0;
   }
   .container {
     margin-top: 8%;
-    -webkit-box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);
-    -moz-box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);
-    box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);
+    border-radius:  50px;
+    box-shadow: 0px 0px 36px 0px #023258;
+
+    /*-webkit-box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);*/
+    /*-moz-box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);*/
+     /*box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);*/
 
 /*      display: flex;
       justify-content: center;
@@ -38,7 +62,7 @@
   }
   .pad-50:last-child {
     border-bottom-right-radius: 15px;
-      border-top-right-radius: 15px;
+    border-top-right-radius: 15px;
   }
   .btn-primary {
     width:100%;
@@ -52,11 +76,13 @@
     text-align: center;
   }
   .blue p, .green p,.yellow p {
-    color:#fff;
+     color:#fff;
     font-size:20px;
     font-family:Roboto;
     font-weight: 900;
     font-size: 30px;
+    text-shadow: 5px 5px 10px #343a40;
+
   }
   .blue:hover, .green:hover, .yellow:hover {
     background-position: right center;
@@ -82,20 +108,34 @@
   .yellow {
     padding:5%;   
     background-image:linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
-    border:solid 1px white;
+    border:solid 1px white;  
+
   }
   </style>
 </head>
 <body>
+
+  <div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-blue">
+  <img class="w3-left" src="static/logo2.png" alt="logo" width="200px" height="70px"/>
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-blue" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="/logout" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Log Out</a>
+   <a href="/team" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>The Team</a>
+  </a>
+ </div>
+</div>
+<!-- 
   <nav class="navbar sticky-top navbar-light bg-light">
-     <a class="navbar-brand" href="#">Pic-A-Talk</a>
-  </nav>
+     <img src="static/logo.png" alt="logo" width="200px" height="70px"/>
+  </nav> -->
+
+
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue" style="border-radius: 50px 0 0 0;">
       <p>Child Class</p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" style="border-radius: 0 50px 0 0;">
       <p>Categories</p>
     </div>
   </div>
@@ -108,13 +148,13 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box yellow">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box yellow" style="border-radius: 0 0 0 50px;">
       <p>Child Profile</p>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box yellow">
       <p>Parent Profile</p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" style="border-radius: 0 0 50px 0;">
       <p>Directory</p>
     </div>
   </div>
