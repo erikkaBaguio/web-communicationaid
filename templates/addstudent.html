@@ -74,11 +74,11 @@ input[type=submit] {
 
 <body>
 
-    <div class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+        <div class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
         <span class="w3-left w3-padding">
-        <img src="PATicon.png" alt="logo" width="40px" height="auto"/>PIC-A-TALK</span><a href="classPage.html">
+        <img src="PATicon.png" alt="logo" width="40px" height="auto"/>PIC-A-TALK</span><a href="/classPage/'class_name'">
         <span style="float: right; padding-top: 15px; padding-right: 5px; font-size: 60%;">&lt; Back</span></a>
-    </div>
+        </div>
 
 <!--    <center>
 
@@ -107,8 +107,8 @@ input[type=submit] {
 
                     <br><br>
                     <button type="button" class="btn btn-primary btn-lg" onclick="enroll_that_shit()">Save</button>
-                    <button type="button" class="btn btn-danger btn-lg" onclick="goto_classpage()">Cancel</button><br><br>
-                    <button type="button" class="btn btn-success btn-lg" onclick="goto_classpage()">Submit</button>  
+                    <a type="button" class="btn btn-danger btn-lg" href="/classPage/'class_name'">Cancel</a><br><br>
+                    <a type="button" class="btn btn-success btn-lg" href="/classPage/'class_name'">Submit</a>  
 
                 </div>
 
@@ -219,7 +219,7 @@ function autocomplete(inp, arr) {
 var countries = [];
 
     $(document).ready(function(){
-        $.getJSON("http://127.0.0.1:5000/api/child",function(data){
+        $.getJSON("https://mighty-badlands-16603.herokuapp.com/api/child/editprofile/<int:c_id>",function(data){
             $.each(data,function(key,value){
                 
 
@@ -250,7 +250,7 @@ autocomplete(document.getElementById("myInput"), countries);
        alert(search+" "+class_name)
             
         xhr = new XMLHttpRequest();
-        var url = "http://127.0.0.1:80/api/enroll_student="+search;
+        var url = "https://mighty-badlands-16603.herokuapp.com/api/enroll_student="+search;
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.onreadystatechange = function () { 
@@ -274,7 +274,7 @@ autocomplete(document.getElementById("myInput"), countries);
 
 
     $(document).ready(function(){
-        $.getJSON("http://127.0.0.1:80/api/child",function(data){
+        $.getJSON("https://mighty-badlands-16603.herokuapp.coms/api/child/editprofile",function(data){
             var directory_data='';
             $.each(data,function(key,value){
                 directory_data += '<ul>';

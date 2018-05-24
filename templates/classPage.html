@@ -17,7 +17,7 @@
 
         <div class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
         <span class="w3-left w3-padding">
-        <img src="PATicon.png" alt="logo" width="40px" height="auto"/>PIC-A-TALK</span><a href="parentmode.html">
+        <img src="PATicon.png" alt="logo" width="40px" height="auto"/>PIC-A-TALK</span><a href="/manageclass">
         <span style="float: right; padding-top: 15px; padding-right: 5px; font-size: 60%;">&lt; Back</span></a>
         </div>
 
@@ -72,13 +72,13 @@
         
         alert("IN")
         xhr = new XMLHttpRequest();
-        var url = "http://127.0.0.1:80/api/kick_student="+c_id;
+        var url = "https://mighty-badlands-16603.herokuapp.com/api/kick_student="+c_id;
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.onreadystatechange = function () { 
             if (xhr.readyState == 4 && xhr.status == 200) {
                 var json = JSON.parse(xhr.responseText);
-                location="class_page.html"  
+                location="classPage.html"  
                 alert("Deleted");
             }
         }
@@ -91,7 +91,7 @@
     var classname = localStorage.getItem('class_name');
     document.getElementById("class_belong").innerHTML = classname;
     $(document).ready(function(){
-        $.getJSON("http://127.0.0.1:5000/api/child_belong="+classname,function(data){
+        $.getJSON("https://mighty-badlands-16603.herokuapp.com/api/child_belong="+classname,function(data){
             var class_data='';
             $.each(data,function(key,value){
                 class_data += '<tr>';

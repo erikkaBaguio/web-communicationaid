@@ -22,15 +22,31 @@
 
 </head>
 
+        <div class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+        <span class="w3-left w3-padding">
+        <img src="PATicon.png" alt="logo" width="40px" height="auto"/>PIC-A-TALK</span><a href="parentmode.html">
+        <span style="float: right; padding-top: 15px; padding-right: 5px; font-size: 60%;">&lt; Back</span></a>
+        </div>
+
+
 <body onload="viewClas();">
     <div class=" bgimg container-fluid">
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <div class="card">
                     <br><br><br><br><br><br><br>
-                    <div class="col-md-12">
+                    <div class="w3-content w3-display-container w3-content w3-wide" style="max-width:500px;min-width:500px">
+    <br>
+        <form method = "post" id="target" onsubmit="return false">
+             <p><input id="class_name" name="class_name" placeholder="Enter class name" type="text"/><span class="pull-center">
+                     <input class="btn btn-primary" id="btn" value="add" name"add" type="submit" onclick="addClass();"></input>
+                 </span>
+             </p> 
+        </form>
+            </div>
+<!--                     <div class="col-md-12">
                         <a class="btn btn-primary btn-lg pull-right" style="margin-left: 55%;" href="{{ url_for('addClass') }}">Add Class</a>
-                    </div> 
+                    </div> --> 
                     <table class="table table-striped table-bordered table-hover" id="mytable">
                         <thead>
                             <tr>
@@ -42,17 +58,6 @@
                         <tbody id="view_classname">
 
 
-                    <!--<form method="post" action = "/addClass">
-                        <div id="view_classname">-->
-                        
-                            {% for Class in manageclass %}
-
-                    <tr>
- 
-                            {% endfor %}
-                    </tr>
-                <!--</div>
-                    </form>-->
                     </tbody>
 
                     </table>
@@ -137,7 +142,7 @@
          function showRes2(class_name, class_num){
             return '<tr>'+
                 '<td>'+
-                '<a class="btn btn-sm btn-danger confirmation" href="/deleteClass/'+class_num+'"><span class="glyphicon glyphicon-trash"></span></a>'+'</td>'+  
+                '<a class="btn btn-sm btn-danger confirmation" onclick="kick();"><span class="glyphicon glyphicon-trash"></span></a>'+'</td>'+  
                 '<td style="cursor.pointer">'+
                 '<a href="/classPage/'+class_name+'" style="text-align: center">'+class_name+'</a>'+
             '</td>'+  
@@ -153,6 +158,94 @@
            }
  </script>
 
+ <script>
+
+ function kick(cl_id){
+
+    $.ajax({
+            url: "https:mighty-badlands-16603.herokuapp.com/api/del_class="+cl_id,
+            type: 'DELETE',
+            data: JSON.stringify({
+            'class_num': cl_id
+             }),    
+            contentType:'application/json',  
+            dataType: 'json',
+            crossDomain: true,
+
+         success: function() {
+                 console.log("success");
+                 alert("Deleted success!");
+                 window.location.assign("/manageclass")
+         },
+
+         error: function(result){
+                 console.log('error')
+         },
+
+         complete: function (jqXHR) {
+         if (jqXHR.status == '401') {
+             console.log(jqXHR.status)
+         }
+    }
+});
+
+        }
+
+
+    //  function kick(cl_id){
+        
+    //     alert("bibu");
+    //     xhr = new XMLHttpRequest();
+    //     var url = "https://mighty-badlands-16603.herokuapp.com/api/del_class=<int:cl_id>",
+    //     xhr.open("POST", url, true);
+    //     xhr.setRequestHeader("Content-type", "application/json");
+    //     xhr.onreadystatechange = function () { 
+    //         if (xhr.readyState == 4 && xhr.status == 200) {
+    //             var json = JSON.parse(xhr.responseText);
+    //             location="class.html"  
+    //             alert("Deleted");
+    //         }
+    //     }
+        
+    //     xhr.send();
+
+    // }
+</script>
+
+<script>
+function addClass(){
+    var class_name = $("#class_name").val();
+
+    $.ajax({
+        // url: 'http://127.0.0.1:5000/api/addClass',
+        url: "https://mighty-badlands-16603.herokuapp.com/api/add_class",
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({
+            'classname': class_name
+        }),    
+        type: "POST",
+        dataType: "json",
+        crossDomain: true,
+        // headers: {
+        //  'x-access-token': tokens
+        // },
+        success: function () {
+            console.log("success");
+            alert("Added class success!");
+            window.location.assign("/manageclass")
+        },
+        error: function () {
+            console.log('error')
+        },
+        complete: function (jqXHR) {
+            if (jqXHR.status == '401') {
+                console.log(jqXHR.status)
+            }
+        }
+    });
+}
+
+</script>
 
 </body>
 </html>

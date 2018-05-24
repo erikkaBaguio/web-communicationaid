@@ -67,7 +67,7 @@
     function classpage(yu) {
         alert(yu);
 
-        var url  = "http://127.0.0.1:5000/api/search_class="+yu;
+        var url  = "https://mighty-badlands-16603.herokuapp.com/api/search_class="+yu;
         var xhr  = new XMLHttpRequest()
         xhr.open('GET', url, true)
         xhr.onload = function () {
@@ -89,7 +89,7 @@
 
 
     $(document).ready(function(){
-        $.getJSON("http://127.0.0.1:5000/api/class",function(data){
+        $.getJSON("https://mighty-badlands-16603.herokuapp.com/api/class",function(data){
             var class_data='';
             $.each(data,function(key,value){
                 class_data += '<tr>';
