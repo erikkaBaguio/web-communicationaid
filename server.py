@@ -71,4 +71,4 @@ server.secret_key = os.urandom(24)
 
 
 if __name__=='__main__':
-    server.run(host='localhost', port=8000, debug=True)
+    server.run(host='localhost', port=5000, debug=True)

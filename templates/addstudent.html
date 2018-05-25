@@ -219,7 +219,7 @@ function autocomplete(inp, arr) {
 var countries = [];
 
     $(document).ready(function(){
-        $.getJSON("https://mighty-badlands-16603.herokuapp.com/api/child/editprofile/<int:c_id>",function(data){
+        $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/child/editprofile/<int:c_id>",function(data){
             $.each(data,function(key,value){
                 
 
@@ -250,7 +250,7 @@ autocomplete(document.getElementById("myInput"), countries);
        alert(search+" "+class_name)
             
         xhr = new XMLHttpRequest();
-        var url = "https://mighty-badlands-16603.herokuapp.com/api/enroll_student="+search;
+        var url = "https://cryptic-fjord-60133.herokuapp.com/api/enroll_student="+search;
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.onreadystatechange = function () { 
@@ -274,7 +274,7 @@ autocomplete(document.getElementById("myInput"), countries);
 
 
     $(document).ready(function(){
-        $.getJSON("https://mighty-badlands-16603.herokuapp.coms/api/child/editprofile",function(data){
+        $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/child/editprofile",function(data){
             var directory_data='';
             $.each(data,function(key,value){
                 directory_data += '<ul>';

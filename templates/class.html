@@ -103,7 +103,7 @@
          $.ajax({
 
                    // url: 'http://127.0.0.1:5000/api/manageclass',
-                   url: 'https://mighty-badlands-16603.herokuapp.com/api/class',
+                   url: 'https://cryptic-fjord-60133.herokuapp.com/api/class',
                    type: "GET",
                    dataType: "json",
                    crossDomain: true,
@@ -163,7 +163,7 @@
  function kick(cl_id){
 
     $.ajax({
-            url: "https:mighty-badlands-16603.herokuapp.com/api/del_class="+cl_id,
+            url: "https://cryptic-fjord-60133.herokuapp.com/api/del_class="+cl_id,
             type: 'DELETE',
             data: JSON.stringify({
             'class_num': cl_id
@@ -218,7 +218,7 @@ function addClass(){
 
     $.ajax({
         // url: 'http://127.0.0.1:5000/api/addClass',
-        url: "https://mighty-badlands-16603.herokuapp.com/api/add_class",
+        url: "https://cryptic-fjord-60133.herokuapp.com/api/add_class",
         contentType: 'application/json; charset=utf-8',
         data: JSON.stringify({
             'classname': class_name
