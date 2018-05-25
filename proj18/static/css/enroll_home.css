@@ -1,0 +1,46 @@
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button1{
+    float: right;
+    background-color: steelblue;
+    background-size: cover;
+    margin: 8px 4px;
+}
+
+.button2 {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    float: center;
+}
+
+table, th, td {
+     border: solid black;
+     text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+th {
+    height: 30px;
+    background-color: white;
+    color: black;
+}

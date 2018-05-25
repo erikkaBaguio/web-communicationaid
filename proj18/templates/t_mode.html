@@ -23,7 +23,7 @@
   <style>
   body {
 
-    background-image: url('static/bgleaves.jpg');
+    background-image: url('static/feathersbg.jpg');
     min-height: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -116,11 +116,11 @@
 <body>
 
   <div class="w3-top">
- <div class="w3-bar w3-right-align w3-large w3-blue">
+ <div class="w3-bar w3-right-align w3-large w3-pink">
   <img class="w3-left" src="static/logo2.png" alt="logo" width="200px" height="70px"/>
-  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-blue" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-  <a href="/logout" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Log Out</a>
-   <a href="/team" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Contact Us</a>
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-pink" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="/logout" class="w3-bar-item w3-button w3-right w3-padding-large w3-pink"></i>Log Out</a>
+   <a href="/team" class="w3-bar-item w3-button w3-right w3-padding-large w3-pink"></i>Contact Us</a>
   </a>
  </div>
 </div>
@@ -132,29 +132,26 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue" style="border-radius: 50px 0 0 0;" id="childclass">
-      <p>Child Class</p>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue" style="border-radius: 50px 0 0 0;">
+      <p>My Profile</p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" style="border-radius: 0 50px 0 0;" id="categories">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" style="border-radius: 0 50px 0 0;">
       <p>Categories</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue" id="childact">
-      <p>Child Activity</p>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue">
+      <p>Classes</p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" id="forum">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green">
       <p>Forum</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box yellow" style="border-radius: 0 0 0 50px;" id="childprof">
-      <p>Child Profile</p>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue" style="border-radius: 0 0 0 50px;">
+      <p>Progress Reports</p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box yellow" id="parentprof">
-      <p>Parent Profile</p>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" style="border-radius: 0 0 50px 0;" id="directory">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" style="border-radius: 0 0 50px 0;">
       <p>Directory</p>
     </div>
   </div>
@@ -163,28 +160,4 @@
 
 </body>
 
-</div>
-
-<script type="text/javascript">
-    document.getElementById("childclass").onclick = function () {
-        location.href = "/child_progress";
-    };
-    document.getElementById("categories").onclick = function () {
-        location.href = "/navigation";
-    };
-    document.getElementById("childact").onclick = function () {
-        location.href = "/child_activity";
-    };
-    document.getElementById("childprof").onclick = function () {
-        location.href = "/child";
-    };
-    document.getElementById("forum").onclick = function () {
-        location.href = "/forum";
-    };
-    document.getElementById("parentprof").onclick = function () {
-        location.href = "/parent";
-    };
-    document.getElementById("directory").onclick = function () {
-        location.href = "/directory";
-    };
-</script>
+</div>  

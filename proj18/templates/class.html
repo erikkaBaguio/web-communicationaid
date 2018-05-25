@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Classes{% endblock %}</title>
+
+
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css2/simple-line-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css2/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css2/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css2/jquery.dataTables.min.css') }}">
+<!--     <link rel="stylesheet" href="{{ url_for('.static', filename='js/jquery.dataTables.min.js') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css2/student.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css2/edit.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css2/W3.css') }}">
+
+
+</head>
+
+        <div class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+        <span class="w3-left w3-padding">
+        <img src="PATicon.png" alt="logo" width="40px" height="auto"/>PIC-A-TALK</span><a href="parentmode.html">
+        <span style="float: right; padding-top: 15px; padding-right: 5px; font-size: 60%;">&lt; Back</span></a>
+        </div>
+
+
+<body onload="viewClas();">
+    <div class=" bgimg container-fluid">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <div class="card">
+                    <br><br><br><br><br><br><br>
+                    <div class="w3-content w3-display-container w3-content w3-wide" style="max-width:500px;min-width:500px">
+    <br>
+        <form method = "post" id="target" onsubmit="return false">
+             <p><input id="class_name" name="class_name" placeholder="Enter class name" type="text"/><span class="pull-center">
+                     <input class="btn btn-primary" id="btn" value="add" name"add" type="submit" onclick="addClass();"></input>
+                 </span>
+             </p> 
+        </form>
+            </div>
+<!--                     <div class="col-md-12">
+                        <a class="btn btn-primary btn-lg pull-right" style="margin-left: 55%;" href="{{ url_for('addClass') }}">Add Class</a>
+                    </div> --> 
+                    <table class="table table-striped table-bordered table-hover" id="mytable">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center">Action</th>
+                                <th style="text-align: center">Class Name</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="view_classname">
+
+                    </tbody>
+
+                    </table>
+
+                    <br>
+                    <br>                
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('.static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('.static', filename='js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('.static', filename='js/jquery.dataTables.min.js') }}"></script>  
+    
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('confirmation');
+        var confirmIt = function (e) {
+            if (!confirm('Are you sure?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready( function () {
+        $('#myTable').DataTable();
+}       );
+    </script>
+
+     <script>
+     var tokens = localStorage.getItem('token');
+         /*$(document).ready(
+         function viewClass(){
+             viewClas();
+             showRes();
+          })*/
+         function viewClas(){
+             $("#view_classname").show();
+         $.ajax({
+
+                   // url: 'http://127.0.0.1:5000/api/manageclass',
+                   url: 'https://mighty-badlands-16603.herokuapp.com/api/class',
+                   type: "GET",
+                   dataType: "json",
+                   crossDomain: true,
+                    // headers: {
+                    //      'x-access-token': tokens
+                    //          },
+                   success: function(resp) {
+                    $("#view_classname").html("");
+                     //if (resp.status  === 'ok') {
+                        for (i = 0; i < resp.length; i++) {
+
+                                       classname = resp[i].class_name;
+                                       classnum = resp[i].class_num;
+                                       console.log(classnum);
+                                       
+                                       $("#view_classname").append(showRes2(classname, parseInt(classnum)));
+                                                                 }
+                     //} else {
+                        // $("#view_classname").html("");
+                        //alert('No Data')
+                            // }
+                                             }
+               });
+                             }
+         function showRes(class_name)
+         {
+            return '<div class="widget-content">'+
+                     '<table class="table table-striped table-bordered" id="view_res">'+
+                         '<tbody><tr class="edit" id="details">'+
+                             '<td>'+ class_name +'</td>'+
+                         '</tr></tbody>' +
+                     '</table>' +
+                '</div>'
+         }
+
+         function showRes2(class_name, class_num){
+            return '<tr>'+
+                '<td>'+
+                '<a class="btn btn-sm btn-danger confirmation" onclick="kick();"><span class="glyphicon glyphicon-trash"></span></a>'+'</td>'+  
+                '<td style="cursor.pointer">'+
+                '<a href="/classPage/'+class_name+'" style="text-align: center">'+class_name+'</a>'+
+            '</td>'+  
+                '</tr>';
+         }
+
+         function table()
+           {
+         $("table.table-bordered").html('<thead><tr>' +
+                 '<th>Acton</th>' +
+                 '<th>Class Name</th>' +
+                 '</tr></thead>')
+           }
+ </script>
+
+ <script>
+
+ function kick(cl_id){
+
+    $.ajax({
+            url: "https:mighty-badlands-16603.herokuapp.com/api/del_class="+cl_id,
+            type: 'DELETE',
+            data: JSON.stringify({
+            'class_num': cl_id
+             }),    
+            contentType:'application/json',  
+            dataType: 'json',
+            crossDomain: true,
+
+         success: function() {
+                 console.log("success");
+                 alert("Deleted success!");
+                 window.location.assign("/manageclass")
+         },
+
+         error: function(result){
+                 console.log('error')
+         },
+
+         complete: function (jqXHR) {
+         if (jqXHR.status == '401') {
+             console.log(jqXHR.status)
+         }
+    }
+});
+
+        }
+
+
+    //  function kick(cl_id){
+        
+    //     alert("bibu");
+    //     xhr = new XMLHttpRequest();
+    //     var url = "https://mighty-badlands-16603.herokuapp.com/api/del_class=<int:cl_id>",
+    //     xhr.open("POST", url, true);
+    //     xhr.setRequestHeader("Content-type", "application/json");
+    //     xhr.onreadystatechange = function () { 
+    //         if (xhr.readyState == 4 && xhr.status == 200) {
+    //             var json = JSON.parse(xhr.responseText);
+    //             location="class.html"  
+    //             alert("Deleted");
+    //         }
+    //     }
+        
+    //     xhr.send();
+
+    // }
+</script>
+
+<script>
+function addClass(){
+    var class_name = $("#class_name").val();
+
+    $.ajax({
+        // url: 'http://127.0.0.1:5000/api/addClass',
+        url: "https://mighty-badlands-16603.herokuapp.com/api/add_class",
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({
+            'classname': class_name
+        }),    
+        type: "POST",
+        dataType: "json",
+        crossDomain: true,
+        // headers: {
+        //  'x-access-token': tokens
+        // },
+        success: function () {
+            console.log("success");
+            alert("Added class success!");
+            window.location.assign("/manageclass")
+        },
+        error: function () {
+            console.log('error')
+        },
+        complete: function (jqXHR) {
+            if (jqXHR.status == '401') {
+                console.log(jqXHR.status)
+            }
+        }
+    });
+}
+
+</script>
+
+</body>
+</html>
