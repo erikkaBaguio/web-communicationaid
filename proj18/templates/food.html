@@ -56,27 +56,27 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
     <div class="w3-quarter hover">
 
-        <img src="static/food/eggs.jpg" style="width:100%" id="egg" onclick="document.getElementById('egg_play').play()" alt="Eggs">
-        <img src="static/food/friedchicken.jpg" style="width:100%" id="friedchicken_img" onclick="document.getElementById('chicken_play').play()" alt="Fried Chicken">
-        <img src="static/food/marshmallow.jpg" style="width:100%" id="marshmallow_img" onclick="document.getElementById('marshmallow_play').play()" alt="Marshmallow">
+        <img src="static/food/eggs.jpg" style="width:100%" id="egg" onclick="onClick(this);document.getElementById('egg_play').play()" alt="Eggs">
+        <img src="static/food/friedchicken.jpg" style="width:100%" id="friedchicken_img" onclick="onClick(this);document.getElementById('chicken_play').play()" alt="Fried Chicken">
+        <img src="static/food/marshmallow.jpg" style="width:100%" id="marshmallow_img" onclick="onClick(this);document.getElementById('marshmallow_play').play()" alt="Marshmallow">
    </div>
 
    <div class="w3-quarter hover">
-      <img src="static/food/hotdog.jpg" style="width:100%" onclick="document.getElementById('hotdog_play').play(); hotdog_clicks(); return false;" alt="Hotdog">
-      <img src="static/food/burger.jpg" style="width:100%" onclick="document.getElementById('burger_play').play(); burger_clicks(); return false;" alt="Burger">
-      <img src="static/food/lollipop.jpg" style="width:100%" onclick="document.getElementById('lollipop_play').play(); lollipop_clicks(); return false;" alt="Lollipop">
+      <img src="static/food/hotdog.jpg" style="width:100%" onclick="onClick(this);document.getElementById('hotdog_play').play(); hotdog_clicks(); return false;" alt="Hotdog">
+      <img src="static/food/burger.jpg" style="width:100%" onclick="onClick(this);document.getElementById('burger_play').play(); burger_clicks(); return false;" alt="Burger">
+      <img src="static/food/lollipop.jpg" style="width:100%" onclick="onClick(this);document.getElementById('lollipop_play').play(); lollipop_clicks(); return false;" alt="Lollipop">
     </div>
 
     <div class="w3-quarter hover">
-      <img src="static/food/pancakes.jpg" style="width:100%" onclick="document.getElementById('pancake_play').play(); pancakes_clicks(); return false;" alt="Pancakes">
-      <img src="static/food/bbq.jpg" style="width:100%" onclick="document.getElementById('bbq_play').play(); bbq_clicks();  return false;" alt="Burger">
-      <img src="static/food/icecream.jpg" style="width:100%" onclick="document.getElementById('icecream_play').play(); icecream_clicks(); return false;" alt="Burger">
+      <img src="static/food/pancakes.jpg" style="width:100%" onclick="onClick(this);document.getElementById('pancake_play').play(); pancakes_clicks(); return false;" alt="Pancakes">
+      <img src="static/food/bbq.jpg" style="width:100%" onclick="onClick(this);document.getElementById('bbq_play').play(); bbq_clicks();  return false;" alt="Burger">
+      <img src="static/food/icecream.jpg" style="width:100%" onclick="onClick(this);document.getElementById('icecream_play').play(); icecream_clicks(); return false;" alt="Burger">
     </div>
 
     <div class="w3-quarter hover">
-      <img src="static/food/cookies.jpg" style="width:100%" onclick="document.getElementById('cookies_play').play(); cookies_clicks(); return false;" alt="Cookies">
-      <img src="static/food/fries.jpg" style="width:100%" onclick="document.getElementById('fries_play').play(); fries_clicks(); return false;" alt="French Fries">
-      <img src="static/food/halo.jpg" style="width:100%" onclick="document.getElementById('halo_play').play(); halo_clicks(); return false;" alt="Halo-halo">
+      <img src="static/food/cookies.jpg" style="width:100%" onclick="onClick(this);document.getElementById('cookies_play').play(); cookies_clicks(); return false;" alt="Cookies">
+      <img src="static/food/fries.jpg" style="width:100%" onclick="onClick(this);document.getElementById('fries_play').play(); fries_clicks(); return false;" alt="French Fries">
+      <img src="static/food/halo.jpg" style="width:100%" onclick="onClick(this);document.getElementById('halo_play').play(); halo_clicks(); return false;" alt="Halo-halo">
     </div>
 
        <audio id="egg_play">
@@ -176,6 +176,39 @@ function w3_open() {
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  var d_image = document.getElementById('caption').getAttribute("src");
+  captionText.innerHTML = element.alt;
+
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  xhr = new XMLHttpRequest();
+    var url = "https://cryptic-fjord-60133.herokuapp.com/api/rec_logs";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText);
+        }
+    }
+    var json =JSON.stringify({"clicks": "1", "log_date":date, "log_time":time, "category_type":"Food", "image_name":element.alt});
+    console.log(json)
+    xhr.send(json);
+
+
+    
+    
+    
+
 }
 
 </script>
