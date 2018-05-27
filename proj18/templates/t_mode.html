@@ -131,27 +131,27 @@
 
 
 <div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue" style="border-radius: 50px 0 0 0;">
+  <div class="row"> 
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue" style="border-radius: 50px 0 0 0;" id="teacherprof">
       <p>My Profile</p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" style="border-radius: 0 50px 0 0;">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" style="border-radius: 0 50px 0 0;" id="educational">
       <p>Categories</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue" id="classes">
       <p>Classes</p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" id="forum">
       <p>Forum</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue" style="border-radius: 0 0 0 50px;">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 box blue" style="border-radius: 0 0 0 50px;" id="progress">
       <p>Progress Reports</p>
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" style="border-radius: 0 0 50px 0;">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" style="border-radius: 0 0 50px 0;" id="directory">
       <p>Directory</p>
     </div>
   </div>
@@ -161,3 +161,24 @@
 </body>
 
 </div>  
+
+<script type="text/javascript">
+    document.getElementById("teacherprof").onclick = function () {
+        location.href = "/teacherprof";
+    };
+    document.getElementById("educational").onclick = function () {
+        location.href = "/educational";
+    };
+    document.getElementById("classes").onclick = function () {
+        location.href = "/classes";
+    };
+    document.getElementById("forum").onclick = function () {
+        location.href = "/forum";
+    };
+    document.getElementById("progress").onclick = function () {
+        location.href = "/progress";
+    };
+    document.getElementById("directory").onclick = function () {
+        location.href = "/directory";
+    };
+</script>
