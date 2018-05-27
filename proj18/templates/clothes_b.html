@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<title>PLACES</title>
+<link rel="shortcut icon" href="static/places/placesicon.png"/>
+<meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
+<link rel="stylesheet" href="static/css/font.css">
+<link rel="stylesheet" href="static/css/font-awesome.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="static/css/agency.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+  <a href="/navigation" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Categories</a>
+  <a href="/child/1" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
+  <a href="/parent/1" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
+  <a href="places_rec.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity: PLACES</a>
+  <a href="welcome.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">
+  <img src="static/places/placesicon.png" alt="logo" width="30px" height="auto"/>PLACES</span>
+    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+  <!-- FOOD -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
+    <div class="w3-quarter">
+        <img src="static/clothes/shirt.png" style="width:100%" onclick="onClick(this);document.getElementById('shirt').play(); return false;" alt="Shirt">
+        <img src="static/clothes/brief.jpg" style="width:100%" onclick="onClick(this);document.getElementById('brief').play(); return false;" alt="Brief">
+        <img src="static/clothes/pajamas.png" style="width:100%" onclick="onClick(this);document.getElementById('pajamas').play(); return false;" alt="Pajamas">
+        </div>
+
+   <div class="w3-quarter">
+      <img src="static/clothes/polo.png" style="width:100%" onclick="onClick(this);document.getElementById('polo').play(); return false;" alt="Polo">
+      <img src="static/clothes/shorts.png" style="width:100%" onclick="onClick(this);document.getElementById('shorts').play(); return false;" alt="Shorts">
+      <img src="static/clothes/shorts.png" style="width:100%" onclick="onClick(this);document.getElementById('shorts').play(); return false;" alt="Shorts">
+   </div>
+
+    <div class="w3-quarter">
+      <img src="static/clothes/tanktop.png" style="width:100%" onclick="onClick(this);document.getElementById('tanktop').play(); return false;" alt="Tanktop">
+      <img src="static/clothes/sweatpants.png" style="width:100%" onclick="onClick(this);document.getElementById('sweatpants').play(); return false;" alt="sweatpants">
+
+    </div>
+
+  </div>
+
+
+    <audio id="jollibee_play">
+    <source src="static/audio/jollibee.mp3"/>
+    </audio>
+    <audio id="mcdo_play">
+    <source src="static/audio/mcdonald's.mp3"/>
+    </audio>
+    <audio id="church_play">
+    <source src="static/audio/church.mp3"/>
+    </audio>
+    <audio id="school_play">
+    <source src="static/audio/school.mp3"/>
+    </audio>
+    <audio id="pool_play">
+    <source src="static/audio/pool.mp3"/>
+    </audio>
+    <audio id="playground_play">
+    <source src="static/audio/playground.mp3"/>
+    </audio>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  var d_image = document.getElementById('caption').getAttribute("src");
+  captionText.innerHTML = element.alt;
+
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  xhr = new XMLHttpRequest();
+    var url = "https://cryptic-fjord-60133.herokuapp.com/api/rec_logs";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText);
+        }
+    }
+    var json =JSON.stringify({"clicks": "1", "log_date":date, "log_time":time, "category_type":"Food", "image_name":element.alt});
+    console.log(json)
+    xhr.send(json); 
+
+}
+</script>
+
+ <script src="jQuery-2.1.4.min.js"></script>
+
+
+
+
+</body>
+</html>

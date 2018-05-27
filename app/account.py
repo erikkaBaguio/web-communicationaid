@@ -17,7 +17,7 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 @app.route('/')
 def welcome():
-    return render_template('welcome.html')
+    return render_template('clothes_b.html')
 
 
 @app.route('/user/<acc_id>', methods=['GET'])
