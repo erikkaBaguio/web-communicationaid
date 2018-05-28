@@ -1,71 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/w3.css">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="/static/bootstrap/js/bootstrap.bundle.js">
+    <link rel="stylesheet" href="/static/bootstrap/js/bootstrap.js">
+    <link rel="stylesheet" href="/static/css/agency.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js">
-<link href="https://code.jquery.com/jquery-1.11.1.min.js">
-<!------ Include the above in your HEAD tag ---------->
+    <title>Pic-A-Talk</title>
+    <style>
+    body {
 
-<div class="container">
-      <!--<div class="row">-->
-      <!--<div class="col-md-5  toppad  pull-right col-md-offset-3 ">-->
-           <!--<A href="edit.html" >Edit Profile</A>-->
+        background-image: url('/static/images/PATbg5.jpg');
+        min-height: 100%;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color:skyblue;
+        font-family:Roboto;
+    }
+    .pad-50 {
+        background-color: #fff;
+        padding: 10% 5%;
+    }
+    .pad-50:first-child {
+        background-color:#f8f9fa;
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+    .pad-50:last-child {
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    .btn-primary {
+        width:100%;
+        margin-top: 13%;
+    }
+    .mar-50 {
+        margin-top: 8%;
+    }
+    </style>
+</head>
+<body>
 
-        <!--<A href="edit.html" >Logout</A>-->
-       <br>
-      </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+    <div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-blue">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-blue" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-left-align w3-large w3-blue">Child's Information</a>
+  <a href="/dashboard" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Home</a>
+   <a href="/team" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Contact Us</a>
+  </a>
+ </div>
+</div>
 
-
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">Edit Parent's Profile</h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center">
-                    <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
-
-                        <strong>Upload Photo!</strong><br>
+    <div class="container mar-50">
+        <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pad-50">
+                    <div class="input-group mb-3">
+                      <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
                          <input id="file-picker" type="file" name="file" accept="image/*" multiple>
                         <div id="msg"></div>
-                        <input type="submit" value="Upload!" id="upload-button">
+                        <br>
+                        <br>
                     </form>
-                </div>
-
-                  <br>
-                  <br>
-                  <div class=" col-md-9 col-lg-9 ">
-                  <table class="table table-user-information">
-                    <tbody>
                     <form method = "post" action="/edit_child/{{ p_id }}">
-                        <table>First Name:<input id="fname_c" name="fname_c" type="text"/></table>
-                        <table>Last Name:<input id="lname_c" name="lname_c" type="text"/></table>
-                        <table>Birthdate: <input id="bday_c" name="bday_c" type="date"/></table>
-                        <table>Diagnosis: <input id="diagnosis" name="diagnosis" type="text"/></table>
-
-
-
-
-                  <!--<a href="#" class="btn btn-primary">My Sales Performance</a>-->
-                  <!--<a href="#" class="btn btn-primary">Team Sales Performance</a>-->
-
-                 <div class="panel-footer">
-                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                        <span class="pull-right">
-                            <button class="btn btn-sm btn-warning" type="submit"><i>Save</i></button>
-                            <button class="btn btn-sm btn-warning" type="submit" onclick="window.location.href='/child/1'"><i class="glyphicon glyphicon-remove"></i></button>
-                        </span>
-                    </div>
-              </form>
-                  </tbody>
-                  </table>
+                        <input type="text" id="fname_c" class="form-control mb-3" placeholder="First Name">
+                        <input type="text" id="lname_c" class="form-control mb-3" placeholder="Last Name">
+                        <input type="date" id="gender_c" class="form-control mb-3" placeholder="Gender">
+                        <input type="date" id="bday_c" class="form-control mb-3" placeholder="Birthdate">
+                        <input type="text" id="diagnosis" class="form-control mb-3" placeholder="Diagnosis">
+                    </form>
+                    <button type="button" class="btn btn-primary" id="upload-button">SAVE</button>
                 </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
+</body>
 
+</div>
+<script
+<script src="/static/bootstrap3/js/bootstrap.min.js"></script>
+<!--<script src="/static/bootstrap3/js/jquery-1.11.1.min.js"></script>-->
+<script src="/static/js/app.js"></script>
+<script src="/static/js/jQuery-3.2.1.min.js"></script>
 
 <script>
 
