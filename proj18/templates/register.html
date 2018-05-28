@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/w3.css">
+    <link rel="stylesheet" href="static/css/font.css">
+    <link rel="stylesheet" href="static/css/font-awesome.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+    <link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+    <link rel="stylesheet" href="static/css/agency.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Pick A Talk</title>
+    <style>
+    body {
+
+        background-image: url('static/images/PATbg5.jpg');
+        min-height: 100%;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color:skyblue;
+        font-family:Roboto;
+    }
+    .pad-50 {
+        background-color: #fff;
+        padding: 10% 5%;
+    }
+    .pad-50:first-child {
+        background-color:#f8f9fa;
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+    .pad-50:last-child {
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    .btn-primary {
+        width:100%;
+        margin-top: 13%;
+    }
+    .mar-50 {
+        margin-top: 8%;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-blue">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-blue" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-left-align w3-large w3-blue">Register to Pic-A-Talk</a>
+  <a href="/login" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Log In</a>
+   <a href="/team" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Contact US</a>
+  </a>
+ </div>
+</div>
+
+    <center><div class="container">
+        <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pad-50">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                      </div>
+                        <input type="text" class="form-control" placeholder="Username">
+                    </div>
+                        <input type="text" class="form-control mb-3" placeholder="Email">
+                        <input type="text" class="form-control mb-3" placeholder="Password">
+                        <input type="text" class="form-control mb-3" placeholder="Confirm Password">
+                    <div class="form-group">
+                    <select class="form-control">
+                        <option value="2">Parent</option>
+                        <option value="1">Teacher</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary">REGISTER</button>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 pad-50">
+                    <h3>a communication-aide for non-verbal kids</h3>
+
+                    <p>Pic-A-Talk is a child-friendly application which aims to assist them in their communication skills. It is a communication-aide specifically made for children with special needs. A less-hassle alternative to communicating with your special one! It's easy to use! Choose a category, click an image and an audio plays the image's name. It's like a translator! It's also a good learning experience since they are exposed to the image and the word, helping them identify things. Parents can also use this app to monitor their child's activity, share stories about their child with other parents and contact the right teachers and therapists. Sign up now!</p>
+                </div>
+        </div>
+    </div></center>
+</body>
+
+</div>
+<script>
+function createuser() {
+    console.log('qwertyuiop')
+    $.ajax({
+        url: 'http:/127.0.0.1:8080/api/signup',
+        contentType: 'application/json; charset=utf-8',
+        data: {
+            'acc_id': $("#acc_id").val(),
+            'acc_type': $("#acc_type").val(),
+            'username': $("#username").val(),
+            'email': $("#email").val(),
+            'password': $("#password").val(),
+        },
+        type: "POST",
+        dataType: "json",
+        crossDomain: true,
+        success: function (resp) {
+                console.log("success")
+
+        },
+        error: function (resp) {
+            window.location.replace('/texts/404.html');
+        }
+    });
+}
+</script>
+<script src="/static/bootstrap3/js/bootstrap.min.js"></script>
+<!--<script src="/static/bootstrap3/js/jquery-1.11.1.min.js"></script>-->
+<script src="/static/js/app.js"></script>
+<script src="/static/js/jQuery-3.2.1.min.js"></script>
