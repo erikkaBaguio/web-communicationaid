@@ -79,8 +79,14 @@
                     <form method = "post" action="/edit_parent/{{ acc_id }}">
                         <input type="text" id="fname_p" class="form-control mb-3" placeholder="First Name">
                         <input type="text" id="lname_p" class="form-control mb-3" placeholder="Last Name">
-                        <input type="date" id="bday_p" class="form-control mb-3" placeholder="Birthdate">
-                        <input type="text" id="diagnosis" class="form-control mb-3" placeholder="Diagnosis">
+                        <input type="date" id="bday_p" class="form-control mb-3" placeholder="Birthdate"> 
+                    <div class="form-group">
+                    <select class="form-control">
+                        <option value="m">Male</option>
+                        <option value="f">Female</option>
+                        </select>
+                    </div>
+                        <input type="text" id="add_p" class="form-control mb-3" placeholder="Home Address">
                     </form>
                     <button type="button" class="btn btn-primary" id="upload-button">SAVE</button>
                 </div>
