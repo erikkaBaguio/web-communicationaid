@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/w3.css">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="/static/bootstrap/js/bootstrap.bundle.js">
+    <link rel="stylesheet" href="/static/bootstrap/js/bootstrap.js">
+    <link rel="stylesheet" href="/static/css/agency.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Pic-A-Talk</title>
+    <style>
+    body {
+
+        background-image: url('/static/images/PATbg5.jpg');
+        min-height: 100%;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color:skyblue;
+        font-family:Roboto;
+    }
+    .pad-50 {
+        background-color: #fff;
+        padding: 10% 5%;
+    }
+    .pad-50:first-child {
+        background-color:#f8f9fa;
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+    .pad-50:last-child {
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    .btn-primary {
+        width:100%;
+        margin-top: 13%;
+    }
+    .mar-50 {
+        margin-top: 8%;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-blue">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-blue" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-left-align w3-large w3-blue">Child's Information</a>
+  <a href="/dashboard" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Home</a>
+   <a href="/team" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Contact Us</a>
+  </a>
+ </div>
+</div>
+
+    <div class="container mar-50">
+        <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pad-50" style="margin-left: 396px;">
+                    <div class="input-group mb-3">
+                      <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+                         <input id="file-picker" type="file" name="file" accept="image/*" multiple>
+                        <div id="msg"></div>
+                        <br>
+                        <br>
+                    </form>
+                    <form method = "post" action="/edit_child/{{ p_id }}">
+                        <input type="text" id="fname_c" class="form-control mb-3" placeholder="First Name">
+                        <input type="text" id="lname_c" class="form-control mb-3" placeholder="Last Name">
+                        <input type="date" id="bday_c" class="form-control mb-3" placeholder="Birthdate">
+                        <input type="text" id="diagnosis" class="form-control mb-3" placeholder="Diagnosis">
+                    <div class="form-group">
+                    <select class="form-control">
+                        <option value="m">Male</option>
+                        <option value="f">Female</option>
+                        </select>
+                    </div>
+                    </form>
+                    <button type="button" class="btn btn-primary" id="upload-button">SAVE</button>
+                </div>
+        </div>
+    </div>
+</body>
+
+</div>
+<script
+<script src="/static/bootstrap3/js/bootstrap.min.js"></script>
+<!--<script src="/static/bootstrap3/js/jquery-1.11.1.min.js"></script>-->
+<script src="/static/js/app.js"></script>
+<script src="/static/js/jQuery-3.2.1.min.js"></script>
+
+<script>
+
+    $("#file-picker").change(function(){
+
+        var input = document.getElementById('file-picker');
+
+        for (var i=0; i<input.files.length; i++)
+        {
+        //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+            var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+
+            if ((ext == 'jpg') || (ext == 'png'))
+            {
+                $("#msg").text("Files are supported")
+            }
+            else
+            {
+                $("#msg").text("Files are NOT supported")
+                document.getElementById("file-picker").value ="";
+            }
+
+        }
+
+
+    } );
+
+</script>
