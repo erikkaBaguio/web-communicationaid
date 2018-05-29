@@ -118,7 +118,6 @@
                                        classname = resp[i].class_name;
                                        classnum = resp[i].class_num;
                                        console.log(classnum);
-                                       
                                        $("#view_classname").append(showRes2(classname, parseInt(classnum)));
 
                                                                  }
@@ -149,7 +148,7 @@
          function showRes2(class_name, class_num){
             return '<tr>'+
                 '<td>'+
-                '<a class="btn btn-sm btn-danger confirmation" onclick="kick();"><span class="glyphicon glyphicon-trash"></span></a>'+'</td>'+  
+                '<a class="btn btn-sm btn-danger confirmation" onclick="delete_class(\''+classnum+'\');"><span class="glyphicon glyphicon-trash"></span></a>'+'</td>'+  
                  '<td style="cursor.pointer" onclick="store_it(\''+class_name+'\')" >'+
                 '<a href="/classPage/'+class_name+' "style="text-align: center" onclick="store_it('+class_name+')" >'+class_name+'</a>'+
             '</td>'+  
@@ -176,55 +175,24 @@
 
  <script>
 
-function kick(cl_id){
-        if (confirm("Are you sure you want to Remove this Class?")) {
-            
-            xhr = new XMLHttpRequest();
-            var url = "https://cryptic-fjord-60133.herokuapp.com/api/del_class="+cl_id;
-            xhr.open("POST", url, true);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.onreadystatechange = function () { 
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    var json = JSON.parse(xhr.responseText);
-                    location="class_page.html"  
-                    alert("Deleted");
-                }
-            }
-            
-            xhr.send();
-        }
-    }
-
-//  function kick(cl_id){
-
-//     $.ajax({
-//             url: "https://cryptic-fjord-60133.herokuapp.com/api/del_class="+cl_id,
-//             type: 'DELETE',
-//             data: JSON.stringify({
-//             'class_num': cl_id
-//              }),    
-//             contentType:'application/json',  
-//             dataType: 'json',
-//             crossDomain: true,
-
-//          success: function() {
-//                  console.log("success");
-//                  alert("Deleted success!");
-//                  window.location.assign("/manageclass")
-//          },
-
-//          error: function(result){
-//                  console.log('error')
-//          },
-
-//          complete: function (jqXHR) {
-//          if (jqXHR.status == '401') {
-//              console.log(jqXHR.status)
-//          }
-//     }
-// });
-
-//         }
+ function delete_class(val){
+     if (confirm("Are you sure you want to DELETE?")) {
+         var url  = "https://cryptic-fjord-60133.herokuapp.com/api/del_class="+val;
+         var xhr  = new XMLHttpRequest()
+         xhr.open('GET', url, true)
+         xhr.onload = function () {
+             var users = JSON.parse(xhr.responseText);
+             if (xhr.readyState == 4 && xhr.status == "200") {
+                 alert('Successfully deleted');
+                 location = "/manageclass"
+             } else {
+                 alert('error')
+             }
+         }
+         xhr.send(null);
+         alert(val)
+     }
+ }
 
 
 </script>
