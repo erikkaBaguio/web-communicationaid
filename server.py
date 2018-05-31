@@ -16,7 +16,7 @@ def teacher():
 @server.route('/manageclass')
 def manageclass():
       # if 'user' in session and session['role'] == '1':
-        manageclass = Class.query.order_by(Class.class_name).all()
+        # manageclass = Class.query.order_by(Class.class_name).all()
         return render_template('class.html', manageclass=manageclass)
       # else:
       #     flash('You are not logged in! Please log in below!')
@@ -32,9 +32,9 @@ def addClass():
 @server.route('/classPage/<class_name>')
 def classPage(class_name):
       # if 'user' in session and session['role'] == '1':
-        classes = Class.query.filter_by(class_name=class_name).first()
-        students = Child.query.filter_by(c_id=Child.c_id).all()
-        return render_template('classPage.html', Class=classes, students=students)
+        # classes = Class.query.filter_by(class_name=class_name).first()
+        # students = Child.query.filter_by(c_id=Child.c_id).all()
+        return render_template('classPage.html', Class=manageclass, students=students)
       # else:
       #     flash('You are not logged in! Please log in below!')
       #     return render_template('login.html')   
@@ -42,7 +42,7 @@ def classPage(class_name):
 @app.route('/students')
 def students():
       # if 'user' in session and session['role'] == '1':
-        students = Child.query.order_by(Child.c_id).all()
+        # students = Child.query.order_by(Child.c_id).all()
         return render_template('students.html', Child=students)
       # else:
       #     flash('You are not logged in! Please log in below!')
