@@ -19,22 +19,11 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
  <script src="jQuery-2.1.4.min.js"></script>
  <script src="../static/js/app.js"></script>
 <body class="w3-light-grey">
-
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
-  <a href="/navigation" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Categories</a>
-  <a href="/child" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
-  <a href="/parent" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
-  <a href="/activity" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity: FOOD</a>
-  <a href="welcome.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
-</nav>
-
-
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
   <span class="w3-left w3-padding">
-  <img src="static/food/foodicon.png" alt="logo" width="30px" height="auto"/>ALPHABET</span>
-    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+  <img src="/static/EDUCATIONAL/alphabets.png" alt="logo" width="30px" height="auto"/>ALPHABET</span>
+  <a href="/educational"><span style="float: right; padding-top:15px; padding-right: 5px; font-size:90%;">Back</span></a>
 </header>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -54,42 +43,42 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- FOOD -->
   <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
     <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/ALPHABET/A.jpg" style="width:100%" id="A" onclick="document.getElementById('A_play').play(); return false;" alt="A">
-        <img src="static/EDUCATIONAL/ALPHABET/E.png" style="width:100%" id="E" onclick="document.getElementById('E_play').play(); return false;" alt="E">
-        <img src="static/EDUCATIONAL/ALPHABET/I.png" style="width:100%" id="I" onclick="document.getElementById('I_play').play(); return false;" alt="I">
-        <img src="static/EDUCATIONAL/ALPHABET/M.png" style="width:100%" id="M" onclick="document.getElementById('M_play').play(); return false;" alt="M">
-        <img src="static/EDUCATIONAL/ALPHABET/Q.png" style="width:100%" id="Q" onclick="document.getElementById('Q_play').play(); return false;" alt="Q">
-        <img src="static/EDUCATIONAL/ALPHABET/U.png" style="width:100%" id="U" onclick="document.getElementById('U_play').play(); return false;" alt="U">
+        <img src="static/EDUCATIONAL/ALPHABET/A.jpg" style="width:100%" id="A" onclick="onClick(this);document.getElementById('A_play').play(); return false;" alt="A">
+        <img src="static/EDUCATIONAL/ALPHABET/E.png" style="width:100%" id="E" onclick="onClick(this);document.getElementById('E_play').play(); return false;" alt="E">
+        <img src="static/EDUCATIONAL/ALPHABET/I.png" style="width:100%" id="I" onclick="onClick(this);document.getElementById('I_play').play(); return false;" alt="I">
+        <img src="static/EDUCATIONAL/ALPHABET/M.png" style="width:100%" id="M" onclick="onClick(this);document.getElementById('M_play').play(); return false;" alt="M">
+        <img src="static/EDUCATIONAL/ALPHABET/Q.png" style="width:100%" id="Q" onclick="onClick(this);document.getElementById('Q_play').play(); return false;" alt="Q">
+        <img src="static/EDUCATIONAL/ALPHABET/U.png" style="width:100%" id="U" onclick="onClick(this);document.getElementById('U_play').play(); return false;" alt="U">
    </div>
 
    <div class="w3-quarter hover">
-      <img src="static/EDUCATIONAL/ALPHABET/B.png" style="width:100%" id="B" onclick="document.getElementById('B_play').play(); return false;" alt="B">
-      <img src="static/EDUCATIONAL/ALPHABET/F.png" style="width:100%" id="F" onclick="document.getElementById('F_play').play(); return false;" alt="F">
-      <img src="static/EDUCATIONAL/ALPHABET/J.png" style="width:100%" id="J" onclick="document.getElementById('J_play').play(); return false;" alt="J">
-      <img src="static/EDUCATIONAL/ALPHABET/N.png" style="width:100%" id="N" onclick="document.getElementById('N_play').play(); return false;" alt="N">
-      <img src="static/EDUCATIONAL/ALPHABET/R.png" style="width:100%" id="R" onclick="document.getElementById('R_play').play(); return false;" alt="R">
-      <img src="static/EDUCATIONAL/ALPHABET/V.png" style="width:100%" id="V" onclick="document.getElementById('V_play').play(); return false;" alt="V">
-      <img src="static/EDUCATIONAL/ALPHABET/Y.png" style="width:100%" id="Y" onclick="document.getElementById('Y_play').play(); return false;" alt="Y">
+      <img src="static/EDUCATIONAL/ALPHABET/B.png" style="width:100%" id="B" onclick="onClick(this);document.getElementById('B_play').play(); return false;" alt="B">
+      <img src="static/EDUCATIONAL/ALPHABET/F.png" style="width:100%" id="F" onclick="onClick(this);document.getElementById('F_play').play(); return false;" alt="F">
+      <img src="static/EDUCATIONAL/ALPHABET/J.png" style="width:100%" id="J" onclick="onClick(this);document.getElementById('J_play').play(); return false;" alt="J">
+      <img src="static/EDUCATIONAL/ALPHABET/N.png" style="width:100%" id="N" onclick="onClick(this);document.getElementById('N_play').play(); return false;" alt="N">
+      <img src="static/EDUCATIONAL/ALPHABET/R.png" style="width:100%" id="R" onclick="onClick(this);document.getElementById('R_play').play(); return false;" alt="R">
+      <img src="static/EDUCATIONAL/ALPHABET/V.png" style="width:100%" id="V" onclick="onClick(this);document.getElementById('V_play').play(); return false;" alt="V">
+      <img src="static/EDUCATIONAL/ALPHABET/Y.png" style="width:100%" id="Y" onclick="onClick(this);document.getElementById('Y_play').play(); return false;" alt="Y">
 
     </div>
 
     <div class="w3-quarter hover">
-      <img src="static/EDUCATIONAL/ALPHABET/C.png" style="width:100%" id="C" onclick="document.getElementById('C_play').play(); return false;" alt="C">
-      <img src="static/EDUCATIONAL/ALPHABET/G.png" style="width:100%" id="G" onclick="document.getElementById('G_play').play(); return false;" alt="G">
-      <img src="static/EDUCATIONAL/ALPHABET/K.png" style="width:100%" id="K" onclick="document.getElementById('K_play').play(); return false;" alt="K">
-      <img src="static/EDUCATIONAL/ALPHABET/O.png" style="width:100%" id="O" onclick="document.getElementById('O_play').play(); return false;" alt="O">
-      <img src="static/EDUCATIONAL/ALPHABET/S.png" style="width:100%" id="S" onclick="document.getElementById('S_play').play(); return false;" alt="S">
-      <img src="static/EDUCATIONAL/ALPHABET/W.png" style="width:100%" id="W" onclick="document.getElementById('W_play').play(); return false;" alt="W">
-      <img src="static/EDUCATIONAL/ALPHABET/Z.png" style="width:100%" id="Z" onclick="document.getElementById('Z_play').play(); return false;" alt="Z">
+      <img src="static/EDUCATIONAL/ALPHABET/C.png" style="width:100%" id="C" onclick="onClick(this);document.getElementById('C_play').play(); return false;" alt="C">
+      <img src="static/EDUCATIONAL/ALPHABET/G.png" style="width:100%" id="G" onclick="onClick(this);document.getElementById('G_play').play(); return false;" alt="G">
+      <img src="static/EDUCATIONAL/ALPHABET/K.png" style="width:100%" id="K" onclick="onClick(this);document.getElementById('K_play').play(); return false;" alt="K">
+      <img src="static/EDUCATIONAL/ALPHABET/O.png" style="width:100%" id="O" onclick="onClick(this);document.getElementById('O_play').play(); return false;" alt="O">
+      <img src="static/EDUCATIONAL/ALPHABET/S.png" style="width:100%" id="S" onclick="onClick(this);document.getElementById('S_play').play(); return false;" alt="S">
+      <img src="static/EDUCATIONAL/ALPHABET/W.png" style="width:100%" id="W" onclick="onClick(this);document.getElementById('W_play').play(); return false;" alt="W">
+      <img src="static/EDUCATIONAL/ALPHABET/Z.png" style="width:100%" id="Z" onclick="onClick(this);document.getElementById('Z_play').play(); return false;" alt="Z">
     </div>
 
     <div class="w3-quarter hover">
-      <img src="static/EDUCATIONAL/ALPHABET/D.png" style="width:100%" id="D" onclick="document.getElementById('D_play').play(); return false;" alt="D">
-      <img src="static/EDUCATIONAL/ALPHABET/H.png" style="width:100%" id="H" onclick="document.getElementById('H_play').play(); return false;" alt="H">
-      <img src="static/EDUCATIONAL/ALPHABET/L.png" style="width:100%" id="L" onclick="document.getElementById('L_play').play(); return false;" alt="L">
-      <img src="static/EDUCATIONAL/ALPHABET/P.png" style="width:100%" id="P" onclick="document.getElementById('P_play').play(); return false;" alt="P">
-      <img src="static/EDUCATIONAL/ALPHABET/T.png" style="width:100%" id="T" onclick="document.getElementById('T_play').play(); return false;" alt="T">
-      <img src="static/EDUCATIONAL/ALPHABET/X.png" style="width:100%" id="X" onclick="document.getElementById('X_play').play(); return false;" alt="X">
+      <img src="static/EDUCATIONAL/ALPHABET/D.png" style="width:100%" id="D" onclick="onClick(this);document.getElementById('D_play').play(); return false;" alt="D">
+      <img src="static/EDUCATIONAL/ALPHABET/H.png" style="width:100%" id="H" onclick="onClick(this);document.getElementById('H_play').play(); return false;" alt="H">
+      <img src="static/EDUCATIONAL/ALPHABET/L.png" style="width:100%" id="L" onclick="onClick(this);document.getElementById('L_play').play(); return false;" alt="L">
+      <img src="static/EDUCATIONAL/ALPHABET/P.png" style="width:100%" id="P" onclick="onClick(this);document.getElementById('P_play').play(); return false;" alt="P">
+      <img src="static/EDUCATIONAL/ALPHABET/T.png" style="width:100%" id="T" onclick="onClick(this);document.getElementById('T_play').play(); return false;" alt="T">
+      <img src="static/EDUCATIONAL/ALPHABET/X.png" style="width:100%" id="X" onclick="onClick(this);document.getElementById('X_play').play(); return false;" alt="X">
     </div>
 
  
@@ -194,6 +183,12 @@ function w3_open() {
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
+}// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
 }
 
 </script>

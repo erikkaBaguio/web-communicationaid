@@ -18,21 +18,13 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
 <body class="w3-light-grey">
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
-  <a href="/navigation" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Categories</a>
-  <a href="/child" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
-  <a href="/parent" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
-  <a href="/activity" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity: FOOD</a>
-  <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
-</nav>
 
 
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
   <span class="w3-left w3-padding">
-  <img src="static/food/foodicon.png" alt="logo" width="30px" height="auto"/>COLORS</span>
-    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+  <img src="static/EDUCATIONAL/colors.png" alt="logo" width="30px" height="auto"/>COLORS</span>
+  <a href="/educational"><span style="float: right; padding-top:15px; padding-right: 5px; font-size:90%;">Back</span></a>
 </header>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -52,24 +44,24 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <!-- FOOD -->
   <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
     <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/COLORS/red.png" style="width:100%" id="A" onclick="document.getElementById('red_play').play();return false;" alt="A">
-        <img src="static/EDUCATIONAL/COLORS/violet.png" style="width:100%" id="E" onclick="document.getElementById('violet_play').play();return false;" alt="E">
+        <img src="static/EDUCATIONAL/COLORS/red.png" style="width:100%" id="A" onclick="onClick(this);document.getElementById('red_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/COLORS/violet.png" style="width:100%" id="E" onclick="onClick(this);document.getElementById('violet_play').play();return false;" alt="E">
    </div>
 
    <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/COLORS/blue.png" style="width:100%" id="I" onclick="document.getElementById('blue_play').play();return false;" alt="I">
-        <img src="static/EDUCATIONAL/COLORS/green.png" style="width:100%" id="M" onclick="document.getElementById('green_play').play();return false;" alt="M">
+        <img src="static/EDUCATIONAL/COLORS/blue.png" style="width:100%" id="I" onclick="onClick(this);document.getElementById('blue_play').play();return false;" alt="I">
+        <img src="static/EDUCATIONAL/COLORS/green.png" style="width:100%" id="M" onclick="onClick(this);document.getElementById('green_play').play();return false;" alt="M">
 
     </div>
 
     <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/COLORS/yellow.png" style="width:100%" id="Q" onclick="document.getElementById('yellow_play').play();return false;" alt="Q">
-        <img src="static/EDUCATIONAL/COLORS/orange.png" style="width:100%" id="U" onclick="document.getElementById('orange_play').play();return false;" alt="U">
+        <img src="static/EDUCATIONAL/COLORS/yellow.png" style="width:100%" id="Q" onclick="onClick(this);document.getElementById('yellow_play').play();return false;" alt="Q">
+        <img src="static/EDUCATIONAL/COLORS/orange.png" style="width:100%" id="U" onclick="onClick(this);document.getElementById('orange_play').play();return false;" alt="U">
     </div>
 
     <div class="w3-quarter hover">
-        <img src="static/EDUCATIONAL/COLORS/white.png" style="width:100%" id="Y" onclick="document.getElementById('white_play').play();return false;" alt="Y">
-        <img src="static/EDUCATIONAL/COLORS/black.png" style="width:100%" id="Y" onclick="document.getElementById('black_play').play();return false;" alt="Y">
+        <img src="static/EDUCATIONAL/COLORS/white.png" style="width:100%" id="Y" onclick="onClick(this);document.getElementById('white_play').play();return false;" alt="Y">
+        <img src="static/EDUCATIONAL/COLORS/black.png" style="width:100%" id="Y" onclick="onClick(this);document.getElementById('black_play').play();return false;" alt="Y">
     </div>
 
     <!--<div class="w3-quarter">-->
@@ -119,6 +111,12 @@ function w3_close() {
     document.getElementById("myOverlay").style.display = "none";
 }
 
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
 </script>
 
  <script src="jQuery-2.1.4.min.js"></script>
