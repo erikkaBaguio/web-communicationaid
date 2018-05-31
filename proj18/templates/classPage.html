@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Home</title>
+    <!-- <script src="js/enroll1.js"> </script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/class.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/enroll_home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/simple-line-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/menubar.css') }}">
+
+    <style>
+* {
+  box-sizing: border-box;
+}
+body {
+  font: 16px Arial;  
+}
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+</style>
+
+</head>
+
+
+        <div class="w3-container w3-top w3-pink w3-xlarge w3-padding-16">
+        <span class="w3-left w3-padding">
+        <img src="/static/images/PATicon.png" alt="logo" width="40px" height="auto"/>PIC-A-TALK</span><a href="/manageclass">
+        <span style="float: right; padding-top: 15px; padding-right: 5px; font-size: 60%;">&lt; Back</span></a>
+        </div>
+
+<!--         <div class="w3-top">
+         <div class="w3-bar w3-right-align w3-large w3-pink">
+          <img class="w3-left" src="static/logo2.png" alt="logo" width="200px" height="70px"/>
+          <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-pink" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+          <a href="/logout" class="w3-bar-item w3-button w3-right w3-padding-large w3-pink"></i>Log Out</a>
+           <a href="/team" class="w3-bar-item w3-button w3-right w3-padding-large w3-pink"></i>Contact Us</a>
+          </a>
+         </div>
+        </div> -->
+
+
+<body>
+    <div class=" bgimg container-fluid">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <div class="card">
+                    <center>
+                        <h1 id="class_name"></h1>
+        <br><br><br><br><br><br><br>                        
+        <div class="w3-content w3-display-container w3-content w3-wide" style="max-width:500px;min-width:500px">
+            <center><h1 id="class_belong"></h1></center><br>
+            <form>
+                <div class="autocomplete">
+                    <div class="input-group input-group-lg" style="margin-bottom: 10%; w3-centered">
+                    <input id="myInput" class="form-control" type="text" placeholder="Enter Full Name">
+                    </ul>
+                    <div class="input-group-btn">
+                    <button type="button" class="btn btn-primary btn-lg" onclick="enroll_that_shit()">Add</button>
+                    </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </center>
+                   <!--  <br><br><br><br><br><br><br>    
+                   <div class="col-lg-12">
+                        <h1 id="class_belong"></h1>
+                        <button type="button" class="btn btn-primary btn-lg" onclick="goto_enroll1()" style="margin-left: 55%;">Add Student</button><br><br>
+                    </div>  -->
+                    
+                    <table class="table table-striped table-bordered table-hover" id="class">
+                        <tr>
+                            <thead> 
+                                <th >Action</th>
+                                <th >Student Name</th>  
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                   
+                                </tr>
+<!--                                 <td>
+                                    <a class="btn btn-sm btn-danger confirmation" href="/deleteClass/{{ Class.class_num }}"><span class="glyphicon glyphicon-trash"></span></a>
+                                </td>  
+                                <td style="cursor.pointer">
+                                    <a onclick="goto_classpage()" style="text-align: center">{{ Class.class_name}}
+                                </td>  -->              
+                            </tbody>  
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    var classname = localStorage.getItem('class_name');
+    console.log(classname);
+    document.getElementById("class_name").innerHTML = classname;
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+      });
+}
+var countries = [];
+    $(document).ready(function(){
+        $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/child",function(data){
+            $.each(data,function(key,value){
+                
+                countries.push(value.full_name);
+                
+            });
+            
+        });
+    });
+/*An array containing all the country names in the world:*/
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput"), countries);
+</script>
+
+
+</body>
+</html>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    function kick(c_id){
+        if (confirm("Are you sure you want to Remove this Student?")) {
+            
+            xhr = new XMLHttpRequest();
+            var url = "https://cryptic-fjord-60133.herokuapp.com/api/kick_student="+c_id;
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () { 
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var json = JSON.parse(xhr.responseText);
+                    location="class_page.html"  
+                    alert("Deleted");
+                }
+            }
+            
+            xhr.send();
+        }
+    }
+    function about(val){
+        alert(val)
+        var url  = "https://cryptic-fjord-60133.herokuapp.com/api/child/"+val;
+        var xhr  = new XMLHttpRequest()
+        xhr.open('GET', url, true)
+        xhr.onload = function () {
+            
+            if (xhr.readyState == 4 && xhr.status == "200") {
+                var json = JSON.parse(xhr.responseText);
+                console.log(json)
+                var fullname = json.user.fname_c +" "+ json.user.lname_c
+                localStorage.setItem('childid', val);
+                localStorage.setItem('name', fullname);
+                localStorage.setItem('diagnosis', json.user.diagnosis);
+                localStorage.setItem('bday_c', json.user.bday_c);
+                
+                alert(xhr.responseText)
+                location = "report.html"
+            } else {
+                alert('igit')
+            }
+        }
+        xhr.send(null);
+    }
+    var classname = localStorage.getItem('class_name');
+
+    document.getElementById("class_belong").innerHTML = classname;
+    $(document).ready(function(){
+        $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/child_belong="+classname,function(data){
+            var class_data='';
+            $.each(data,function(key,value){
+                class_data += '<tr>';
+                val = value.full_name;
+                yu =value.c_id;
+                class_data += '<td><a class="btn btn-sm btn-danger confirmation"onclick="kick('+yu+')""><span class="glyphicon glyphicon-trash"></span></a></td>';
+            
+                class_data += '<td>'+val+'</td>';
+                
+                class_data += '</tr>';
+            });
+            $('#class').append(class_data);
+        });
+    });
+    // var table = document.getElementById("directory_table"),rIndex;
+    // for(var i = 0; i < table.rows.length; i++){
+    //  table.rows[i].onclick = function(){
+    //      rIndex = this.rowIndex;
+    //      console.log(rIndex);
+    //  };
+    // }
+    function enroll_that_shit(){
+        var search = document.getElementById('myInput').value;
+        var class_name = localStorage.getItem('class_name');
+       alert(search+" "+class_name)
+            
+        xhr = new XMLHttpRequest();
+        var url = "https://cryptic-fjord-60133.herokuapp.com/api/enroll_student="+search;
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onreadystatechange = function () { 
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var json = JSON.parse(xhr.responseText);
+                alert("enrolled")
+                console.log(json.message);
+                location="class_page.html"  
+            }
+        }
+        var json =JSON.stringify({"class_name": class_name});
+        console.log(json)
+        xhr.send(json);
+        
+        
+        
+       
+    }
+    $(document).ready(function(){
+        $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/child",function(data){
+            var directory_data='';
+            $.each(data,function(key,value){
+                directory_data += '<ul>';
+                
+                //store
+                val = value.fname_c+" "+value.lname_c;
+                directory_data += '<li><a>'+value.full_name+'</a></li>';
+                directory_data += '</ul>';
+            });
+            $('#myUL').append(directory_data);
+        });
+    });
+</script>
