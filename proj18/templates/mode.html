@@ -21,38 +21,111 @@
 
 body {
     background-image: url('/static/images/leaves.jpg');
-    min-height: 100%;
+    /*min-height: 100%;*/
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
 }
-.parent{
-	width:270px;
-	height:190px;
-	position:absolute;
-	left:40%;
-	top:50%;
-	margin:-75px 0 0 -135px;
-}
-.child{
-	width:270px;
-	height:190px;
-	position:absolute;
-	left:60%;
-	top:50%;
-	margin:-75px 0 0 -135px;
-}
+
+  .container {
+    margin-top: 8%;
+    border-radius:  50px;
+    box-shadow: 0px 0px 0px 0px #023258;
+
+    /*-webkit-box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);*/
+    /*-moz-box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);*/
+     /*box-shadow: 2px 4px 18px -4px rgba(222,182,222,0.7);*/
+
+/*      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      flex-wrap: wrap;
+      width: 80vw;
+      margin: 0 auto;
+      min-height: 100vh;*/
+  }
+  .pad-50 {
+    background-color: #fff;
+    padding: 10% 5%;
+  }
+  .pad-50:first-child {
+    background-color:#f8f9fa;
+    border-bottom-left-radius: 15px;
+      border-top-left-radius: 15px;
+  }
+  .pad-50:last-child {
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  .btn-primary {
+    width:100%;
+    margin-top: 13%;
+  }
+  .mar-50 {
+    margin-top: 8%;
+  }
+  .row{
+    border-radius: 25px;
+    text-align: center;
+  }
+  .blue p, .green p,.yellow p {
+     color:#fff;
+    font-size:20px;
+    font-family:Roboto;
+    font-weight: 900;
+    font-size: 30px;
+    text-shadow: 5px 5px 10px #343a40;
+
+  }
+  .blue:hover, .green:hover, .yellow:hover {
+    background-position: right center;
+  }
+  .box {
+    flex: 1 1 auto;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+  }
+  .blue {
+    padding:5%;   
+    background-image:linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+    border:solid 1px white;
+  }
+  .green {
+    padding:5%;   
+    background-image:linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+    border:solid 1px white;
+  }
+  .yellow {
+    padding:5%;   
+    background-image:linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
+    border:solid 1px white;  
+
+  }
 </style>
 <body>
-<div class="row">
-  <div class="column">
-      <a href="/parent_mode/<acc_id>"><img src="/static/images/parent.png" alt="parent" class="parent"></a>
-  </div>
-  <div class="column">
-      <a href="/navigation"><img src="/static/images/child.png" alt="child" class="child" href="/child_mode/"></a>
+  <div class="container" style="margin-top: 400px; margin-left: 500px">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box blue" style="border-radius: 50px 50px 50px 50px;" id="pmode">
+      <p>Parent Mode</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box green" style="border-radius: 50px 50px 50px 50px; margin-left: 150px" id="cmode">
+      <p>Child Mode</p>
+    </div>
   </div>
 </div>
 
+<script type="text/javascript">
+    document.getElementById("cmode").onclick = function () {
+        location.href = "/navigation";
+    };
+    document.getElementById("pmode").onclick = function () {
+        location.href = "/dashboard";
+      };
+  </script>
 </body></html>
