@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<title>TOYS</title>
+<link rel="shortcut icon" href="static/toys/toyicon.png"/>
+<meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
+<link rel="stylesheet" href="static/css/font.css">
+<link rel="stylesheet" href="static/css/font-awesome.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="static/css/agency.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
+
+
+  <div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-blue">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-blue" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-left-align w3-large w3-blue">Edit Places</a>
+   <a href="/edit_cat" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Back</a>
+  <div class="w3-bar-item w3-button w3-right w3-padding-large w3-blue" onclick="upload();"></i>Upload</div>
+  </a>
+ </div>
+</div>
+<script>
+        function upload(){
+          localStorage.setItem('Cat_type', "Toys");
+          location="/upload";
+
+        }
+        function back(){
+          location = "/edit_cat";
+        }
+      </script>
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+  <!-- FOOD -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
+    <div class="w3-quarter">
+        <img src="static/toys/stack.jpg" style="width:100%" onclick="onClick(this);document.getElementById('stack_play').play(); stack_clicks(); return false;" alt="Stack">
+        <img src="static/toys/ball.jpg" style="width:100%" onclick="onClick(this);document.getElementById('ball_play').play(); ball_clicks(); return false;" alt="Ball">
+        <img src="static/toys/car.jpg" style="width:100%" onclick="onClick(this);document.getElementById('car_play').play(); car_clicks();  return false;" alt="Car">
+   </div>
+
+   <div class="w3-quarter">
+      <img src="static/toys/puzzle.jpg" style="width:100%" onclick="onClick(this);document.getElementById('puzzle_play').play(); puzzle_clicks(); return false;" alt="Puzzle">
+      <img src="static/toys/swing.jpg" style="width:100%" onclick="onClick(this);document.getElementById('swing_play').play(); swing_clicks(); return false;" alt="Swing">
+      <img src="static/toys/teddy.jpg" style="width:100%" onclick="onClick(this);document.getElementById('teddy_play').play(); teddy_clicks(); return false;" alt="Teddy">
+    </div>
+
+    <div class="w3-quarter">
+      <img src="static/toys/doodlepad.jpg" style="width:100%" onclick="onClick(this);document.getElementById('doodle_play').play(); doodle_clicks(); return false;" alt="Doodle Pad">
+      <img src="static/toys/lego.jpg" style="width:100%" onclick="onClick(this);document.getElementById('lego_play').play(); lego_clicks(); return false;" alt="Legos">
+      <img src="static/toys/flashcards.jpg" style="width:100%" onclick="onClick(this);document.getElementById('flash_play').play(); flash_clicks(); return false;" alt="Flashcards">
+    </div>
+
+    <div class="w3-quarter">
+      <img src="static/toys/rattle.jpg" style="width:100%" onclick="onClick(this);document.getElementById('rattle_play').play(); rattle_clicks(); return false;" alt="Rattle">
+      <img src="static/toys/trampoline.jpg" style="width:100%" onclick="onClick(this);document.getElementById('trampoline_play').play(); trampoline_clicks(); return false;" alt="Trampoline">
+      <img src="static/toys/slide.jpg" style="width:100%" onclick="onClick(this);document.getElementById('slide_play').play(); slide_clicks(); return false;" alt="Slide">
+    </div>
+  </div>
+
+
+    <audio id="ball_play">
+    <source src="static/audio/ball.mp3" />
+    </audio>
+    <audio id="stack_play">
+    <source src="static/audio/stack.mp3"/>
+    </audio>
+    <audio id="car_play">
+    <source src="static/audio/car.mp3"/>
+    </audio>
+    <audio id="puzzle_play">
+    <source src="static/audio/puzzle.mp3"/>
+    </audio>
+    <audio id="swing_play">
+    <source src="static/audio/swing.mp3"/>
+    </audio>
+    <audio id="teddy_play">
+    <source src="static/audio/teddy_bear.mp3"/>
+    </audio>
+    <audio id="lego_play">
+    <source src="static/audio/lego.mp3"/>
+    </audio>
+    <audio id="flash_play">
+    <source src="static/audio/flashcards.mp3"/>
+    </audio>
+    <audio id="doodle_play">
+    <source src="static/audio/doodle_pad.mp3"/>
+    </audio>
+    <audio id="rattle_play">
+    <source src="static/audio/rattle.mp3"/>
+    </audio>
+    <audio id="trampoline_play">
+    <source src="static/audio/trampoline.mp3"/>
+    </audio>
+    <audio id="slide_play">
+    <source src="static/audio/slide.mp3"/>
+    </audio>
+
+
+<!-- End page content -->
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var c_id = localStorage.getItem("c_id");
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  xhr = new XMLHttpRequest();
+    var url = "https://cryptic-fjord-60133.herokuapp.com/api/rec_logs";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText);
+        }
+    }
+    var json =JSON.stringify({"clicks": "1",'c_id':c_id, "log_date":date, "log_time":time, "category_type":"Clothes", "image_name":element.alt});
+    console.log(json)
+    xhr.send(json);
+
+
+    
+
+}
+
+
+$(document).ready(function(){
+  var acc_id = localStorage.getItem('acc_id');
+    $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/v3/spec_categories/"+acc_id+"/Clothes",function(data){
+      var pictures='';
+      $.each(data,function(key,value){
+
+        pictures += '<img src="'+value.img+'" style="width:32%" onclick="onClick(this); adiioplay(\''+value.aud+'\'); return false;" alt="'+value.image_name+'">';
+
+      });
+      $('#loadpics').append(pictures);
+    });
+  });
+
+function adiioplay(val){
+  audio = new Audio(val);
+  audio.play();
+}
+
+
+
+function logout(){
+    location = "login.html"
+ }
+
+</script>
+
+
+
+</body>
+</html>

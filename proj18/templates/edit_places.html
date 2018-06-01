@@ -19,14 +19,24 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 
   <div class="w3-top">
- <div class="w3-bar w3-right-align w3-large w3-green">
-  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-green" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-    <a class="w3-bar-item w3-left-align w3-large w3-green">Places</a>
-  <a href="/navigation"><span style="float: right; padding-top:15px; padding-right: 5px; font-size:90%;">Back</span></a>
+ <div class="w3-bar w3-right-align w3-large w3-blue">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-blue" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-left-align w3-large w3-blue">Edit Places</a>
+   <a href="/edit_cat" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Back</a>
+  <div class="w3-bar-item w3-button w3-right w3-padding-large w3-blue" onclick="upload();"></i>Upload</div>
   </a>
  </div>
 </div>
+<script>
+        function upload(){
+          localStorage.setItem('Cat_type', "Places");
+          location="/upload";
 
+        }
+        function back(){
+          location = "/edit_cat";
+        }
+      </script>
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
@@ -84,13 +94,14 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- End page content -->
 </div>
 
+<script src="js/jquery-3.3.1.min.js"></script>
 <script>
 // Script to open and close sidebar
 function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
 }
-
+ 
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
@@ -100,13 +111,60 @@ function w3_close() {
 function onClick(element) {
   document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
+  var c_id = localStorage.getItem("c_id");
   var captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
+
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  xhr = new XMLHttpRequest();
+    var url = "https://cryptic-fjord-60133.herokuapp.com/api/rec_logs";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText);
+        }
+    }
+    var json =JSON.stringify({"clicks": "1",'c_id':c_id, "log_date":date, "log_time":time, "category_type":"Clothes", "image_name":element.alt});
+    console.log(json)
+    xhr.send(json);
+
+
+    
+
 }
+
+
+$(document).ready(function(){
+  var acc_id = localStorage.getItem('acc_id');
+    $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/v3/spec_categories/"+acc_id+"/Clothes",function(data){
+      var pictures='';
+      $.each(data,function(key,value){
+
+        pictures += '<img src="'+value.img+'" style="width:32%" onclick="onClick(this); adiioplay(\''+value.aud+'\'); return false;" alt="'+value.image_name+'">';
+
+      });
+      $('#loadpics').append(pictures);
+    });
+  });
+
+function adiioplay(val){
+  audio = new Audio(val);
+  audio.play();
+}
+
+
+
+function logout(){
+    location = "login.html"
+ }
 
 </script>
 
- <script src="jQuery-2.1.4.min.js"></script>
 
 
 

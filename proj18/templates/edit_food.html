@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<title>FOOD</title>
+<link rel="shortcut icon" href="static/food/foodicon.png" />
+<meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
+<link rel="stylesheet" href="static/css/font.css">
+<link rel="stylesheet" href="static/css/font-awesome.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="static/css/agency.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
+
+  <div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-blue">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-blue" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-left-align w3-large w3-blue">Edit Food</a>
+   <a href="/edit_cat" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Back</a>
+  <div class="w3-bar-item w3-button w3-right w3-padding-large w3-blue" onclick="upload();"></i>Upload</div>
+  </a>
+ </div>
+</div>
+<script>
+        function upload(){
+          localStorage.setItem('Cat_type', "Food");
+          location="/upload";
+
+        }
+        function back(){
+          location = "/edit_cat";
+        }
+      </script>
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+
+
+  <!-- FOOD -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
+    <div class="w3-quarter hover">
+
+        <img src="static/food/eggs.jpg" style="width:100%" id="egg" onclick="onClick(this);document.getElementById('egg_play').play()" alt="Eggs">
+        <img src="static/food/friedchicken.jpg" style="width:100%" id="friedchicken_img" onclick="onClick(this);document.getElementById('chicken_play').play()" alt="Fried Chicken">
+        <img src="static/food/marshmallow.jpg" style="width:100%" id="marshmallow_img" onclick="onClick(this);document.getElementById('marshmallow_play').play()" alt="Marshmallow">
+   </div>
+
+   <div class="w3-quarter hover">
+      <img src="static/food/hotdog.jpg" style="width:100%" onclick="onClick(this);document.getElementById('hotdog_play').play(); hotdog_clicks(); return false;" alt="Hotdog">
+      <img src="static/food/burger.jpg" style="width:100%" onclick="onClick(this);document.getElementById('burger_play').play(); burger_clicks(); return false;" alt="Burger">
+      <img src="static/food/lollipop.jpg" style="width:100%" onclick="onClick(this);document.getElementById('lollipop_play').play(); lollipop_clicks(); return false;" alt="Lollipop">
+    </div>
+
+    <div class="w3-quarter hover">
+      <img src="static/food/pancakes.jpg" style="width:100%" onclick="onClick(this);document.getElementById('pancake_play').play(); pancakes_clicks(); return false;" alt="Pancakes">
+      <img src="static/food/bbq.jpg" style="width:100%" onclick="onClick(this);document.getElementById('bbq_play').play(); bbq_clicks();  return false;" alt="Burger">
+      <img src="static/food/icecream.jpg" style="width:100%" onclick="onClick(this);document.getElementById('icecream_play').play(); icecream_clicks(); return false;" alt="Burger">
+    </div>
+
+    <div class="w3-quarter hover">
+      <img src="static/food/cookies.jpg" style="width:100%" onclick="onClick(this);document.getElementById('cookies_play').play(); cookies_clicks(); return false;" alt="Cookies">
+      <img src="static/food/fries.jpg" style="width:100%" onclick="onClick(this);document.getElementById('fries_play').play(); fries_clicks(); return false;" alt="French Fries">
+      <img src="static/food/halo.jpg" style="width:100%" onclick="onClick(this);document.getElementById('halo_play').play(); halo_clicks(); return false;" alt="Halo-halo">
+    </div>
+
+       <audio id="egg_play">
+    <source src="static/audio/egg.mp3"/>
+    </audio>
+    <audio id="chicken_play">
+    <source src="static/audio/chicken.mp3"/>
+    </audio>
+    <audio id="marshmallow_play">
+    <source src="static/audio/marshmallow.mp3"/>
+    </audio>
+    <audio id="hotdog_play">
+    <source src="static/audio/hotdog.mp3"/>
+    </audio>
+    <audio id="burger_play">
+    <source src="static/audio/burger.mp3"/>
+    </audio>
+    <audio id="lollipop_play">
+    <source src="static/audio/lollipop.mp3"/>
+    </audio>
+    <audio id="pancake_play">
+    <source src="static/audio/pancake.mp3"/>
+    </audio>
+    <audio id="bbq_play">
+    <source src="static/audio/barbecue.mp3"/>
+    </audio>
+    <audio id="icecream_play">
+    <source src="static/audio/ice_cream.mp3"/>
+    </audio>
+    <audio id="cookies_play">
+    <source src="static/audio/cookies.mp3"/>
+    </audio>
+    <audio id="fries_play">
+    <source src="static/audio/french_fries.mp3"/>
+    </audio>
+    <audio id="halo_play">
+    <source src="static/audio/halo-halo.mp3"/>
+    </audio>
+    <audio id="audio_play">
+    <source src="static/audio/audio1.mp3"/>
+    </audio>
+
+
+    <!--<div class="w3-quarter">-->
+      <!--<img src= "{{ url_for('static', filename='image_name' ) }}">-->
+      <!--</div>-->
+
+
+
+  </div>
+
+    <!--<center><<button type="submit" href="edit_food.html">Edit</button></center>-->
+
+
+<!-- End page content -->
+</div>
+
+
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var c_id = localStorage.getItem("c_id");
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  xhr = new XMLHttpRequest();
+    var url = "https://cryptic-fjord-60133.herokuapp.com/api/rec_logs";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText);
+        }
+    }
+    var json =JSON.stringify({"clicks": "1",'c_id':c_id, "log_date":date, "log_time":time, "category_type":"Clothes", "image_name":element.alt});
+    console.log(json)
+    xhr.send(json);
+
+
+    
+
+}
+
+
+$(document).ready(function(){
+  var acc_id = localStorage.getItem('acc_id');
+    $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/v3/spec_categories/"+acc_id+"/Clothes",function(data){
+      var pictures='';
+      $.each(data,function(key,value){
+
+        pictures += '<img src="'+value.img+'" style="width:32%" onclick="onClick(this); adiioplay(\''+value.aud+'\'); return false;" alt="'+value.image_name+'">';
+
+      });
+      $('#loadpics').append(pictures);
+    });
+  });
+
+function adiioplay(val){
+  audio = new Audio(val);
+  audio.play();
+}
+
+
+
+function logout(){
+    location = "login.html"
+ }
+
+</script>
+
+
+
+
+</body>
+</html>

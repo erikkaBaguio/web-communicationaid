@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<title>CLOTHES</title>
+<link rel="shortcut icon" href="static/clothes/clothesicon.png"/>
+<meta charset="UTF-8"><link rel="shortcut icon" href="static/images/PATicon.png" />
+<meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
+<link rel="stylesheet" href="static/css/font.css">
+<link rel="stylesheet" href="static/css/font-awesome.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="static/css/agency.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
+
+
+<div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-blue">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-blue" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-left-align w3-large w3-blue">Edit Clothes</a>
+   <a href="/edit_cat" class="w3-bar-item w3-button w3-right w3-padding-large w3-blue"></i>Back</a>
+  <div class="w3-bar-item w3-button w3-right w3-padding-large w3-blue" onclick="upload();"></i>Upload</div>
+  </a>
+ </div>
+</div>
+
+<script>
+        function upload(){
+          localStorage.setItem('Cat_type', "Clothes");
+          location="/upload";
+
+        }
+        function back(){
+          location = "/edit_cat";
+        }
+      </script>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+  <!-- Photo grid -->
+  
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
+  <div class="w3-row">
+    <div class="w3-quarter">
+      <img src="/static/clothes/tuxedo.png" style="width:100%" onclick="onClick(this);document.getElementById('tuxedo_play').play(); return false;" alt="Tuxedo">
+      <img src="/static/clothes/jeans.png" style="width:100%" onclick="onClick(this);document.getElementById('jeans_play').play(); return false;" alt="Jeans">
+      <img src="/static/clothes/jumper.png" style="width:100%" onclick="onClick(this);document.getElementById('jumper_play').play(); return false;" alt="Jumper">
+      <img src="/static/clothes/sneaker.png" style="width:100%" onclick="onClick(this);document.getElementById('sneakers_play').play(); return false;" alt="Sneakers">
+      <img src="/static/clothes/sweatpants.png" style="width:100%" onclick="onClick(this);document.getElementById('sweatpants_play').play(); return false;" alt="Sweatpants">
+    </div>
+
+    <div class="w3-quarter">
+      <img src="/static/clothes/jumpsuit.png" style="width:100%" onclick="onClick(this);document.getElementById('jumpsuit_play').play(); return false;" alt="Jumpsuit">
+      <img src="/static/clothes/pajamas.png" style="width:100%" onclick="onClick(this);document.getElementById('pajamas_play').play(); return false;" alt="Pajamas">
+      <img src="/static/clothes/polo.png" style="width:100%" onclick="onClick(this);document.getElementById('polo_play').play(); return false;" alt="Polo">
+      <img src="/static/clothes/slippers.png" style="width:100%" onclick="onClick(this);document.getElementById('slippers_play').play(); return false;" alt="Slippers">
+      <img src="/static/clothes/sweater.png" style="width:100%" onclick="onClick(this);document.getElementById('sweater_play').play(); return false;" alt="Sweater">
+    </div>
+    
+    <div class="w3-quarter">
+      <img src="/static/clothes/raincoat.png" style="width:100%" onclick="onClick(this);document.getElementById('raincoat_play').play(); return false;" alt="Raincoat">
+      <img src="/static/clothes/tanktop.png" style="width:100%" onclick="onClick(this);document.getElementById('tanktop_play').play(); return false;" alt="Tanktop">
+      <img src="/static/clothes/shirt.png" style="width:100%" onclick="onClick(this);document.getElementById('shirt_play').play(); return false;" alt="Shirt">
+      <img src="/static/clothes/blackshoes.png" style="width:100%" onclick="onClick(this);document.getElementById('blackshoes_play').play(); return false;" alt="Blackshoes">
+    </div>
+
+    <div class="w3-quarter">
+      <img src="/static/clothes/shorts.png" style="width:100%" onclick="onClick(this);document.getElementById('shorts_play').play(); return false;" alt="Shorts">
+      <img src="/static/clothes/trunks.png" style="width:100%" onclick="onClick(this);document.getElementById('trunks_play').play(); return false;" alt="Trunks">
+      <img src="/static/clothes/brief.png" style="width:100%" onclick="onClick(this);document.getElementById('brief_play').play(); return false;" alt="Brief">
+      <img src="/static/clothes/sandals.png" style="width:100%" onclick="onClick(this);document.getElementById('sandals_play').play(); return false;" alt="Sandals">
+    </div>
+    </div>
+
+  
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+    
+    <audio id="tuxedo_play">
+    <source src="/static/audio/tuxedo.mp3"/>
+    </audio>
+    <audio id="jeans_play">
+    <source src="/static/audio/jeans.mp3"/>
+    </audio>
+    <audio id="jumper_play">
+    <source src="/static/audio/jumper.mp3"/>
+    </audio>
+    <audio id="jumpsuit_play">
+    <source src="/static/audio/jumpsuit.mp3"/>
+    </audio>
+    <audio id="pajamas_play">
+    <source src="/static/audio/pajamas.mp3"/>
+    </audio>
+    <audio id="polo_play">
+    <source src="/static/audio/polo.mp3"/>
+    </audio>
+    <audio id="raincoat_play">
+    <source src="/static/audio/raincoat.mp3"/>
+    </audio>
+    <audio id="tanktop_play">
+    <source src="/static/audio/tanktop.mp3"/>
+    </audio>
+    <audio id="shirt_play">
+    <source src="/static/audio/shirt.mp3"/>
+    </audio>
+    <audio id="shorts_play">
+    <source src="/static/audio/shorts.mp3"/>
+    </audio>
+    <audio id="trunks_play">
+    <source src="/static/audio/trunks.mp3"/>
+    </audio>
+    <audio id="brief_play">
+    <source src="/static/audio/brief.mp3"/>
+    </audio>
+    <audio id="sweater_play">
+    <source src="/static/audio/sweater.mp3"/>
+    </audio>
+    <audio id="sweatpants_play">
+    <source src="/static/audio/sweatpants.mp3"/>
+    </audio>
+    <audio id="sandals_play">
+    <source src="/static/audio/sandals.mp3"/>
+    </audio>
+    <audio id="blackshoes_play">
+    <source src="/static/audio/blackshoes.mp3"/>
+    </audio>
+    <audio id="slippers_play">
+    <source src="/static/audio/slippers.mp3"/>
+    </audio>
+    <audio id="sneakers_play">
+    <source src="/static/audio/sneakers.mp3"/>
+    </audio>
+
+
+<!-- End page content -->
+</div>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var c_id = localStorage.getItem("c_id");
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  xhr = new XMLHttpRequest();
+    var url = "https://cryptic-fjord-60133.herokuapp.com/api/rec_logs";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText);
+        }
+    }
+    var json =JSON.stringify({"clicks": "1",'c_id':c_id, "log_date":date, "log_time":time, "category_type":"Clothes", "image_name":element.alt});
+    console.log(json)
+    xhr.send(json);
+
+
+    
+
+}
+
+
+$(document).ready(function(){
+  var acc_id = localStorage.getItem('acc_id');
+    $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/v3/spec_categories/"+acc_id+"/Clothes",function(data){
+      var pictures='';
+      $.each(data,function(key,value){
+
+        pictures += '<img src="'+value.img+'" style="width:32%" onclick="onClick(this); adiioplay(\''+value.aud+'\'); return false;" alt="'+value.image_name+'">';
+
+      });
+      $('#loadpics').append(pictures);
+    });
+  });
+
+function adiioplay(val){
+  audio = new Audio(val);
+  audio.play();
+}
+
+
+
+function logout(){
+    location = "login.html"
+ }
+
+</script>
+
+
+
+
+</body>
+</html>

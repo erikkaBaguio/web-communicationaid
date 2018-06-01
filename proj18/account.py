@@ -17,8 +17,11 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 @app.route('/')
 def welcome():
     # session['user'] = 'me'
-    return render_template('alphabet.html')
+    return render_template('edit_clothes.html')
 
+@app.route('/upload', methods=['GET'])
+def upload2():
+    return render_template('upload2.html')
 @app.route('/register')
 def register():
     return render_template('register.html')
