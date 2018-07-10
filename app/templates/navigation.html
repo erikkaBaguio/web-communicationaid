@@ -4,19 +4,19 @@
 <link rel="shortcut icon" url="static/images/PATicon.png" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="static/css/w3.css">
-<link rel="stylesheet" href="static/css/font.css">
-<link rel="stylesheet" href="static/css/font-awesome.css">
-<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
-<link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
-<link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
-<link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
-<link rel="stylesheet" href="static/css/agency.min.css">
+<link rel="stylesheet" href="/static/css/w3.css">
+<link rel="stylesheet" href="/static/css/font.css">
+<link rel="stylesheet" href="/static/css/font-awesome.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="/static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="/static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="/static/css/agency.min.css">
 <style>
 
 body{
-    background-image: url('static/images/nav_bg.jpg');
+    background-image: url('/static/images/map.jpg');
     min-height: 100%;
     background-attachment: fixed;
     background-position: center;
@@ -30,22 +30,14 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
 <body class="w3-light-grey">
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
-  <a href="/navigation" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Categories</a>
-  <a href="/child" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
-  <a href="/parent" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
-  <a href="/records.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity</a>
-  <a href="welcome.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
-</nav>
-
-
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
-  <span class="w3-left w3-padding">
-  <img src="static/images/PATicon.png" alt="logo" width="40px" height="auto"/>PIC-A-TALK</span>
-    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
-</header>
+<div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-green">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-sky-green" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a class="w3-bar-item w3-left-align w3-large w3-green">Categories</a>
+  <a href="/p_mode"><span style="float: right; padding-top:15px; padding-right: 5px; font-size:90%;">Back</span></a>
+  </a>
+ </div>
+</div>
 
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -55,11 +47,47 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
 
   <!-- Photo grid -->
-  <center><div class="w3-row" id = "nav">
-      <a href = "/food"><img src="static/food/foodicon.png" style="width:20%" onclick="onClick(this)" alt="FOOD"></a>
-      <a href = "/toys"><img src="static/toys/toyicon.png" style="width:20%" onclick="onClick(this)" alt="TOYS"></a>
-      <a href = "/places"><img src="static/places/placesicon.png" style="width:20%" onclick="onClick(this)" alt="PLACES"></a>
-      <a href = "/clothes"><img src="static/clothes/clothesicon.png" style="width:20%" onclick="onClick(this)" alt="CLOTHES"></a>
+  <center><div class="w3-row" id = "nav" style="margin-top: 15%;">
+    <div class="w3-col l3">
+      <a href = "/food"><img src="/static/images/food.png" style="width:65%" onclick="onClick(this)" alt="FOOD">
+        <br>
+        <span style="color:black; font-size: 30px;">Food</span></a>
+    </div>
+    <div class="w3-col l3">
+      <a href = "/toys"><img src="/static/images/toys.png" style="width:65%" onclick="onClick(this)" alt="TOYS">
+        <br>
+        <span style="color:black; font-size: 30px;">Toys</span></a>
+    </div>   
+    <div class="w3-col l3">
+      <a href = "/places"><img src="/static/images/place.png" style="width:65%" onclick="onClick(this)" alt="PLACES">
+        <br>
+        <span style="color:black; font-size: 30px;">Places</span></a>
+    </div>
+    <div class="w3-col l3">  
+      <a onclick="gender_bender()"><img src="/static/images/clothes.png" style="width:65%"  alt="CLOTHES">
+        <br>
+        <span style="color:black; font-size: 30px;">Clothes</span></a>
+    </div>
+    <script>
+                            function gender_bender(){
+                                var acc_id = localStorage.getItem('acc_id');
+                                var url  = "https://cryptic-fjord-60133.herokuapp.com/api/get_cprof/"+acc_id;
+                                var xhr  = new XMLHttpRequest()
+                                    xhr.open('GET', url, true)
+                                    xhr.onreadystatechange = function () { 
+                                        if (xhr.readyState == 4 && xhr.status == 200) {
+                                            var value = JSON.parse(xhr.responseText);
+                                            var gender = value.gender;
+                                        if(gender == ('M' || 'm')){
+                                            location.href = "/clothes_b";
+                                            }else{
+                                            location.href = "/clothes_g";
+                                            }  
+                                        }
+                                    }
+                                    xhr.send(null)
+                                }
+                        </script>
    </div></center>
 
   <!-- Modal for full size images on click-->

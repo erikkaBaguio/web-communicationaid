@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<title>Teachers</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w33.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/static/css/w3.css">
+<link rel="stylesheet" href="/static/css/font.css">
+<link rel="stylesheet" href="/static/css/font-awesome.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.css">
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+<link rel="stylesheet" href="/static/css/agency.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", "sans-serif"}
+</style>
+<body>
+<div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-teal w3-padding-8">
+  <img class="w3-left" src="/static/images/PATicon1.png" style="margin-left: 5%; height: 100%; width: 13%;" alt="logo"/>
+  <a onclick="logout()" class="w3-bar-item w3-button w3-right w3-padding-large w3-teal"></i>Log Out</a>
+   <a href="team.html" class="w3-bar-item w3-button w3-right w3-padding-large w3-teal"></i>Contact Us</a>
+  <div class="container">
+  <div class="w3-dropdown-hover w3-right w3-hover-teal">  
+  <button class="w3-button w3-padding-large w3-teal">Profile</button>
+  <div class="w3-dropdown-content w3-bar-block w3-border" style="right:1"><span class="glyphicon glyphicon-home"></span></a>
+    <a href="ParentProfile.html" class="w3-bar-item w3-button">Parent Profile</a>
+    <a href="ChildProfile.html" class="w3-bar-item w3-button">Child Profile</a>
+  </div>
+  </div>
+</div>
+</div>
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+    <script>
+      function back(){
+        location = "t_mode.html"
+      }
+    </script>
+
+        </a>
+      <div class="w3-white w3-text-grey w3-card-16 pull" id="view_teacher">
+        <div class="w3-container w3-center">
+          <div class="w3-container pull-left" style="margin-left:5%; text-align:left;">
+            <br>
+            <h2 class="w3-disply-bottomleft w3-container w3-text-black"><img src="{{img}}" style="width:50%" alt="Avatar"></h2>
+            <input onclick="upload()" type="button" class="submit w3-teal w3-round" name="image" value="Edit Picture" style="margin-left: 9%; width: 100px;height: 30px; font-size: 15px; color: white;" src="#" />
+             <h2 class="w3-disply-bottomleft w3-container w3-text-black" > {{name}} </h2>
+             
+             <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal w3-round">Bio</i></b></p>
+             <b id="bio">{{bio}} </b><br><br>
+             
+          <i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i><b id="address">{{address}}</b>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><b id = "email">{{email}}</b></p>
+          
+          <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal"></i><b id="birthday">{{bday}}</b></p>
+          <!-- <p><i class="fa fa-venus-mars fa-fw w3-margin-right w3-large w3-text-pink"></i><b id="gender_t"></b></p> -->
+          <p><i class="fa fa-star fa-fw w3-margin-right w3-large w3-text-teal"></i><b id="specialty"></b>{{specialty}}</p>          
+          <hr>
+          <a onclick="edit()" class="w3-bar-item w3-button w3-center w3-padding-10 w3-teal w3-round">Edit Profile</a>
+          <br><br>
+           </div> 
+           <br>
+
+       <table class="table table-striped table-bordered table-hover" id="mytable">
+
+            <tbody id="view_data">
+
+            </tbody>
+
+       </table>
+        </div>
+      </div>
+
+      <br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <div class="w3-twothird">
+
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container w3-padding">
+              <h6 class="w3-opacity"></h6>
+              <p contenteditable="true" class="w3-border w3-padding">What's happening?</p>
+              <button type="button" class="w3-button w3-teal w3-theme w3-round"><i class="fa fa-pencil"></i>Post</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="w3-container w3-card w3-white w3-round">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>W3Schools.com</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
+          <p>Web Development! All I need to know in one place</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>London Business School</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2015</h6>
+          <p>Master Degree</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>School of Coding</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2013</h6>
+          <p>Bachelor Degree</p><br>
+        </div>
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<script>
+    var bio = localStorage.getItem("bio_t");
+    
+    document.getElementById("bio").innerHTML = bio
+    document.getElementById("name").innerHTML = localStorage.getItem("fname_t") + " " + localStorage.getItem("lname_t");
+    document.getElementById("bday_t").innerHTML = localStorage.getItem("bday_t");
+    document.getElementById("specialty").innerHTML = localStorage.getItem("specialty");
+    document.getElementById("tel_num").innerHTML = localStorage.getItem("tel_num");
+    document.getElementById("add_t").innerHTML = localStorage.getItem("add_t");
+    document.getElementById("email").innerHTML = localStorage.getItem("email");
+    var memes = document.getElementById('pic');
+    memes.setAttribute('src', localStorage.getItem('teacher_pic'));
+    function edit(){
+      var acc_id = localStorage.getItem('acc_id');
+      localStorage.setItem('edit_t', 'true');
+      location = "/personalinfo/teacher/"+acc_id;
+    }
+    function upload(){
+      var acc_id = localStorage.getItem('acc_id');
+      localStorage.setItem('tedit', 'true');
+      location = "/tprofilepic/"+acc_id;
+    } 
+</script>
+
+</body>
+</html>

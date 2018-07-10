@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<link rel="stylesheet" href="/static/css/w3.css">
+<link rel="stylesheet" href="/static/css/font.css">
+<link rel="stylesheet" href="/static/css/font-awesome.css">
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+<link rel="stylesheet" href="/static/css/bootstrap-grid.css">
+<link rel="stylesheet" href="/static/css/bootstrap-reboot.css">
+<!-- <link rel="stylesheet" href="js/bootstrap.bundle.js">
+<link rel="stylesheet" href="js/bootstrap.js"> -->
+<link rel="stylesheet" href="/static/css/agency.min.css">
+</head>
+
+<style>
+    body {
+
+        background-image: url('images/waves.jpg');
+        min-height: 100%;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color:skyblue;
+        font-family:Roboto;
+    }
+    .pad-50 {
+        background-color: #fff;
+        padding: 10% 5%;
+    }
+    .pad-50:first-child {
+        background-color:#f8f9fa;
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+    .pad-50:last-child {
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    .btn-primary {
+        width:100%;
+        margin-top: 13%;
+    }
+    .mar-50 {
+        margin-top: 8%;
+    }
+    </style>
+
+
+
+<body>
+<div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-blue w3-padding-12">
+  <a onclick="back()" type="button" class="submit w3-bar-item w3-button w3-left w3-blue w3-text-white"></i>Back</a>
+   
+  </a>
+ </div>
+</div>
+
+
+
+<div class="container mar-50">
+        <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12 pad-50">
+                  <center><h1 id="cats" style="color: Blue;">Category_Type</h1></center><br>
+                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                      
+                      <div class="container" style="margin-left: 18%;">   
+                      <form id="form1" runat="server">
+                        <h2>Image</h2>
+                        <img id="blah" src="#" alt="your image" style="height: 40%; width: 50%" /><br><br>
+                        <input type="text" name="img_name" placeholder="Image Name">
+                        <br>
+                        <input type='file' id="imgInp" name="image" src="#" />
+                        <h2>Audio</h2>
+                        <input type='file' id="audInp" name="audio" src="#" />
+                        </form>
+                       </div>
+                       <center><input onclick="uploadImage()" type="button" class="submit w3-bar-item w3-button w3-center w3-blue w3-text-white" value="Upload" style="height: 50px; width: 150px; color: white; margin-top: 50px; font-size: 140%;"></center>
+                </div>
+          </div>
+</div>
+<script>
+  $("#cats").html(localStorage.getItem('Cat_type'));
+function readURL(input) {
+
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+      var img_source =document.getElementById("imgInp").getAttribute('src');
+      document.getElementById('get_src').innerHTML = img_source;
+      // var img_source =document.getElementById("blah").getAttribute('src');
+      // document.getElementById('get_src').innerHTML = img_source;
+      
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+
+$("#imgInp").change(function() {
+  readURL(this);
+});
+</script>
+
+
+<script>
+  function formCreate(acc_id,img_name, img_type, filetype1, fileVal1,filetype2,fileVal2){
+      var form = new FormData();
+      form.append('acc_id', acc_id);
+      form.append('img_name', img_name);
+      form.append('img_type', img_type);
+      form.append('type1',filetype1);
+      form.append('image', fileVal1);
+      form.append('type2',filetype2);
+      form.append('aud', fileVal2);
+      
+
+      return form;
+  }
+
+  function back(){
+    var cat_type = localStorage.getItem('Cat_type');
+    if(cat_type == "Places"){
+      location.href = "/places";
+    }else if(cat_type == "Clothes-Boys"){
+                
+        location.href = "/clothes_b";
+    }else if(cat_type == "Clothes-Girls"){
+        location.href = "/clothes_g";
+    }else if(cat_type == "Characters"){
+      location = "people.html";
+    }
+                
+    else if(cat_type == "Toys"){
+      location.href = "/toys";
+    }else if(cat_type == "Food"){
+      location.href = "/food";
+    }
+  }
+
+  function uploadImage(){
+    var acc_id = localStorage.getItem('acc_id');
+    var cat_type = localStorage.getItem('Cat_type');
+    
+    $.ajax({
+      type: 'POST',
+          url: 'https://cryptic-fjord-60133.herokuapp.com/api/v3/upload',
+          data: formCreate(acc_id, $('input[name="img_name"]').val(),cat_type,'image', $('input[name="image"]')[0].files[0],'audio', $('input[name="audio"]')[0].files[0]),
+          cache: false,
+          contentType: false,
+          processData: false,
+          async: false,
+          success: function(response) {
+            if(response.msg=='ok'){
+              alert("successfully uploaded "+cat_type+" Category")
+              if(cat_type == "Places"){
+                location.href = "/places";
+              }else if(cat_type == "Clothes-Boys"){
+                
+                  location.href = "/clothes_b";
+              }else if(cat_type == "Clothes-Girls"){
+                  location.href = "/clothes_g";
+              }else if(cat_type == "Characters"){
+                location = "people.html";
+              }
+                
+              else if(cat_type == "Toys"){
+                location.href = "/toys";
+              }else if(cat_type == "Food"){
+                location.href = "/food";
+              }
+              
+            }
+            else{
+              console.log(response.msg);
+              alert(response.msg);
+            }
+          },
+  });
+
+}
+</script>
+
+</body>
+</html>

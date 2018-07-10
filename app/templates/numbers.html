@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<title>NUMBERS</title>
+<link rel="shortcut icon" href="static/images/PATicon.png" />
+<meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
+<link rel="stylesheet" href="static/css/font.css">
+<link rel="stylesheet" href="static/css/font-awesome.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="static/css/agency.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+  <a href="/navigation" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Categories</a>
+  <a href="/child" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
+  <a href="/parent" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
+  <a href="/activity" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity: FOOD</a>
+  <a href="welcome.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
+</nav>
+
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">
+  <img src="static/food/foodicon.png" alt="logo" width="30px" height="auto"/>NUMBERS</span>
+    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+  <!-- FOOD -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
+    <div class="w3-quarter hover">
+        <img src="static/EDUCATIONAL/NUMBERS/0.png" style="width:100%" id="A" onclick="document.getElementById('A_play').play();return false;" alt="A">
+        <img src="static/EDUCATIONAL/NUMBERS/4.png" style="width:100%" id="E" onclick="document.getElementById('E_play').play();return false;" alt="E">
+        <img src="static/EDUCATIONAL/NUMBERS/8.png" style="width:100%" id="I" onclick="document.getElementById('I_play').play();return false;" alt="I">
+        <img src="static/EDUCATIONAL/NUMBERS/12.png" style="width:100%" id="M" onclick="document.getElementById('M_play').play();return false;" alt="M">
+        <img src="static/EDUCATIONAL/NUMBERS/16.png" style="width:100%" id="Q" onclick="document.getElementById('Q_play').play();return false;" alt="Q">
+        <img src="static/EDUCATIONAL/NUMBERS/20.png" style="width:100%" id="U" onclick="document.getElementById('U_play').play();return false;" alt="U">
+        <img src="static/EDUCATIONAL/NUMBERS/24.png" style="width:100%" id="Y" onclick="document.getElementById('Y_play').play();return false;" alt="Y">
+        <img src="static/EDUCATIONAL/NUMBERS/28.png" style="width:100%" id="Y" onclick="document.getElementById('Y_play').play();return false;" alt="Y">
+   </div>
+
+   <div class="w3-quarter hover">
+      <img src="static/EDUCATIONAL/NUMBERS/1.png" style="width:100%" id="B" onclick="document.getElementById('B_play').play();return false;" alt="B">
+      <img src="static/EDUCATIONAL/NUMBERS/5.png" style="width:100%" id="F" onclick="document.getElementById('F_play').play();return false;" alt="F">
+      <img src="static/EDUCATIONAL/NUMBERS/9.png" style="width:100%" id="J" onclick="document.getElementById('J_play').play();return false;" alt="J">
+      <img src="static/EDUCATIONAL/NUMBERS/13.png" style="width:100%" id="N" onclick="document.getElementById('N_play').play();return false;" alt="N">
+      <img src="static/EDUCATIONAL/NUMBERS/17.png" style="width:100%" id="R" onclick="document.getElementById('R_play').play();return false;" alt="R">
+      <img src="static/EDUCATIONAL/NUMBERS/21.png" style="width:100%" id="V" onclick="document.getElementById('V_play').play();return false;" alt="V">
+      <img src="static/EDUCATIONAL/NUMBERS/25.png" style="width:100%" id="Z" onclick="document.getElementById('Z_play').play();return false;" alt="Z">
+      <img src="static/EDUCATIONAL/NUMBERS/29.png" style="width:100%" id="Y" onclick="document.getElementById('Y_play').play();return false;" alt="Y">
+
+    </div>
+
+    <div class="w3-quarter hover">
+      <img src="static/EDUCATIONAL/NUMBERS/2.png" style="width:100%" id="C" onclick="document.getElementById('C_play').play();return false;" alt="C">
+      <img src="static/EDUCATIONAL/NUMBERS/6.png" style="width:100%" id="G" onclick="document.getElementById('G_play').play();return false;" alt="G">
+      <img src="static/EDUCATIONAL/NUMBERS/10.png" style="width:100%" id="K" onclick="document.getElementById('K_play').play();return false;" alt="K">
+      <img src="static/EDUCATIONAL/NUMBERS/14.png" style="width:100%" id="O" onclick="document.getElementById('O_play').play();return false;" alt="O">
+      <img src="static/EDUCATIONAL/NUMBERS/18.png" style="width:100%" id="S" onclick="document.getElementById('S_play').play();return false;" alt="S">
+      <img src="static/EDUCATIONAL/NUMBERS/22.png" style="width:100%" id="W" onclick="document.getElementById('W_play').play();return false;" alt="W">
+      <img src="static/EDUCATIONAL/NUMBERS/26.png" style="width:100%" id="W" onclick="document.getElementById('W_play').play();return false;" alt="W">
+      <img src="static/EDUCATIONAL/NUMBERS/30.png" style="width:100%" id="Y" onclick="document.getElementById('Y_play').play();return false;" alt="Y">
+    </div>
+
+    <div class="w3-quarter hover">
+      <img src="static/EDUCATIONAL/NUMBERS/3.png" style="width:100%" id="C" onclick="document.getElementById('D_play').play();return false;" alt="D">
+      <img src="static/EDUCATIONAL/NUMBERS/7.png" style="width:100%" id="H" onclick="document.getElementById('H_play').play();return false;" alt="H">
+      <img src="static/EDUCATIONAL/NUMBERS/11.png" style="width:100%" id="L" onclick="document.getElementById('L_play').play();return false;" alt="L">
+      <img src="static/EDUCATIONAL/NUMBERS/15.png" style="width:100%" id="P" onclick="document.getElementById('P_play').play();return false;" alt="P">
+      <img src="static/EDUCATIONAL/NUMBERS/19.png" style="width:100%" id="T" onclick="document.getElementById('T_play').play();return false;" alt="T">
+      <img src="static/EDUCATIONAL/NUMBERS/23.png" style="width:100%" id="X" onclick="document.getElementById('X_play').play();return false;" alt="X">
+      <img src="static/EDUCATIONAL/NUMBERS/27.png" style="width:100%" id="W" onclick="document.getElementById('W_play').play();return false;" alt="W">
+    </div>
+
+    <!--<div class="w3-quarter">-->
+      <!--<img src= "{{ url_for('static', filename='image_name' ) }}">-->
+      <!--</div>-->
+
+
+    <audio id="A_play">
+    <source src="audio/A.mp3"/>
+    </audio>
+    <audio id="B_play">
+    <source src="static/audio/B.mp3" />
+    </audio>
+    <audio id="C_play">
+    <source src="static/audio/educational/C.mp3" />
+    </audio>
+    <audio id="hotdog_play">
+    <source src="static/audio/hotdog.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="burger_play">
+    <source src="static/audio/burger.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="lollipop_play">
+    <source src="static/audio/lollipop.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="pancake_play">
+    <source src="static/audio/pancake.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="bbq_play">
+    <source src="static/audio/barbecue.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="icecream_play">
+    <source src="static/audio/ice_cream.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="cookies_play">
+    <source src="static/audio/cookies.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="fries_play">
+    <source src="static/audio/french_fries.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="halo_play">
+    <source src="static/audio/halo-halo.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="audio_play">
+    <source src="static/audio/audio1.mp3" type="audio/ogg" />
+    </audio>
+
+
+  </div>
+
+    <!--<center><<button type="submit" href="edit_food.html">Edit</button></center>-->
+
+
+<!-- End page content -->
+</div>
+
+<!--<div id="upload-area">-->
+  <!--<div id="preview">-->
+    <!--<img width="100px" height="100px" src="/images/icons/128px/zurb.png" id="thumb">-->
+  <!--</div>-->
+
+  <!--<form action="/playground/ajax_upload" id="newHotnessForm">-->
+    <!--<label>Upload a Picture of Yourself</label>-->
+    <!--<input type="file" size="20" id="imageUpload" class=" ">-->
+    <!--<button class="button" type="submit">Save</button>-->
+  <!--</form>-->
+<!--</div>-->
+
+//Script for click counts
+    <!--<script type="text/javascript">-->
+            <!--function egg_clicks() {-->
+                <!---->
+                <!--egg++;-->
+                <!--alert(egg);-->
+                <!---->
+            <!--}-->
+            <!--function chicken_clicks() {-->
+                <!--chicken++;-->
+                <!--alert(chicken);-->
+            <!--}-->
+
+                <!--var egg = 0;-->
+                <!--var chicken = 0;-->
+            <!--}-->
+
+    <!--</script>-->
+// Script to open and close sidebar
+
+<script>
+
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+</script>
+
+ <script src="jQuery-2.1.4.min.js"></script>
+ <script src="../static/js/app.js"></script>
+
+
+</body>
+</html>

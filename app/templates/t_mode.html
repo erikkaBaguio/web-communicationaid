@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<title>Teacher Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+  .btn-primary {
+    width:100%;
+    margin-top: 13%;
+  }
+  .mar-50 {
+    margin-top: 8%;
+  }
+  .row{
+    border-radius: 25px;
+    text-align: center;
+  }
+  .teal p {
+    color:#fff;
+    font-size:20px;
+    font-family:Roboto;
+    font-weight: bold;
+    text-shadow: 5px 5px 10px #343a40;
+
+  }
+  .blue:hover, .green:hover, .yellow:hover {
+    background-position: right center;
+  }
+  .box {
+    width: 30%;
+    height: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 50% 50%;
+    color: white; 
+  }
+  .teal {
+    padding:30px;   
+    background-image:linear-gradient(to right, teal 0%, teal 51%, teal 100%);
+    border:solid 1px white;
+  }
+
+</style>
+
+
+
+
+<body class="w3-light-grey">
+
+<div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-teal w3-padding-8">
+  <img class="w3-left" src="../static/images/PATicon1.png" style="margin-left: 5%; height: 100%; width: 13%;" alt="logo"/>
+  <a onclick="logout()" class="w3-bar-item w3-button w3-right w3-padding-large w3-teal"></i>Log Out</a>
+   <a onclick="who()" class="w3-bar-item w3-button w3-right w3-padding-large w3-teal"></i>Contact Us</a>
+    <div class="container">
+      <div class="w3-dropdown-hover w3-right w3-hover-teal">  
+    <button onclick="t_prof()" class="w3-button w3-padding-large w3-teal">Profile</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br>
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+                  <div class="col-xs-8" style="padding-left:unset;">
+                    <div class="container">
+                        <div class="example" style="margin:auto;max-width:300px; margin-left:25%;">
+                          <input id="searching" style="width: 70%;" type="text" placeholder="Search.." name="search2">
+                          <button onclick="search_forum()"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                  </div>
+
+    <!-- Left Column -->
+    <div class="w3-twothird">
+    <br>
+          <div id="forums" class="container" style="padding: 6%; margin-left:-25px; padding-top:0px; width:105%; z-index: 1;">
+        <!-- <div class="col-xs-12"> -->
+            <div class="panel panel-default" style="box-shadow: 0 0 15px 1px #80808082;">
+                
+              <div class="panel-heading" style="background-color: teal;">
+                <div class="row">
+                    <div class="col-xs-3">
+                      <img id="pic" src="{{img}}" style="width:100%;">
+                    </div>
+                    <div class="cl-xs-9">
+                      <span id="name" style="font-weight:bold; color: white;">{{name}}</span>
+                    </div>
+                </div>
+              </div>
+
+              <div class="panel-body">
+                <textarea id="details" class="form-control" rows="4" id="post" placeholder="Some phrase here....."></textarea>
+                <button onclick="post()" type="button" class="btn btn-primary" style="margin-left:80%; margin-top:10px; width:20%; font-size: 120%; background-color: teal; ">post</button>  
+              </div>
+            <!-- </div> -->
+
+            
+<!-- 
+              
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <button type="button" class="btn btn-default" style="width:100%; text-align:center;">
+                    Show more posts
+                  </button>
+                </div>
+              </div> -->
+              <div id="forum-parent">
+                
+              </div>
+
+        </div>
+          
+  
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-third">
+    
+          <div class="container">
+            <div class="col">
+              <button onclick="educ()" class="box teal" style="border-radius: 50px 50px 50px 50px;" >
+                <p>Categories</p>
+              </button><br>
+              <button onclick="clss()" class="box teal" style="border-radius: 50px 50px 50px 50px;" >
+                <p>Classes</p>
+              </button><br>
+              <button onclick="frog()" class="box teal" style="border-radius: 50px 50px 50px 50px;" >
+                <p>Progress Report</p>
+              </button><br>
+              <button class="box teal" style="border-radius: 50px 50px 50px 50px;" id="directory">
+                <p>Directory</p>
+              </button>
+            </div>
+            </div>
+          </div>
+
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+
+<script type="text/javascript" >
+  function back(){
+        
+        var acc_id = localStorage.setItem("acc_id");
+        var acc_type = localStorage.setItem('acc_type', resp.acc_type);
+        location.href = "";
+        // if (acc_type == 1){
+        //     location = "p_mode.html"
+        // }
+        // else if(acc_type == 2) {
+        //     location = "t_mode.html"
+        // }  
+    }
+
+</script>
+
+
+<script type="text/javascript">
+  var acc_id = localStorage.getItem('acc_id', acc_id);
+
+    function t_prof(){
+      location.href="/teacher/profile/"+acc_id;
+    }
+
+    function educ(){
+      location.href = "/educational/"+acc_id;
+    }
+
+    function clss(){
+      location.href = "/classes/"+acc_id;
+    }
+
+    function frog(){
+      location.href = "/child/progress/"+acc_id;
+    }
+
+    function who(){
+      
+      location.href='/whoweare';
+    }
+
+    function logout(){
+      localStorage.clear();
+      window.location.href='/login';
+    }
+
+    document.getElementById("teacherprof").onclick = function () {
+        location.href = "/teacher/profile/"+acc_id;
+    };
+    document.getElementById("educational").onclick = function () {
+        location.href = "/educational/"+acc_id;
+    };
+    document.getElementById("classes").onclick = function () {
+        location.href = "/classes/"+acc_id;
+    };
+    document.getElementById("forum").onclick = function () {
+        location.href = "/forum/"+acc_id;
+    };
+    document.getElementById("progress").onclick = function () {
+        location.href = "/child/progress/"+acc_id;
+    };
+    document.getElementById("directory").onclick = function () {
+        location.href = "/directory/"+acc_id;
+    };
+</script>
+
+<script>
+
+        search_forum=function(){
+                          
+    var acc_id = localStorage.getItem('acc_id');
+    var search = $('#searching').val();
+    alert(search);
+      $.ajax({
+        url:"https://cryptic-fjord-60133.herokuapp.com/api/search_forum="+search,
+        
+        type:"GET",
+        error:function(err){
+          console.log("error: ",err);
+        },
+        success:function(response){
+          alert("success");
+
+                         // $('#forums').html(''); 
+                         // $('#'+value.forum_no).html('');
+                         $('#forum-parent').html('');
+          data = response.reverse();
+          console.log(data);
+        var forum='';
+        $.each(data,function(key,value){
+          $(document).ready(function(){
+            $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/comment/"+value.forum_no,function(data){
+              var forum='';
+              $.each(data,function(key,value){
+                forum+='<div class="row">          <div class="col-xs-3" style="width: 25%; padding: 3%;">            <img id="picture" src="'+value.image+'" style="max-width: 100%; max-height: 100%; height:50px;  width:50px;">          </div>          <div class="cl-xs-9">            <div class="col-xs-12" style="    width: 76%; padding: 8px 10px; margin: 8px 0; display: inline-block; border: 1px solid #fcf8e3; background-color: #ffff; border-radius: 4px; box-sizing: border-box; margin-left: -6%;"><div class="cl-xs-9"><span style="font-weight:bold;">'+value.name+'</span><br><span style="font-size:12px;">Date:'+value.date+' Time:'+value.time+'</span></div><h3>'+value.details+'</h3></div>         </div>      </div>'
+              });
+
+              $('#'+value.forum_no).append(forum);
+            });
+          });
+
+          forum+='<div class="panel panel-default" style="box-shadow: 0 0 15px 1px #80808082;">'
+                          
+          forum+= '<div class="panel-heading" style="background-color: #cfe5f7;">'
+          forum+=                  '<div class="row">'
+          forum+=                    '<div class="col-xs-3">'
+          forum+=                      '<img src="'+value.img+'" style="max-width: 100%; max-height: 100%; height:70px;  width:70px;">'
+          forum+=                    '</div>'
+          forum+=                    '<div class="cl-xs-9">'
+          forum+=                    '<span style="font-weight:bold;">'+value.name+'</span>'
+          forum+=                      '<br>'
+          forum+=                      '<span style="font-size:12px;">Date:'+value.date+' Time:'+value.time+'</span>'
+          forum+=                    '</div>'
+          forum+=                  '</div>'
+          forum+=                '</div>'
+            
+           forum+=               '<div class="panel-heading" style="margin: 3%; color: #333; background-color: #fcf8e3; border-color: #f2dede;">'+value.details+'</div>'
+                          
+          
+
+           forum+='<div id="'+value.forum_no+'" class="panel-heading" style="background-color: #cfe5f7;">'
+          
+
+
+
+
+          forum+='      <div class="row">'
+          forum+='          <div class="col-xs-3">'
+          forum+='            <img id="pic" src="{{img}}" style="max-width: 100%; max-height: 100%; height:50px;  width:50px;">'
+          forum+='          </div>'
+          forum+='          <div class="cl-xs-9">'
+          forum+='            <input id="'+value.forum_no+'1" type="text" name="comment" style="width: 52%; padding: 8px 10px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-left: -6%;">'
+          forum+='            <button onclick="comment('+value.forum_no+')" type="button" class="btn btn-primary" style="margin-top: -8%; margin-left:75%; width:20%;">post</button>'
+            forum+='        </div>'
+          forum+='      </div>'
+          forum+='    </div>'
+          forum+='              </div>'
+        });
+        $('#forum-parent').append(forum);
+        }
+      });
+
+
+
+
+                        }
+                        function back(){
+                  var acc_id = localStorage.getItem("acc_id");
+                var acc_type = localStorage.getItem("acc_type");
+                if (acc_type == 1){
+                    location.href = "/dashboard/parent/"+acc_id;
+                }
+                else if(acc_type == 2) {
+                    location.href = "/dashboard/teacher/"+acc_id;
+                }  
+            }
+
+
+
+
+
+
+function post(){
+    var acc_id = localStorage.getItem("acc_id");
+    
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    
+    xhr = new XMLHttpRequest();
+    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/post_forum";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            location.href = "/dashboard/teacher/"+acc_id;
+        }
+    }
+    var json =JSON.stringify({"acc_id": acc_id, 'date':date, 'time':time, "details":document.getElementById('details').value});
+    console.log(json)
+    xhr.send(json);
+}
+
+
+
+
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function(){
+    var acc_id = localStorage.getItem('acc_id');
+      $.ajax({
+        url:"https://cryptic-fjord-60133.herokuapp.com/api/forums",
+        
+        type:"GET",
+        success:function(response){
+          data = response.reverse();
+        var forum='';
+        $.each(data,function(key,value){
+          $(document).ready(function(){
+            $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/comment/"+value.forum_no,function(data){
+              var forum='';
+              $.each(data,function(key,value){
+                forum+='<div class="row">          <div class="col-xs-3" style="width: 25%; padding: 3%;">            <img id="picture" src="'+value.image+'" style="max-width: 100%; max-height: 100%; height:50px;  width:50px;">          </div>          <div class="cl-xs-9">            <div class="col-xs-12" style="    width: 76%; padding: 8px 10px; margin: 8px 0; display: inline-block; border: 1px solid #fcf8e3; background-color: #ffff; border-radius: 4px; box-sizing: border-box; margin-left: -6%;"><div class="cl-xs-9"><span style="font-weight:bold;">'+value.name+'</span><br><span style="font-size:12px;">Date:'+value.date+' Time:'+value.time+'</span></div><h3>'+value.details+'</h3></div>         </div>      </div>'
+              });
+              $('#'+value.forum_no).append(forum);
+            });
+          });
+
+          forum+='<div class="panel panel-default" style="box-shadow: 0 0 15px 1px #80808082;">'
+                          
+          forum+= '<div class="panel-heading" style="background-color: #cfe5f7;">'
+          forum+=                  '<div class="row">'
+          forum+=                    '<div class="col-xs-3">'
+          forum+=                      '<img src="'+value.img+'" style="max-width: 100%; max-height: 100%; height:70px;  width:70px;">'
+          forum+=                    '</div>'
+          forum+=                    '<div class="cl-xs-9">'
+          forum+=                    '<span style="font-weight:bold;">'+value.name+'</span>'
+          forum+=                      '<br>'
+          forum+=                      '<span style="font-size:12px;">Date:'+value.date+' Time:'+value.time+'</span>'
+          forum+=                    '</div>'
+          forum+=                  '</div>'
+          forum+=                '</div>'
+            
+           forum+=               '<div class="panel-heading" style="margin: 3%; color: #333; background-color: #fcf8e3; border-color: #f2dede;">'+value.details+'</div>'
+                          
+          
+
+           forum+='<div id="'+value.forum_no+'" class="panel-heading" style="background-color: #cfe5f7;">'
+          
+
+
+
+
+          forum+='      <div class="row">'
+          forum+='          <div class="col-xs-3">'
+          forum+='            <img id="pic" src="{{img}}" style="max-width: 100%; max-height: 100%; height:50px;  width:50px;">'
+          forum+='          </div>'
+          forum+='          <div class="cl-xs-9">'
+          forum+='            <input id="'+value.forum_no+'1" type="text" name="comment" style="width: 52%; padding: 8px 10px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-left: -23%; height:80%;">'
+          forum+='            <button onclick="comment('+value.forum_no+')" type="button" class="btn btn-primary" style="margin-top: -9%; margin-left:75%; width:20%;">post</button>'
+            forum+='        </div>'
+          forum+='      </div>'
+          forum+='    </div>'
+          forum+='              </div>'
+        });
+        $('#forum-parent').append(forum);
+        }
+      });
+    });
+  
+    function comment(forum_no){
+    var acc_id = localStorage.getItem("acc_id");
+    
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    
+    xhr = new XMLHttpRequest();
+    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/webcomment";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            alert(json);
+            var comment = '';
+            comment +='<div class="row">          <div class="col-xs-3" style="width: 25%; padding: 3%;">            <img id="picture" src="{{img}}" style="max-width: 100%; max-height: 100%; height:50px;  width:50px;">          </div>          <div class="cl-xs-9">            <div class="col-xs-12" style="    width: 76%; padding: 8px 10px; margin: 8px 0; display: inline-block; border: 1px solid #fcf8e3; background-color: #ffff; border-radius: 4px; box-sizing: border-box; margin-left: -6%;"><div class="cl-xs-9"><span style="font-weight:bold;">{{name}}</span><br><span style="font-size:12px;">Date:'+json.date+' Time:'+json.time+'</span></div><h3>'+json.details+'</h3></div>         </div>      </div>';
+            document.getElementById(forum_no+"1").value = "";
+            $('#'+forum_no).append(comment);
+            // document.getElementById('comment').innerHTML = json.details;
+        }
+    }
+    var json =JSON.stringify({"acc_id": acc_id, 'date':date, 'time':time, "forum_no":forum_no, "details":document.getElementById(forum_no+"1").value});
+    console.log(json)
+    xhr.send(json);
+}
+</script>
+
+
+</body>
+</html>
+

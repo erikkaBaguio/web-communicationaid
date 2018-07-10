@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Classes</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/w3.css">
+    <link rel="stylesheet" href="static/css/font.css">
+    <link rel="stylesheet" href="static/css/font-awesome.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+    <link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+    <link rel="stylesheet" href="static/css/agency.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/simple-line-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/jquery.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/student.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/edit.css') }}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/W3.css') }}">
+
+
+    <style>
+    body {
+        min-height: 100%;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #d0d1d3;;
+        font-family:Roboto;
+    }
+    .pad-50 {
+        background-color: #fff;
+        padding: 10% 5%;
+    }
+    .pad-50:first-child {
+        background-color:#f8f9fa;
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+    .pad-50:last-child {
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    .btn-primary {
+        width:100%;
+        margin-top: 13%;
+    }
+    .mar-50 {
+        margin-top: 8%;
+    }
+    </style>
+</head>
+
+    <div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-teal">
+    <a class="w3-bar-item w3-left-align w3-large w3-teal">Classes</a>
+  <a onclick="back()"><span style="float: right; padding-top:10px; padding-right: 5px; font-size:90%;">Back</span></a>
+  </a>
+ </div>
+</div>
+
+  
+<body onload="viewClas();">
+            <center>
+           <div class="container">
+            <div class="row" >
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 pad-50" style="margin-top: 7%; margin-left: 20%">
+
+    <div class=" bgimg container-fluid" >
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-6 text-center">
+                <div class="card" style="margin-top:-17%; margin-left:-113%">
+                    <div class="w3-content w3-display-container w3-content w3-wide" style="max-width:500px;min-width:500px">
+    <br>
+        <div class="input-group input-group-lg" style="margin-bottom: 0%; w3-centered">
+            <form method = "post" id="target" onsubmit="return false" style="margin-left:15%; width:13%">
+                <p><input id="class_name" name="class_name" style="width: 400%; height:35px;" placeholder="Enter class name" type="text"></input> 
+                <input class="btn btn-primary" id="btn" value="Add Class" name"add" type="submit" style="margin-left:405%; margin-top:-55px; width: 90px;" onclick="addClass();">
+                </input>
+                </p> 
+            </form>
+        </div>
+            </div>
+
+                    <table class="table table-striped table-bordered table-hover" id="mytable">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center">Action</th>
+                                <th style="text-align: center">Class Name</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="view_classname">
+
+
+                    </tbody>
+
+                    </table>
+
+                    <br>
+                    <br>                
+                </div>
+            </div>
+        </div>
+    </div>
+              </div>
+        </div>
+      </div>  
+    </center>
+</body>
+
+
+
+
+    <script src="{{ url_for('.static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('.static', filename='js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('.static', filename='js/jquery.dataTables.min.js') }}"></script>  
+<script>
+    function back(){
+        var acc_id = localStorage.getItem('acc_id');
+        location.href="/dashboard/teacher/"+acc_id;
+    }
+
+    $(document).ready(function(){
+        $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/logs",function(data){
+            var directory_data='';
+            $.each(data,function(key,value){
+                directory_data += '<tr>';
+                
+                
+                directory_data += '<td>'+value.log_date+'</td>';
+                directory_data += '<td>'+value.log_time+'</td>';
+                directory_data += '<td>'+value.category_type+':'+value.image_name+'</td>';
+                
+                // directory_data += '<td><h2><a onclick="alert_call(val)"><span class="glyphicon glyphicon-earphone"></span></a></h2></td>';
+                
+                directory_data += '</tr>';
+            });
+            $('#directory_table').append(directory_data);
+        });
+    });
+</script>
+<script src="/static/bootstrap3/js/bootstrap.min.js"></script>
+<!--<script src="/static/bootstrap3/js/jquery-1.11.1.min.js"></script>-->
+<script src="/static/js/app.js"></script>
+<script src="/static/js/jQuery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('confirmation');
+        var confirmIt = function (e) {
+            if (!confirm('Are you sure?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready( function () {
+        $('#myTable').DataTable();
+}       );
+    </script>
+
+     <script>
+
+
+
+
+
+
+     var tokens = localStorage.getItem('token');
+         /*$(document).ready(
+         function viewClass(){
+             viewClas();
+             showRes();
+          })*/
+         function viewClas(){
+             $("#view_classname").show();
+         $.ajax({
+
+                   // url: 'http://127.0.0.1:5000/api/manageclass',
+                   url: 'https://cryptic-fjord-60133.herokuapp.com/api/class',
+                   type: "GET",
+                   dataType: "json",
+                   crossDomain: true,
+                    // headers: {
+                    //      'x-access-token': tokens
+                    //          },
+                   success: function(resp) {
+                    $("#view_classname").html("");
+                     //if (resp.status  === 'ok') {
+                        for (i = 0; i < resp.length; i++) {
+
+                                       classname = resp[i].class_name;
+                                       classnum = resp[i].class_num;
+                                       console.log(classnum);
+                                       $("#view_classname").append(showRes2(classname, parseInt(classnum)));
+
+                                                                 }
+                     //} else {
+                        // $("#view_classname").html("");
+                        //alert('No Data')
+                            // }
+                                             }
+               });
+                             }
+
+
+         
+
+         function showRes(class_name)
+         {
+            return '<div class="widget-content">'+
+                     '<table class="table table-striped table-bordered" id="view_res">'+
+                         '<tbody><tr class="edit" id="details">'+
+                             '<td>'+ class_name +'</td>'+
+                         '</tr></tbody>' +
+                     '</table>' +
+                '</div>'
+         }
+
+
+
+         function showRes2(class_name, class_num){
+            return '<tr>'+
+                '<td>'+
+                '<a class="btn btn-sm btn-danger confirmation" onclick="delete_class(\''+classnum+'\');"><span class="glyphicon glyphicon-trash"></span></a>'+'</td>'+  
+                 '<td style="cursor.pointer" onclick="store_it(\''+class_name+'\')" >'+
+                '<a href="/classPage/'+class_name+' "style="text-align: center" onclick="store_it('+class_name+')" >'+class_name+'</a>'+
+            '</td>'+  
+                '</tr>';
+         }
+
+         
+
+         function table()
+           {
+         $("table.table-bordered").html('<thead><tr>' +
+                 '<th>Acton</th>' +
+                 '<th>Class Name</th>' +
+                 '</tr></thead>')
+           }
+
+            function store_it(class_name){
+            var class_name = class_name;
+            console.log(class_name);
+            localStorage.setItem('class_name', class_name);
+         }
+ </script>
+
+
+ <script>
+
+ function delete_class(val){
+     if (confirm("Are you sure you want to DELETE?")) {
+         var url  = "https://cryptic-fjord-60133.herokuapp.com/api/del_class="+val;
+         var xhr  = new XMLHttpRequest()
+         xhr.open('GET', url, true)
+         xhr.onload = function () {
+             var users = JSON.parse(xhr.responseText);
+             if (xhr.readyState == 4 && xhr.status == "200") {
+                 alert('Successfully deleted');
+                 location.href=("/classes/"+acc_id);
+             } else {
+                 alert('error')
+             }
+         }
+         xhr.send(null);
+         alert(val)
+     }
+ }
+
+
+</script>
+
+<script>
+function addClass(){
+    var class_name = $("#class_name").val();
+    var acc_id = localStorage.getItem("acc_id");
+    $.ajax({
+        // url: 'http://127.0.0.1:5000/api/addClass',
+        url: "https://cryptic-fjord-60133.herokuapp.com/api/add_class",
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({
+            'classname': class_name
+        }),    
+        type: "POST",
+        dataType: "json",
+        crossDomain: true,
+        // headers: {
+        //  'x-access-token': tokens
+        // },
+        success: function () {
+            console.log("success");
+            alert("Added class success!");
+            location.href=("/classes/"+acc_id);
+        },
+        error: function () {
+            console.log('error')
+        },
+        complete: function (jqXHR) {
+            if (jqXHR.status == '401') {
+                console.log(jqXHR.status)
+            }
+        }
+    });
+}
+
+</script>
+
+</html>
+

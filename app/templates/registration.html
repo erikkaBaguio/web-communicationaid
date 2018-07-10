@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <title>Pic-A-Talk</title>
+    <style>
+    body {
+        background-color:#008080;
+        font-family:Roboto;
+    }
+    .pad-50 {
+        background-color: #fff;
+        padding: 10% 5%;
+    }
+    .pad-50:first-child {
+        background-color:#f8f9fa;
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+    .pad-50:last-child {
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    .btn-primary {
+        width:100%;
+        margin-top: 13%;
+    }
+    .mar-50 {
+        margin-top: 8%;
+    }
+    </style>
+</head>
+<body>
+    <img class="w3-left" src="/static/images/PATicon1.png" style="margin-left: 7%; height: 100%; width: 15%; margin-bottom: -5%" alt="logo"/>
+<form>
+    <div class="container mar-50">
+        <div class="row">
+            
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pad-50">
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                      </div>
+                        <input type="text" id="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                        <input type="email" class="form-control mb-3" id="email" placeholder="Email">
+                        <input type="password" id="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                    <div class="form-group"><br>
+                    <select class="form-control" id="acc_type">
+                        <option value="1">Parent</option>
+                        <option value="2">Teacher</option>
+                        </select>
+                    </div>
+                    <button type="button" onclick="createuser();" class="btn btn-primary">REGISTER</button>
+                </div>
+                
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 pad-50">
+                    <h3 style="font-family:'Bookman Old Style'">a communication-aide for non-verbal kids</h3>
+
+                    <p>Pic-A-Talk is a communication-aide specifically made for children with special needs. A less-hassle alternative to communicating with your special one!
+                        It's easy to use! Choose a category, click an image and an audio plays the image's name. It's like a translator! It's also a good learning experience since they
+                        are exposed to the image and the word, helping them identify things. Parents can also use this app to monitor their child's activity, share stories about their
+                        child with other parents and contact the right teachers and therapists. Sign up now!</p>
+                </div>
+        </div>
+    </div>
+    </form>
+<script src="/static/bootstrap3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/jQuery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/static/js/app.js"></script>
+</body>
+</html>

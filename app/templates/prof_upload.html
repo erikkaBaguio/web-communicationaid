@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/font.css">
+<link rel="stylesheet" href="css/font-awesome.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap-grid.css">
+<link rel="stylesheet" href="css/bootstrap-reboot.css">
+<!-- <link rel="stylesheet" href="js/bootstrap.bundle.js">
+<link rel="stylesheet" href="js/bootstrap.js"> -->
+<link rel="stylesheet" href="css/agency.min.css">
+</head>
+
+<style>
+    body {
+
+        background-image: url('images/waves.jpg');
+        min-height: 100%;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color:skyblue;
+        font-family:Roboto;
+    }
+    .pad-50 {
+        background-color: #fff;
+        padding: 10% 5%;
+    }
+    .pad-50:first-child {
+        background-color:#f8f9fa;
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+    }
+    .pad-50:last-child {
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    .btn-primary {
+        width:100%;
+        margin-top: 13%;
+    }
+    .mar-50 {
+        margin-top: 8%;
+    }
+    </style>
+
+
+
+<body>
+<div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-blue w3-padding-12">
+  <a onclick="back()" type="button" class="submit w3-bar-item w3-button w3-left w3-blue w3-text-white"></i>Back</a>
+   
+  </a>
+ </div>
+</div>
+
+
+
+<div class="container mar-50">
+        <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12 pad-50">
+                  <center><h1 id="cats" style="color: Blue;">Upload Picture</h1></center><br>
+                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                      
+                      <div class="container" style="margin-left: 18%;">   
+                      <form id="form1" runat="server">
+                        <h2>Image</h2>
+                        <img id="blah" src="#" alt="your image" style="height: 40%; width: 50%" /><br><br>
+                        
+                        <br>
+                        <input type='file' id="imgInp" name="image" src="#" />
+                        
+                        </form>
+                       </div>
+                       <center><input onclick="uploadImage()" type="button" class="submit w3-bar-item w3-button w3-center w3-blue w3-text-white" value="Upload" style="height: 50px; width: 150px; color: white; margin-top: 50px; font-size: 140%;"></center>
+                </div>
+          </div>
+</div>
+
+<script>
+  function back(){
+    
+    var acc_type = localStorage.getItem('acc_type');
+    
+      if(acc_type == 1){
+        location.href = "/dashboard/parent/"+acc_id;
+      }else if(acc_type == 2){
+        location.href = "/dashboard/teacher/"+acc_id;
+      }
+
+    
+    
+  
+    
+  }
+
+  
+function formCreate(acc_id, img_type, filetype1, fileVal1){
+  alert("here")
+  var form = new FormData();
+  form.append('acc_id', acc_id);
+      
+  form.append('img_type', img_type);
+  form.append('type1',filetype1);
+  form.append('image', fileVal1);
+      
+      
+
+  return form;
+}
+
+
+
+  function uploadImage(){
+    alert("in")
+  var acc_id = localStorage.getItem('acc_id');
+  var acc_type = localStorage.getItem('acc_type');
+  
+    
+      $.ajax({
+      type: 'POST',
+      url: 'https://cryptic-fjord-60133.herokuapp.com/api/v3/profilepic',
+      data: formCreate(acc_id,'Profile','image', $('input[name="image"]')[0].files[0]),
+      cache: false,
+      contentType: false,
+      processData: false,
+      async: false,
+      success: function(response) {
+        if(response.msg=='ok'){
+          alert(response.img)
+          
+          if(acc_type == 1){
+            var pedit = localStorage.getItem('pedit');
+            if(pedit == 'true'){
+              localStorage.setItem('parent_pic', response.img);
+              location.href = "/parent/profile/"+acc_id;
+            }else{
+              localStorage.setItem('parent_pic', response.img);
+              location.href = "/dashboard/parent/"+acc_id;
+            }
+            
+          }else if(acc_type == 2){
+            var tedit = localStorage.getItem('tedit');
+            if(tedit == 'true'){
+              localStorage.setItem('teacher_pic', response.img);
+              location.href = "/teacher/profile/"+acc_id;
+            }else{
+              localStorage.setItem('teacher_pic', response.img);
+              location.href = "/dashboard/teacher/"+acc_id;
+            }
+            
+          }
+          
+              
+        }
+        else{
+          console.log(response.msg);
+          alert(response.msg);
+        }
+      },
+  });
+  alert(acc_id)
+
+
+}
+</script>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  
+function readURL(input) {
+
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+      var img_source =document.getElementById("imgInp").getAttribute('src');
+      document.getElementById('get_src').innerHTML = img_source;
+      // var img_source =document.getElementById("blah").getAttribute('src');
+      // document.getElementById('get_src').innerHTML = img_source;
+      
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#imgInp").change(function() {
+  readURL(this);
+});
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/static/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Pic-a-Talk</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="/static/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/assets/css/light-bootstrap-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="/static/assets/css/demo.css" rel="stylesheet" />
+</head>
+
+<style>
+  * {
+    box-sizing: border-box
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Dosis', sans-serif;
+    line-height: 1.6;
+    color: #666;
+    background:  #d0d1d3;
+  }
+
+  #root {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 1.5rem 2.5rem;
+    background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+    margin: 0 0 2rem 0;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  img {
+    display: block;
+    margin: 1rem auto;
+    max-width: 100%;
+  }
+
+  p {
+    padding: 0 2.5rem 2.5rem;
+    margin: 0;
+  }
+
+  .container1 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #card {
+    margin: 1rem;
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all .2s linear;
+    width:100%;
+  }
+
+  #card:hover {
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+    transform: translate3D(0, -2px, 0);
+  }
+
+  @media screen and (min-width: 600px) {
+    #card {
+      flex: 1 1 calc(50% - 2rem);
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    #card {
+      flex: 1 1 calc(33% - 2rem);
+    }
+  }
+
+  #card:nth-child(2n) h1 {
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  }
+
+  #card:nth-child(4n) h1 {
+    background-image: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
+  }
+
+  #card:nth-child(5n) h1 {
+    background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
+  }
+  </style>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-image="/static/assets/img/sidebar-5.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a onclick="dash(this.id);" class="simple-text">
+                        <img src="/static/assets/img/logo.png" style="height: 60px;width:20vh;"/>
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li>
+                        <a class="nav-link" onclick="dashbee()">
+                            <i class="nc-icon nc-chart-pie-35"></i>
+                            <p style="max-width: 0; padding: 0;">Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a onclick="childprog(this.id);" class="nav-link" >
+                            <i class="nc-icon nc-notes"></i>
+                            <p style="max-width: 0; padding: 0;">Progress Report</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="classes(this.id);" class="nav-link" >
+                            <i class="nc-icon nc-paper-2"></i>
+                            <p style="max-width: 0; padding: 0;">Classes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="alphabets(this.id);" class="nav-link" >
+                            <i class="nc-icon nc-bold"></i>
+                            <p style="max-width: 0; padding: 0;">Alphabets</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="numbers(this.id);" class="nav-link" >
+                            <i class="nc-icon nc-atom"></i>
+                            <p style="max-width: 0; padding: 0;">Numbers</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="shapes(this.id);" class="nav-link" >
+                            <i class="nc-icon nc-app"></i>
+                            <p style="max-width: 0; padding: 0;">Shapes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="colors(this.id);" class="nav-link" >
+                            <i class="nc-icon nc-palette"></i>
+                            <p style="max-width: 0; padding: 0;">Colors</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class=" container-fluid  ">
+                    <a class="navbar-brand" href="#pablo" style="min-height: 20px;"> </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li>
+                                <div class="col-xs-8" style="padding-left:unset;">
+                                  </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="no-icon">Profile</span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a onclick="p_prof()" class="dropdown-item" >User Profile</a>
+                                    <div class="divider"></div>
+                                    <a onclick="c_prof()" class="dropdown-item" >Child Profile</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a onclick="logout()" class="nav-link" >
+                                    <span class="no-icon">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content" style="background-color: #192838;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card" style="background-color: #d0d1d3;">
+                                <div class="row" style="margin-top:15px;">
+                                    <div class="col-md-2"></div>
+                                    <div id="forum-parent" class="col-md-8">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <div class="row">
+                                                    <div id="root" style="padding-top:5%;z-index:1;">
+                                                        <div class="container1" id="progs"></div>
+                                                    </div> 
+                                            <!-- <div class="card-body"></div> -->
+                                        </div>
+
+
+
+                                        <!-- Display Posts ends -->
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container">
+                    <nav>
+                        <p class="copyright text-center">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <a href="#">Pic-a-Talk</a>, made with love for a better web
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!--   -->
+    <div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+        <a href="#" data-toggle="dropdown">
+            <i class="fa fa-cog fa-2x"> </i>
+        </a>
+
+        <ul class="dropdown-menu">
+      <li class="header-title"> Sidebar Style</li>
+            <li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger">
+                    <p>Background Image</p>
+                    <label class="switch">
+                        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-animate bootstrap-switch-on" style="width: 72px;">
+                            <div class="bootstrap-switch-container" style="width: 122px; margin-left: -50px;">
+                        <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width:50px;">ON</span>
+                        <span class="bootstrap-switch-label" style="width: 30px;">&nbsp;</span>
+                        <span class="bootstrap-switch-handle-off bootstrap-switch-primary" style="width:50px;">OFF</span>
+                        <input type="checkbox"data-toggle="switch" checked data-on-color="primary" data-off-color="primary"><span class="toggle"></span>
+                    </div>
+                </div>
+                    </label>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+            <li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger background-color">
+                    <p>Filters</p>
+                    <div class="pull-right">
+                        <span class="badge filter badge-black" data-color="black"></span>
+                        <span class="badge filter badge-azure" data-color="azure"></span>
+                        <span class="badge filter badge-green" data-color="green"></span>
+                        <span class="badge filter badge-orange" data-color="orange"></span>
+                        <span class="badge filter badge-red" data-color="red"></span>
+                        <span class="badge filter badge-purple active" data-color="purple"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+            <li class="header-title">Sidebar Images</li>
+
+            <li class="active">
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="/static/assets/img/sidebar-1.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="/static/assets/img/sidebar-3.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="/static/assets/img/sidebar-4.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="/static/assets/img/sidebar-5.jpg" alt="" />
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+<!--   Core JS Files   -->
+<script src="/static/assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="/static/assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="/static/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="/static/assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--  Chartist Plugin  -->
+<script src="/static/assets/js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="/static/assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="/static/assets/js/light-bootstrap-dashboard.js?v=2.0.1" type="text/javascript"></script>
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+<script src="/static/assets/js/demo.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initDashboardPageCharts();
+
+    });
+</script>
+
+<script>
+
+    function logout(){
+      localStorage.clear();
+      window.location.href='/login';
+    }
+    function who(){
+      
+      location.href='/whoweare';
+    }
+    function p_prof(){
+      var acc_id = localStorage.getItem("acc_id");
+      location.href='/parent/profile/'+acc_id;
+    }
+
+    function c_prof(){
+      var acc_id = localStorage.getItem("acc_id");
+      location.href='/child/profile/'+acc_id;
+    }
+    
+    function childprog(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/child/progress/"+acc_id;
+        }
+
+    function editnav(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/edit_categories/"+acc_id;
+        }        
+
+    function childact(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/activitylogs/"+acc_id;
+        } 
+
+    function childprofile(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href='/child/profile/'+acc_id;
+          
+        }
+
+    function forum(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/forum/"+acc_id;
+        } 
+
+    function parentprof(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/parent/profile/"+acc_id;
+        } 
+
+    function dash(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href = "/dashboard/teacher/"+acc_id;
+        }
+    function dashbee(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href = "/dashboard/teacher/"+acc_id;
+        }
+    function food(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/food";
+        }     
+    function place(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/places";
+        } 
+    function toys(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/toys";
+        }     
+</script>
+
+<script>
+var acc_type = localStorage.getItem("acc_type");
+var acc_id = localStorage.getItem("acc_id");
+if (acc_type == 2){
+    $(document).ready(function(){
+      var acc_id = localStorage.getItem('acc_id');
+        $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/progress_view="+acc_id,function(data){
+          var pictures='';
+          $.each(data,function(key,value){
+            
+
+            pictures += '<div id="card" onclick="detail('+value.prog_num+')"> ';
+            pictures+='<h1>'+value.prog_title+'</h1>'
+            pictures+='</div>';
+
+          });
+          $('#progs').append(pictures);
+        });
+      });
+}
+else if(acc_type == 1) {
+    var c_id = localStorage.getItem("acc_id");
+  $(document).ready(function(){
+      var acc_id = localStorage.getItem('acc_id');
+        $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/progress_view/cid="+c_id,function(data){
+          var pictures='';
+          $.each(data,function(key,value){
+            
+
+            pictures += '<div id="card" onclick="detail('+value.prog_num+')"> ';
+            pictures+='<h1>'+value.prog_title+'</h1>'
+            pictures+='</div>';
+
+          });
+          $('#progs').append(pictures);
+        });
+      });
+} 
+
+function detail(prog_num){
+
+    // var acc_type = localStorage.getItem("acc_type");
+    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/progress_view/"+prog_num;
+    var xhr  = new XMLHttpRequest()
+    xhr.open('GET', url, true)
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var value = JSON.parse(xhr.responseText);
+            localStorage.setItem('childid', value.childid);
+            localStorage.setItem('details', value.details);
+            localStorage.setItem('prog_date', value.prog_date);
+            localStorage.setItem('prog_num', value.prog_num);
+            localStorage.setItem('prog_time', value.prog_time);
+            localStorage.setItem('prog_title', value.prog_title);
+            localStorage.setItem('score', value.score);
+            localStorage.setItem('teacher', value.acc_id);
+            var teacher = localStorage.getItem("teacher");
+            // var c_id = localStorage.getItem("childid");
+            // alert(c_id)
+            // aboutc(c_id)
+            get_tech(teacher);
+            var tits = localStorage.getItem("prog_title");
+            alert("Loading daetails about "+tits)
+            window.location.href = '/activitylogs/report_details2';
+        }
+
+    }
+    xhr.send(null)
+
+    
+}
+
+function get_tech(teacher){
+    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/teacher/"+teacher;
+    var xhr  = new XMLHttpRequest()
+    xhr.open('GET', url, true)
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var value = JSON.parse(xhr.responseText);
+            var teacher_name = value.fname_t+" "+value.lname_t;
+            localStorage.setItem('teacher_name', teacher_name);
+            
+            
+        }
+
+    }
+    xhr.send(null)
+
+}
+
+// function aboutc(c_id){
+//  var url  = "https://cryptic-fjord-60133.herokuapp.com/api/child/"+c_id;
+//     var xhr  = new XMLHttpRequest()
+//     xhr.open('GET', url, true)
+//     xhr.onreadystatechange = function () { 
+//         if (xhr.readyState == 4 && xhr.status == 200) {
+//             var json = JSON.parse(xhr.responseText);
+//             alert(json)
+//             localStorage.setItem('fname', json.fname_c);
+//             localStorage.setItem('lname', value.lname_c);
+            
+            
+            
+//          alert(json.fname)
+//         }
+
+//     }
+//     xhr.send(null)
+// }
+
+</script>
+
+
+</html>

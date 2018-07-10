@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/dclass.css" />
+        <title>Update</title>
+        <script src="js/dindex.js"> </script>
+        
+
+<!--         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->
+    </head>
+    <body>
+        <script type="javascript" src="cordova.js"></script>  
+
+        <h1>Edit</h1>
+        <h2></h2><br>
+            <form>
+                <input type="text" value="" name="name" id="name" placeholder="Name"><br>
+                <input type="text" value="" name="contact" id="contact" placeholder="Contact no."><br>
+                <input type="text" value="" name="address" id="address" placeholder="Address"><br>
+                <input type="button" onclick="update_directory(form)" class="submit" value="Submit">
+                <input type="button" onclick="back()" class="submit" value="Back">
+                
+            </form>
+
+    </body>
+    
+</html>
+
+<script>
+
+    document.getElementById('name').setAttribute('value', localStorage.getItem('name'));
+    document.getElementById('contact').setAttribute('value', localStorage.getItem('contact'));
+    document.getElementById('address').setAttribute('value', localStorage.getItem('address'));
+
+</script>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Pic-a-Talk</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/light-bootstrap-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+    <!-- js for classes -->
+    <link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+    <link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+</head>
+
+<body onload="viewClas();">
+    <div class="wrapper">
+        <div class="sidebar" data-image="assets/img/sidebar-5.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="#" class="simple-text">
+                        <img src="assets/img/PATicon1.png" style="height: 60px; width: 20vh;"/>
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="nc-icon nc-chart-pie-35"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./user.html">
+                            <i class="nc-badge"></i>
+                            <p>Classes</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./table.html">
+                            <i class="nc-grid-45"></i>
+                            <p>Categories</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="./typography.html">
+                            <i class="nc-icon nc-paper-2"></i>
+                            <p>Progress Report</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class=" container-fluid  ">
+                    <a class="navbar-brand" href="#pablo">Classes</a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="nav navbar-nav mr-auto">
+
+
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pablo">
+                                   
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="no-icon">Profile</span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">User Profile</a>
+                                    <a class="dropdown-item" href="#">Child Profile</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#pablo">
+                                    <span class="no-icon">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                        <form method="post" onsubmit="return false" style="margin-left: 30%;">
+                                                <input id="class_name" name="class_name" placeholder="Enter class name" type="text"></input>
+                                                <input class="btn btn-primary" id="btn" value="Add" name"add" type="submit" onclick="addClass();"></input>
+                                        </form>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-2"></div>
+                                                <div class="col-md-8">
+                                                    <table class="table table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col-md-2"></th>
+                                                        <th scope="col-md-8">Action</th>
+                                                        <th scope="col-md-8">Class Name</th>
+                                                        <th scope="col-md-2"></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="view_classname"></tbody>
+                                                    <tr>
+                                                    <td scope="col-md-2"></td>
+                                                    <td scope="col-md-8"><a class="btn btn-sm btn-danger confirmation" onclick="delete_class(\''+classnum+'\');"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                                    <td scope="col-md-8">icon2</td>
+                                                    <td scope="col-md-2"></td>
+                                                    </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container">
+                    <nav>
+                        <p class="copyright text-center">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <a href="#">Pic-a-Talk</a>, made with love for a better web
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!--   -->
+    <div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+        <a href="#" data-toggle="dropdown">
+            <i class="fa fa-cog fa-2x"> </i>
+        </a>
+
+        <ul class="dropdown-menu">
+			<li class="header-title"> Sidebar Style</li>
+            <li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger">
+                    <p>Background Image</p>
+                    <label class="switch">
+                        <input type="checkbox" data-toggle="switch" checked="" data-on-color="primary" data-off-color="primary"><span class="toggle"></span>
+                    </label>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+            <li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger background-color">
+                    <p>Filters</p>
+                    <div class="pull-right">
+                        <span class="badge filter badge-black" data-color="black"></span>
+                        <span class="badge filter badge-azure" data-color="azure"></span>
+                        <span class="badge filter badge-green" data-color="green"></span>
+                        <span class="badge filter badge-orange" data-color="orange"></span>
+                        <span class="badge filter badge-red" data-color="red"></span>
+                        <span class="badge filter badge-purple active" data-color="purple"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+            <li class="header-title">Sidebar Images</li>
+
+            <li class="active">
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="assets/img/sidebar-1.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="assets/img/sidebar-3.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="assets/img/sidebar-4.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="assets/img/sidebar-5.jpg" alt="" />
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</body>
+<!--   Core JS Files   -->
+<script src="assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="assets/js/plugins/bootstrap-switch.js"></script>
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--  Chartist Plugin  -->
+<script src="assets/js/plugins/chartist.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
+<script src="assets/js/light-bootstrap-dashboard.js?v=2.0.1" type="text/javascript"></script>
+<!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
+<script src="assets/js/demo.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initDashboardPageCharts();
+
+        
+
+    });
+</script>
+
+<script src="{{ url_for('.static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('.static', filename='js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('.static', filename='js/jquery.dataTables.min.js') }}"></script>  
+<script>
+    function back(){
+        var acc_id = localStorage.getItem('acc_id');
+        location.href="/dashboard/teacher/"+acc_id;
+    }
+
+    $(document).ready(function(){
+        $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/logs",function(data){
+            var directory_data='';
+            $.each(data,function(key,value){
+                directory_data += '<tr>';
+                
+                
+                directory_data += '<td>'+value.log_date+'</td>';
+                directory_data += '<td>'+value.log_time+'</td>';
+                directory_data += '<td>'+value.category_type+':'+value.image_name+'</td>';
+                
+                // directory_data += '<td><h2><a onclick="alert_call(val)"><span class="glyphicon glyphicon-earphone"></span></a></h2></td>';
+                
+                directory_data += '</tr>';
+            });
+            $('#directory_table').append(directory_data);
+        });
+    });
+</script>
+<script src="/static/bootstrap3/js/bootstrap.min.js"></script>
+<!--<script src="/static/bootstrap3/js/jquery-1.11.1.min.js"></script>-->
+<script src="/static/js/app.js"></script>
+<script src="/static/js/jQuery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        var elems = document.getElementsByClassName('confirmation');
+        var confirmIt = function (e) {
+            if (!confirm('Are you sure?')) e.preventDefault();
+        };
+        for (var i = 0, l = elems.length; i < l; i++) {
+            elems[i].addEventListener('click', confirmIt, false);
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready( function () {
+        $('#myTable').DataTable();
+}       );
+    </script>
+
+     <script>
+
+
+
+
+
+
+     var tokens = localStorage.getItem('token');
+         /*$(document).ready(
+         function viewClass(){
+             viewClas();
+             showRes();
+          })*/
+         function viewClas(){
+             $("#view_classname").show();
+         $.ajax({
+
+                   // url: 'http://127.0.0.1:5000/api/manageclass',
+                   url: 'https://cryptic-fjord-60133.herokuapp.com/api/class',
+                   type: "GET",
+                   dataType: "json",
+                   crossDomain: true,
+                    // headers: {
+                    //      'x-access-token': tokens
+                    //          },
+                   success: function(resp) {
+                    $("#view_classname").html("");
+                     //if (resp.status  === 'ok') {
+                        for (i = 0; i < resp.length; i++) {
+
+                                       classname = resp[i].class_name;
+                                       classnum = resp[i].class_num;
+                                       console.log(classnum);
+                                       $("#view_classname").append(showRes2(classname, parseInt(classnum)));
+
+                                                                 }
+                     //} else {
+                        // $("#view_classname").html("");
+                        //alert('No Data')
+                            // }
+                                             }
+               });
+                             }
+
+
+         
+
+         function showRes(class_name)
+         {
+            return '<div class="widget-content">'+
+                     '<table class="table table-striped table-bordered" id="view_res">'+
+                         '<tbody><tr class="edit" id="details">'+
+                             '<td>'+ class_name +'</td>'+
+                         '</tr></tbody>' +
+                     '</table>' +
+                '</div>'
+         }
+
+
+
+         function showRes2(class_name, class_num){
+            return '<tr>'+
+                '<td>'+
+                '<a class="btn btn-sm btn-danger confirmation" onclick="delete_class(\''+classnum+'\');"><span class="glyphicon glyphicon-trash"></span></a>'+'</td>'+  
+                 '<td style="cursor.pointer" onclick="store_it(\''+class_name+'\')" >'+
+                '<a href="/classPage/'+class_name+' "style="text-align: center" onclick="store_it('+class_name+')" >'+class_name+'</a>'+
+            '</td>'+  
+                '</tr>';
+         }
+
+         
+
+         function table()
+           {
+         $("table.table-bordered").html('<thead><tr>' +
+                 '<th>Acton</th>' +
+                 '<th>Class Name</th>' +
+                 '</tr></thead>')
+           }
+
+            function store_it(class_name){
+            var class_name = class_name;
+            console.log(class_name);
+            localStorage.setItem('class_name', class_name);
+         }
+ </script>
+
+
+ <script>
+
+ function delete_class(val){
+     if (confirm("Are you sure you want to DELETE?")) {
+         var url  = "https://cryptic-fjord-60133.herokuapp.com/api/del_class="+val;
+         var xhr  = new XMLHttpRequest()
+         xhr.open('GET', url, true)
+         xhr.onload = function () {
+             var users = JSON.parse(xhr.responseText);
+             if (xhr.readyState == 4 && xhr.status == "200") {
+                 alert('Successfully deleted');
+                 location.href=("/classes/"+acc_id);
+             } else {
+                 alert('error')
+             }
+         }
+         xhr.send(null);
+         alert(val)
+     }
+ }
+
+
+</script>
+
+<script>
+function addClass(){
+    var class_name = $("#class_name").val();
+    var acc_id = localStorage.getItem("acc_id");
+    $.ajax({
+        // url: 'http://127.0.0.1:5000/api/addClass',
+        url: "https://cryptic-fjord-60133.herokuapp.com/api/add_class",
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({
+            'classname': class_name
+        }),    
+        type: "POST",
+        dataType: "json",
+        crossDomain: true,
+        // headers: {
+        //  'x-access-token': tokens
+        // },
+        success: function () {
+            console.log("success");
+            alert("Added class success!");
+            location.href=("/classes/"+acc_id);
+        },
+        error: function () {
+            console.log('error')
+        },
+        complete: function (jqXHR) {
+            if (jqXHR.status == '401') {
+                console.log(jqXHR.status)
+            }
+        }
+    });
+}
+
+</script>
+
+</html>

@@ -1,5 +1,11 @@
-from comaid import app
+from flask import Flask
+import os
+from app import app
+
 
 
 if __name__ == '__main__':
-    app.run(host='localhost', port=5000, debug=True)
+	# app.run()
+	port = int(os.environ.get("PORT", 8000))
+	app.run(host='0.0.0.0', port=port)
+
