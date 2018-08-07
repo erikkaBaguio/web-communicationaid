@@ -14,3 +14,4 @@ Werkzeug
 PyJWT
 Marshmallow-SQLAlchemy
 jinja2
+requests

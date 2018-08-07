@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<title>Places</title>
+<link rel="shortcut icon" href="static/images/places.png"/>
+<meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
+<link rel="stylesheet" href="static/css/font.css">
+<link rel="stylesheet" href="static/css/font-awesome.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="static/css/agency.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
+
+  <div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-teal w3-padding-16">
+    <a class="w3-bar-item w3-left-align w3-large w3-teal" style="font-size: 150%;">Places</a>
+  <a href="/edit_categories"><span style="float: right; padding-top: 10px; padding-right: 15px; font-size:90%;">Back</span></a>
+  </a>
+ </div>
+</div>
+
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:75px">
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright"></span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+  <!-- PLACES -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="places">
+    <div class="w3-quarter">
+        <!-- <img src="static/images/upload1.png" style="width:100%" onclick="upload()"> -->
+        <img src="static/places/mcdo.jpg" style="width:100%" onclick="onClick(this);document.getElementById('mcdo_play').play(); mcdo_clicks(); return false;" alt="Mcdo">
+         
+    </div>
+
+   <div class="w3-quarter">
+      <img src="static/places/church.jpg" style="width:100%" onclick="onClick(this);document.getElementById('church_play').play(); church_clicks(); return false;" alt="Church">
+      <img src="static/places/school.jpg" style="width:100%" onclick="onClick(this);document.getElementById('school_play').play(); school_clicks(); return false;" alt="School">
+      
+   </div>
+
+    <div class="w3-quarter">
+      <img src="static/places/pool.jpg" style="width:100%" onclick="onClick(this);document.getElementById('pool_play').play(); pool_clicks(); return false;" alt="Pool">
+      <img src="static/places/playground.jpg" style="width:100%" onclick="onClick(this);document.getElementById('playground_play').play(); play_clicks(); return false;" alt="Playground">
+     
+    </div>
+
+    <div id="loadpics" class="w3-quarter">
+      <img src="static/places/jollibee.jpg" style="width:100%" onclick="onClick(this);document.getElementById('jollibee_play').play(); jollibee_clicks(); return false;" alt="Jollibee">
+     
+
+    </div>
+
+</div>
+  </div>
+
+
+    <audio id="jollibee_play">
+    <source src="static/audio/jollibee.mp3"/>
+    </audio>
+    <audio id="mcdo_play">
+    <source src="static/audio/mcdonald's.mp3"/>
+    </audio>
+    <audio id="church_play">
+    <source src="static/audio/church.mp3"/>
+    </audio>
+    <audio id="school_play">
+    <source src="static/audio/school.mp3"/>
+    </audio>
+    <audio id="pool_play">
+    <source src="static/audio/pool.mp3"/>
+    </audio>
+    <audio id="playground_play">
+    <source src="static/audio/playground.mp3"/>
+    </audio>
+
+<!-- End page content -->
+</div>
+
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var c_id = localStorage.getItem("c_id");
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  xhr = new XMLHttpRequest();
+    var url = "https://cryptic-fjord-60133.herokuapp.com/api/rec_logs";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText);
+        }
+    }
+    var json =JSON.stringify({"clicks": "1",'c_id':c_id, "log_date":date, "log_time":time, "category_type":"Places", "image_name":element.alt});
+    console.log(json)
+    xhr.send(json);   
+    
+}
+
+$(document).ready(function(){
+  var acc_id = localStorage.getItem('acc_id');
+    $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/v3/spec_categories/"+acc_id+"/Places",function(data){
+      var pictures='';
+      $.each(data,function(key,value){
+
+        pictures += '<img src="'+value.img+'" style="width:100%; height: 54vh;" onclick="onClick(this); adiioplay(\''+value.aud+'\'); return false;" alt="'+value.image_name+'">';
+
+      });
+      $('#loadpics').append(pictures);
+    });
+  });
+
+function adiioplay(val){
+  audio = new Audio(val);
+  audio.play();
+}
+
+
+function logout(){
+    location = "login.html"
+ }
+
+</script>
+<script>
+  var acc_id = localStorage.getItem('acc_id');
+        function upload(){
+          localStorage.setItem('Cat_type', "Places");
+          location.href="/upload/"+acc_id;
+
+        }
+        function back(){
+          location = "categories.html";
+        }
+</script>
+
+
+</body>
+</html>

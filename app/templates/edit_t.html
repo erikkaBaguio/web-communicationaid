@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/w3.css">
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="/static/bootstrap/js/bootstrap.bundle.js">
+    <link rel="stylesheet" href="/static/bootstrap/js/bootstrap.js">
+    <link rel="stylesheet" href="/static/css/agency.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Pic-A-Talk</title>
+    <style>
+    body {
+
+        background-image: url('/static/images/PATbg5.jpg');
+        min-height: 100%;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color:skyblue;
+        font-family:Roboto;
+    }
+    .pad-50 {
+        background-color: #fff;
+        padding: 10% 5%;
+    }
+    .pad-50:first-child {
+        background-color:#f8f9fa;
+        border-radius: 15px;
+    }
+    .pad-50:last-child {
+        border-radius: 15px;
+    }
+    .btn-primary {
+        width:100%;
+        margin-top: 13%;
+    }
+    .mar-50 {
+        margin-top: 8%;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-teal">
+  <img class="w3-left" src="/static/images/PATicon1.png" style="margin-left: 5%; height: 100%; width: 13%;" alt="logo" onclick="dasher()" />
+  <script>
+        function dasher(){
+        var acc_id = localStorage.getItem('acc_id');
+        location.href = "/dashboard/teacher/"+acc_id;
+                      }
+  </script>
+ </div>
+</div>
+    <center>
+    <div class="container">
+        <div class="row">
+                <div class="col-sm-4 col-sm-4 col-sm-4 col-xs-8 pad-50" style="margin-top: 10%; margin-left: 35%">
+                    <div class="input-group mb-3">
+                    
+                    <div class="container" style="margin-top: -30%;"> 
+                    
+                       <h4 style="font-family:'Bookman Old Style'">Teacher's Information</h4>
+                          <input type="text" id = "fname_t" class="form-control mb-3" placeholder="First Name" aria-label="First Name:" aria-describedby="basic-addon1">
+                          <input type="text" id = "lname_t" class="form-control mb-3" placeholder="Last Name" aria-label="Last name:" aria-describedby="basic-addon1">
+                          <input type="date" id="bday_t" class="form-control mb-3" placeholder="Birthdate" aria-label="Birthdate:" aria-describedby="basic-addon1">
+                          <input type="text" id="specialty" class="form-control mb-3" placeholder="Specialization" aria-label="Specialialization:" aria-describedby="basic-addon1">
+                          <input type="text" id="tel_num" class="form-control mb-3" placeholder="Contact Number" aria-label="Contact Number:" aria-describedby="basic-addon1">
+                          <input type="text" id="bio_t" class="form-control mb-3" placeholder="Enter Bio" aria-label="Bio:" aria-describedby="basic-addon1">
+                          <input type="text" id="add_t" class="form-control mb-3" placeholder="Address" aria-label="Address:" aria-describedby="basic-addon1">
+                         
+                        <button onclick="add_teacher(form)" type="button" class="btn btn-danger" style="width: 100%;" id="upload-button">SAVE</button><br>
+                      <div class="container" style="margin-bottom: -20%;">
+                </div>
+        </div>
+  </div>
+</body>
+
+</div>
+<script
+<script src="/static/bootstrap3/js/bootstrap.min.js"></script>
+<!--<script src="/static/bootstrap3/js/jquery-1.11.1.min.js"></script>-->
+<script src="/static/js/app.js"></script>
+<script src="/static/js/jQuery-3.2.1.min.js"></script>
+<script>
+  function add_teacher(){
+        var fname_t = document.getElementById('fname_t').value;
+        var lname_t = document.getElementById('lname_t').value;
+        var bday_t = document.getElementById('bday_t').value;
+        var specialty = document.getElementById('specialty').value;
+        var tel_num = document.getElementById('tel_num').value;
+        var add_t = document.getElementById('add_t').value;
+        var bio_t = document.getElementById('bio_t').value;
+        
+        var acc_id = localStorage.getItem("acc_id");
+          xhr = new XMLHttpRequest();
+          var url = "https://cryptic-fjord-60133.herokuapp.com/api/teacher/info/"+acc_id;
+          xhr.open("POST", url, true);
+          xhr.setRequestHeader("Content-type", "application/json");
+          xhr.onreadystatechange = function () { 
+              
+              if (xhr.readyState == 4 && xhr.status == 200) {
+                  var json = JSON.parse(xhr.responseText);
+
+                  localStorage.setItem('t_id', json.t_id);
+                  localStorage.setItem('fname_t', json.fname_t);
+                  localStorage.setItem('lname_t', json.lname_t);
+                  localStorage.setItem('bday_t', json.bday_t);
+                  localStorage.setItem('specialty', json.specialty);
+                  localStorage.setItem('tel_num', json.tel_num);
+                  localStorage.setItem('add_t', json.add_t);
+                  localStorage.setItem('bio_t', json.bio_t);
+                  localStorage.setItem('acc_id', json.acc_id);
+                  var edit = localStorage.getItem('edit_t');
+                  if(edit == 'true'){
+                    location.href = "/teacher/profile/"+acc_id;
+                  }
+                  else{
+                    location.href="/tprofilepic/"+acc_id;
+                  }
+                    
+                  
+              }
+          }
+          var json =JSON.stringify({'fname_t':fname_t,'lname_t':lname_t,'bday_t':bday_t, 'specialty':specialty,'tel_num':tel_num,'add_t':add_t,'bio_t':bio_t});
+          console.log(json)
+          xhr.send(json);
+
+
+          
+          alert("please wait ...")
+      }
+</script>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<title>Child</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w33.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/static/css/w3.css">
+<link rel="stylesheet" href="/static/css/font.css">
+<link rel="stylesheet" href="/static/css/font-awesome.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.css">
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+<link rel="stylesheet" href="/static/css/agency.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", "sans-serif"}
+</style>
+<link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+  <!-- <link href="style.css" rel="stylesheet"> -->
+  <style>
+  * {
+    box-sizing: border-box
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Dosis', sans-serif;
+    line-height: 1.6;
+    color: #666;
+    background: #F6F6F6;
+  }
+
+  #root {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 1.5rem 2.5rem;
+    background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+    margin: 0 0 2rem 0;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  img {
+    display: block;
+    margin-top: 50px;
+    max-width: 100%;
+  }
+
+  p {
+    padding: 0 2.5rem 2.5rem;
+    margin: 0;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    margin: 1rem;
+    background: white;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all .2s linear;
+    width:100%;
+  }
+
+  .card:hover {
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+    transform: translate3D(0, -2px, 0);
+  }
+
+  @media screen and (min-width: 600px) {
+    .card {
+      flex: 1 1 calc(50% - 2rem);
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    .card {
+      flex: 1 1 calc(33% - 2rem);
+    }
+  }
+
+  .card:nth-child(2n) h1 {
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  }
+
+  .card:nth-child(4n) h1 {
+    background-image: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
+  }
+
+  .card:nth-child(5n) h1 {
+    background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
+  }
+
+  .w3-left {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .w3-button {
+    text-decoration: none;
+  }
+
+  .submit .w3-teal .w3-round {
+    text-decoration: none;
+  }
+  </style>
+
+
+<body>
+<div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-teal w3-padding-8">
+  <img class="w3-left" src="/static/images/PATicon1.png" style="margin-left: 5%; height: 100%; width: 13%;" alt="logo" onclick="dasher()"/>
+  <script>
+          function dasher(){
+          var acc_id = localStorage.getItem('acc_id');
+          location.href = "/dashboard/parent/"+acc_id;
+                     }
+  </script>
+
+  <a onclick="logout()" class="w3-bar-item w3-button w3-right w3-padding-large w3-teal top-menu"></i>Log Out</a>
+</div>
+</div>
+
+
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+        <script>
+      function back(){
+        location = "p_mode.html" 
+      }
+    </script>
+  </a>
+      <div class="w3-white w3-text-grey w3-card-16 pull" style="text-align:left;" id="view_teacher">
+        <div class="w3-container w3-center" style="text-align:left;">
+          <div class="w3-container pull-left" style="margin-left:5%; text-align:left;">
+            <br>
+            <h2 class="w3-disply-bottomleft w3-container w3-text-black"><img src="{{img}}" style="width:50%" alt="Avatar"></h2>
+            <input onclick="upload()" type="button" class="submit w3-teal w3-round" name="image" value="Edit Picture" style="margin-left: 9%; width: 100px;height: 30px; font-size: 15px; color:white; border: none; cursor: pointer;" src="#" />
+             <h2 class="w3-disply-bottomleft w3-container w3-text-black" > {{name}} </h2>
+             <br><br>
+   <!--          <h3>{{diagnosis}}</h3> -->
+          <p style="margin-left: -50px; margin-top: -35px;"><i class="fa fa-heartbeat fa-fw w3-margin-right w3-large w3-text-teal" ></i><b >{{diagnosis}}</b></p>
+          <p style="margin-left: -50px; margin-top: -25px;"><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-large w3-text-teal"></i><b >{{bday}}</b></p>
+          <p style="margin-left: -50px; margin-top: -25px;"><i class="fa fa-venus-mars fa-fw w3-margin-right w3-large w3-text-teal"></i><b ></b>{{gender}}</p>
+          <p style="margin-left: -50px; margin-top: -25px;"><i class="fa fa-book fa-fw w3-margin-right w3-large w3-text-teal"></i><b >{{classes}}</b></p>
+          <hr>
+          <a onclick="edit()" class="w3-bar-item w3-button w3-center w3-padding-10 w3-teal w3-round" style="border: none; margin-top: -5px; margin-left: -5px;">Edit Profile</a>
+           </div> 
+           <br><br><br><br>
+         <div class="w3-container" style="margin-right:0; text-align:left; width: 50%;">    
+        
+
+       <table class="table table-striped table-bordered table-hover" id="mytable">
+
+            <tbody id="view_data">
+
+            </tbody>
+
+       </table>
+        </div>
+      </div>
+    
+
+      <br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom w3-round">
+        <div id="root" style="padding-top:15%;z-index:1;">
+          <div id="progs" class="container" >
+        </div>
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+<script>
+
+  function logout(){
+      localStorage.clear();
+      window.location.href='/login';
+    } 
+
+  function upload(){
+      var acc_id = localStorage.getItem('acc_id');
+      localStorage.setItem('childs','true')
+      location = "/cprofilepic/"+acc_id;
+    }
+
+    function edit(){
+      localStorage.setItem('edit_child', 'true');
+      var acc_id = localStorage.getItem('acc_id');
+      location.href = "/personalinfo/child/"+acc_id;
+    }
+</script>
+
+
+</body>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script>
+var acc_type = localStorage.getItem("acc_type");
+var acc_id = localStorage.getItem("acc_id");
+if (acc_type == 2){
+  $(document).ready(function(){
+    var acc_id = localStorage.getItem('acc_id');
+      $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/progress_view="+acc_id,function(data){
+        var pictures='';
+        $.each(data,function(key,value){
+          
+
+          pictures += '<div class="card" onclick="detail('+value.prog_num+')"> ';
+          pictures+='<h1>'+value.prog_title+'</h1>'
+          pictures+='</div>';
+
+        });
+        $('#progs').append(pictures);
+      });
+    });
+}
+else if(acc_type == 1) {
+  var c_id = localStorage.getItem("acc_id");
+  $(document).ready(function(){
+    var acc_id = localStorage.getItem('acc_id');
+      $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/progress_view/cid="+c_id,function(data){
+        var pictures='';
+        $.each(data,function(key,value){
+          
+
+          pictures += '<div class="card" onclick="detail('+value.prog_num+')"> ';
+          pictures+='<h1>'+value.prog_title+'</h1>'
+          pictures+='</div>';
+
+        });
+        $('#progs').append(pictures);
+      });
+    });
+} 
+
+function detail(prog_num){
+
+  // var acc_type = localStorage.getItem("acc_type");
+  var url  = "https://cryptic-fjord-60133.herokuapp.com/api/progress_view/"+prog_num;
+    var xhr  = new XMLHttpRequest()
+    xhr.open('GET', url, true)
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var value = JSON.parse(xhr.responseText);
+            localStorage.setItem('childid', value.childid);
+          localStorage.setItem('details', value.details);
+          localStorage.setItem('prog_date', value.prog_date);
+          localStorage.setItem('prog_num', value.prog_num);
+          localStorage.setItem('prog_time', value.prog_time);
+          localStorage.setItem('prog_title', value.prog_title);
+          localStorage.setItem('score', value.score);
+          localStorage.setItem('teacher', value.acc_id);
+          var teacher = localStorage.getItem("teacher");
+          // var c_id = localStorage.getItem("childid");
+          // alert(c_id)
+          // aboutc(c_id)
+          get_tech(teacher);
+          var tits = localStorage.getItem("prog_title");
+          alert("Loading daetails about "+tits)
+          window.location.href = '/activitylogs/report_details';
+        }
+
+    }
+    xhr.send(null)
+
+    
+}
+function get_tech(teacher){
+  var url  = "https://cryptic-fjord-60133.herokuapp.com/api/teacher/"+teacher;
+    var xhr  = new XMLHttpRequest()
+    xhr.open('GET', url, true)
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var value = JSON.parse(xhr.responseText);
+            var teacher_name = value.fname_t+" "+value.lname_t;
+            localStorage.setItem('teacher_name', teacher_name);
+          
+          
+        }
+
+    }
+    xhr.send(null)
+
+}
+</script>
+</html>

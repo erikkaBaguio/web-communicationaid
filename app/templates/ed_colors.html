@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<title>COLORS</title>
+<link rel="shortcut icon" href="/static/images/colors.png" />
+<meta charset="UTF-8"><link rel="stylesheet" href="/static/css/w3.css">
+<link rel="stylesheet" href="/static/css/font.css">
+<link rel="stylesheet" href="/static/css/font-awesome.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="/static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="/static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="/static/css/agency.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+
+.w3-padding-16 {
+  padding-top: 6px !important;
+  padding-bottom: 11px !important;
+}
+</style>
+<body class="w3-light-grey">
+
+<!-- Sidebar/menu -->
+<!-- <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+  <a href="/navigation" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Categories</a>
+  <a href="/child" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
+  <a href="/parent" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
+  <a href="/activity" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity: FOOD</a>
+  <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
+</nav> -->
+
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-teal w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding" style="font-weight: 600; font-size: 26px; text-shadow: 2px 2px 2px black;" onclick="dasher()">
+  <img src="/static/images/colors.png" alt="logo" width="50px" height="auto"/>COLORS</span>
+  <script>
+        function dasher(){
+        var acc_id = localStorage.getItem('acc_id');
+        location.href = "/dashboard/teacher/"+acc_id;
+                      }
+  </script>
+    <!-- <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a> -->
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+  <!-- FOOD -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
+    <div class="w3-quarter hover">
+        <img src="/static/EDUCATIONAL/COLORS/red.png" style="width:100%" id="A" onclick="document.getElementById('red_play').play();return false;" alt="A">
+        <img src="/static/EDUCATIONAL/COLORS/violet.png" style="width:100%" id="E" onclick="document.getElementById('violet_play').play();return false;" alt="E">
+   </div>
+
+   <div class="w3-quarter hover">
+        <img src="/static/EDUCATIONAL/COLORS/blue.png" style="width:100%" id="I" onclick="document.getElementById('blue_play').play();return false;" alt="I">
+        <img src="/static/EDUCATIONAL/COLORS/green.png" style="width:100%" id="M" onclick="document.getElementById('green_play').play();return false;" alt="M">
+
+    </div>
+
+    <div class="w3-quarter hover">
+        <img src="/static/EDUCATIONAL/COLORS/yellow.png" style="width:100%" id="Q" onclick="document.getElementById('yellow_play').play();return false;" alt="Q">
+        <img src="/static/EDUCATIONAL/COLORS/orange.png" style="width:100%" id="U" onclick="document.getElementById('orange_play').play();return false;" alt="U">
+    </div>
+
+    <div class="w3-quarter hover">
+        <img src="/static/EDUCATIONAL/COLORS/white.png" style="width:100%" id="Y" onclick="document.getElementById('white_play').play();return false;" alt="Y">
+        <img src="/static/EDUCATIONAL/COLORS/black.png" style="width:100%" id="Y" onclick="document.getElementById('black_play').play();return false;" alt="Y">
+    </div>
+
+    <!--<div class="w3-quarter">-->
+      <!--<img src= "{{ url_for('static', filename='image_name' ) }}">-->
+      <!--</div>-->
+
+
+    <audio id="red_play">
+    <source src="/static/EDUCATIONAL/AUDIO/red.mp3"/>
+    </audio>
+    <audio id="blue_play">
+    <source src="/static/EDUCATIONAL/AUDIO/blue.mp3" />
+    </audio>
+    <audio id="yellow_play">
+    <source src="/static/EDUCATIONAL/AUDIO/yellow.mp3" />
+    </audio>
+    <audio id="violet_play">
+    <source src="/static/EDUCATIONAL/AUDIO/violet.mp3"/>
+    </audio>
+    <audio id="green_play">
+    <source src="/static/EDUCATIONAL/AUDIO/green.mp3" />
+    </audio>
+    <audio id="orange_play">
+    <source src="/static/EDUCATIONAL/AUDIO/orange.mp3"/>
+    </audio>
+    <audio id="black_play">
+    <source src="/static/EDUCATIONAL/AUDIO/black.mp3"/>
+    </audio>
+    <audio id="white_play">
+    <source src="/static/EDUCATIONAL/AUDIO/white.mp3"/>
+    </audio>
+    
+  </div>
+
+
+</div>
+
+<script>
+
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+</script>
+
+ <script type="text/javascript" src="/static/js/jQuery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/static/js/app.js"></script>
+
+
+</body>
+</html>

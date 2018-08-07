@@ -12,7 +12,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 ma = Marshmallow(app)
-# CORS(app, headers=['Content-Type'])
+CORS(app, headers=['Content-Type'])
 
 app.config['SECRET_KEY'] = 'hard to guess string'
 app.config['CORS_HEADERS'] = "Content-Type, Authorization"

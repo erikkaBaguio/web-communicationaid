@@ -1,0 +1,58 @@
+
+h1 {
+
+    padding: 12px;
+    font-size: 50px;
+    color: lightpink;
+    margin: 4px 2px;
+    text-align:center;
+    background-color: lightblue;
+
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button1{
+	float: right;
+    background-color: steelblue;
+    background-size: cover;
+    margin: 8px 4px;
+}
+
+.button2 {
+	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    float: center;
+}
+
+table, th, td {
+     border: 3px solid gray;
+     text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+th {
+    height: 50px;
+    background-color: skyblue;
+    color: white;
+}

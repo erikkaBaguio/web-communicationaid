@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
-<title>TOYS</title>
-<link rel="shortcut icon" href="toys/toyicon.png"/>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<title>Toys</title>
+<link rel="shortcut icon" href="/static/images/toys.png"/>
+<meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
+<link rel="stylesheet" href="static/css/font.css">
+<link rel="stylesheet" href="static/css/font-awesome.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="static/css/agency.min.css">
+
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 .w3-quarter img{margin-bottom: -6px; cursor: pointer}
@@ -13,129 +25,229 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
 <body class="w3-light-grey">
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
-  <a href="navigation.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Categories</a>
-  <a href="childinfo.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
-  <a href="parent.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
-  <a href="toys_rec.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity: TOYS</a>
-  <a href="welcome.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
-</nav>
 
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-white w3-xlarge w3-padding-16">
-  <span class="w3-left w3-padding">
-  <img src="toys/toyicon.png" alt="logo" width="30px" height="auto"/>TOYS</span>
-    <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
-</header>
+  <div class="w3-top">
+ <div class="w3-bar w3-large w3-teal w3-padding-8">
+  <i class="fa fa-arrow-circle-left" style="font-size:48px; margin-left: 20px; margin-top: 25px; cursor: pointer;" onclick="dasher()"></i>
+    <script>
+          function dasher(){
+          var acc_id = localStorage.getItem('acc_id');
+          location.href = "/dashboard/parent/"+acc_id;
+                     }
+  </script>
+     <a href = "/food"><img class="w3-center" src="/static/images/food.png" style="margin-left: 20%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="FOOD">
+     </a>
+     <a href = "/toys"><img class="w3-center" src="/static/images/toys.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="TOYS">
+     </a>
+     <a href = "/places"><img class="w3-center" src="/static/images/place.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="PLACES">
+     </a>
+     <a onclick="gender_bender()"><img class="w3-center" src="/static/images/clothes.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" alt="CLOTHES">
+     </a>
+    </div>
+    <script>
+                            function gender_bender(){
+                                var acc_id = localStorage.getItem('acc_id');
+                                var url  = "https://cryptic-fjord-60133.herokuapp.com/api/get_cprof/"+acc_id;
+                                var xhr  = new XMLHttpRequest()
+                                    xhr.open('GET', url, true)
+                                    xhr.onreadystatechange = function () { 
+                                        if (xhr.readyState == 4 && xhr.status == 200) {
+                                            var value = JSON.parse(xhr.responseText);
+                                            var gender = value.gender;
+                                        if(gender == ('M' || 'm')){
+                                            location.href = "/clothes_b";
+                                            }else{
+                                            location.href = "/clothes_g";
+                                            }  
+                                        }
+                                    }
+                                    xhr.send(null)
+                                }
+                        </script>
+</div>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:75px">
 
   <!-- Modal for full size images on click-->
   <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <span class="w3-button w3-black w3-xlarge w3-display-topright"></span>
     <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
       <img id="img01" class="w3-image">
       <p id="caption"></p>
     </div>
   </div>
-  <!-- FOOD -->
-  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
-    <div class="w3-quarter">
-        <img src="toys/stack.jpg" style="width:100%" onclick="document.getElementById('stack_play').play(); stack_clicks(); return false;" alt="Stack">
-        <img src="toys/ball.jpg" style="width:100%" onclick="document.getElementById('ball_play').play(); ball_clicks(); return false;" alt="Ball">
-        <img src="toys/car.jpg" style="width:100%" onclick="document.getElementById('car_play').play(); car_clicks();  return false;" alt="Car">
-   </div>
+  <!-- TOYS -->
+  <div class="container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="toys">
+    <div id="loadpics" class="row">
 
-   <div class="w3-quarter">
-      <img src="toys/puzzle.jpg" style="width:100%" onclick="document.getElementById('puzzle_play').play(); puzzle_clicks(); return false;" alt="Puzzle">
-      <img src="toys/swing.jpg" style="width:100%" onclick="document.getElementById('swing_play').play(); swing_clicks(); return false;" alt="Swing">
-      <img src="toys/teddy.jpg" style="width:100%" onclick="document.getElementById('teddy_play').play(); teddy_clicks(); return false;" alt="Teddy">
-    </div>
+      <div class="col-md-6 col-lg-4">
+        <img class="img-fluid mb-5 d-block mx-auto" src="static/images/upload1.png" style="width:100%" onclick="upload()">
+      </div>
 
-    <div class="w3-quarter">
-      <img src="toys/doodlepad.jpg" style="width:100%" onclick="document.getElementById('doodle_play').play(); doodle_clicks(); return false;" alt="Doodle Pad">
-      <img src="toys/lego.jpg" style="width:100%" onclick="document.getElementById('lego_play').play(); lego_clicks(); return false;" alt="Legos">
-      <img src="toys/flashcards.jpg" style="width:100%" onclick="document.getElementById('flash_play').play(); flash_clicks(); return false;" alt="Flashcards">
-    </div>
+      <div class="col-md-6 col-lg-4">
+        <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/ball.jpg" style="width:100%" onclick="onClick(this);document.getElementById('ball_play').play(); ball_clicks(); return false;" alt="Ball">
+      </div>
 
-    <div class="w3-quarter">
-      <img src="toys/rattle.jpg" style="width:100%" onclick="document.getElementById('rattle_play').play(); rattle_clicks(); return false;" alt="Rattle">
-      <img src="toys/trampoline.jpg" style="width:100%" onclick="document.getElementById('trampoline_play').play(); trampoline_clicks(); return false;" alt="Trampoline">
-      <img src="toys/slide.jpg" style="width:100%" onclick="document.getElementById('slide_play').play(); slide_clicks(); return false;" alt="Slide">
+      <div class="col-md-6 col-lg-4">
+        <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/car.jpg" style="width:100%" onclick="onClick(this);document.getElementById('car_play').play(); car_clicks();  return false;" alt="Car">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/puzzle.jpg" style="width:100%" onclick="onClick(this);document.getElementById('puzzle_play').play(); puzzle_clicks(); return false;" alt="Puzzle">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/swing.jpg" style="width:100%" onclick="onClick(this);document.getElementById('swing_play').play(); swing_clicks(); return false;" alt="Swing">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/teddy.jpg" style="width:100%" onclick="onClick(this);document.getElementById('teddy_play').play(); teddy_clicks(); return false;" alt="Teddy">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/doodlepad.jpg" style="width:100%" onclick="onClick(this);document.getElementById('doodle_play').play(); doodle_clicks(); return false;" alt="Doodle Pad">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/lego.jpg" style="width:100%" onclick="onClick(this);document.getElementById('lego_play').play(); lego_clicks(); return false;" alt="Legos">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/flashcards.jpg" style="width:100%" onclick="onClick(this);document.getElementById('flash_play').play(); flash_clicks(); return false;" alt="Flashcards">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/rattle.jpg" style="width:100%" onclick="onClick(this);document.getElementById('rattle_play').play(); rattle_clicks(); return false;" alt="Rattle">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/trampoline.jpg" style="width:100%" onclick="onClick(this);document.getElementById('trampoline_play').play(); trampoline_clicks(); return false;" alt="Trampoline">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/slide.jpg" style="width:100%" onclick="onClick(this);document.getElementById('slide_play').play(); slide_clicks(); return false;" alt="Slide">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <img class="img-fluid mb-5 d-block mx-auto" src="static/toys/stack.jpg" style="width:100%" onclick="onClick(this);document.getElementById('stack_play').play(); stack_clicks(); return false;" alt="Stack">
+      </div>
     </div>
   </div>
 
+  </div>
+   </div>
+ </div>
+
 
     <audio id="ball_play">
-    <source src="audio/ball.mp3" type="audio/ogg" />
+    <source src="static/audio/ball.mp3" />
     </audio>
     <audio id="stack_play">
-    <source src="audio/stack.mp3" type="audio/ogg" />
+    <source src="static/audio/stack.mp3"/>
     </audio>
     <audio id="car_play">
-    <source src="audio/car.mp3" type="audio/ogg" />
+    <source src="static/audio/car.mp3"/>
     </audio>
     <audio id="puzzle_play">
-    <source src="audio/puzzle.mp3" type="audio/ogg" />
+    <source src="static/audio/puzzle.mp3"/>
     </audio>
     <audio id="swing_play">
-    <source src="audio/swing.mp3" type="audio/ogg" />
+    <source src="static/audio/swing.mp3"/>
     </audio>
     <audio id="teddy_play">
-    <source src="audio/teddy_bear.mp3" type="audio/ogg" />
+    <source src="static/audio/teddy_bear.mp3"/>
     </audio>
     <audio id="lego_play">
-    <source src="audio/lego.mp3" type="audio/ogg" />
+    <source src="static/audio/lego.mp3"/>
     </audio>
     <audio id="flash_play">
-    <source src="audio/flashcards.mp3" type="audio/ogg" />
+    <source src="static/audio/flashcards.mp3"/>
     </audio>
     <audio id="doodle_play">
-    <source src="audio/doodle_pad.mp3" type="audio/ogg" />
+    <source src="static/audio/doodle_pad.mp3"/>
     </audio>
     <audio id="rattle_play">
-    <source src="audio/rattle.mp3" type="audio/ogg" />
+    <source src="static/audio/rattle.mp3"/>
     </audio>
     <audio id="trampoline_play">
-    <source src="audio/trampoline.mp3" type="audio/ogg" />
+    <source src="static/audio/trampoline.mp3"/>
     </audio>
     <audio id="slide_play">
-    <source src="audio/slide.mp3" type="audio/ogg" />
+    <source src="static/audio/slide.mp3"/>
     </audio>
 
 
 <!-- End page content -->
 </div>
-
+<script src="/static/js/jquery-3.3.1.min.js"></script>
 <script>
 // Script to open and close sidebar
 function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
 }
-
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
 }
-
 // Modal Image Gallery
 function onClick(element) {
   document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
   var captionText = document.getElementById("caption");
+  var d_image = document.getElementById('caption').getAttribute("src");
   captionText.innerHTML = element.alt;
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  xhr = new XMLHttpRequest();
+    var url = "https://cryptic-fjord-60133.herokuapp.com/api/rec_logs";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText);
+        }
+    }
+    var json =JSON.stringify({"clicks": "1", "log_date":date, "log_time":time, "category_type":"Food", "image_name":element.alt});
+    console.log(json)
+    xhr.send(json); 
+}
+
+$(document).ready(function(){
+    var acc_id = localStorage.getItem('acc_id');
+    $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/v3/spec_categories/"+acc_id+"/Toys",function(data){
+
+      var pictures='';
+      $.each(data,function(key,value){
+
+        pictures += '<div class="col-md-6 col-lg-4"><img class="img-fluid mb-5 d-block mx-auto" src="'+value.img+'" style="width:100%; height: 90.5vh;" onclick="onClick(this); adiioplay(\''+value.aud+'\'); return false;" alt="'+value.image_name+'"></div>';
+
+      });
+      $('#loadpics').append(pictures);
+    });
+  });
+
+function adiioplay(val){
+  audio = new Audio(val);
+  audio.play();
 }
 
 </script>
+<script>
+  var acc_id = localStorage.getItem('acc_id');
+        function upload(){
+          localStorage.setItem('Cat_type', "Toys");
+          location.href="/upload/"+acc_id;
 
- <script src="jQuery-2.1.4.min.js"></script>
- <script src="app.js"></script>
+        }
+        function back(){
+          location = "categories.html";
+        }
+</script>
 
 
 

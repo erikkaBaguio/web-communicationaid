@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<title>Clothes</title>
+<link rel="shortcut icon" href="/static/images/clothes.png" />
+<meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
+<link rel="stylesheet" href="static/css/font.css">
+<link rel="stylesheet" href="static/css/font-awesome.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="static/css/agency.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
+
+
+<div class="w3-top">
+   <div class="w3-bar w3-large w3-teal w3-padding-8">
+     <a href = "/food_c"><img class="w3-center" src="/static/images/food.png" style="margin-left: 20%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="FOOD">
+     </a>
+     <a href = "/toys_c"><img class="w3-center" src="/static/images/toys.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="TOYS">
+     </a>
+     <a href = "/places_c"><img class="w3-center" src="/static/images/place.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="PLACES">
+     </a>
+     <a onclick="gender_bender()"><img class="w3-center" src="/static/images/clothes.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" alt="CLOTHES">
+     </a>
+    </div>
+    <script>
+                            function gender_bender(){
+                                var acc_id = localStorage.getItem('acc_id');
+                                var url  = "https://cryptic-fjord-60133.herokuapp.com/api/get_cprof/"+acc_id;
+                                var xhr  = new XMLHttpRequest()
+                                    xhr.open('GET', url, true)
+                                    xhr.onreadystatechange = function () { 
+                                        if (xhr.readyState == 4 && xhr.status == 200) {
+                                            var value = JSON.parse(xhr.responseText);
+                                            var gender = value.gender;
+                                        if(gender == ('M' || 'm')){
+                                            location.href = "/clothes_bc";
+                                            }else{
+                                            location.href = "/clothes_gc";
+                                            }  
+                                        }
+                                    }
+                                    xhr.send(null)
+                                }
+                        </script>
+</div>
+
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright"></span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+
+
+  <!-- FOOD -->
+  <div class="container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
+    <div id="loadpics" class="row">
+        
+        <div class="col-md-6 col-lg-4">
+        <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/blouse.png" style="width: 100%" onclick="onClick(this);document.getElementById('blouse_play').play(); return false;" alt="Blouse">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/dress.png" style="width:100%;" onclick="onClick(this);document.getElementById('dress_play').play(); return false;" alt="Dress">
+   </div>
+
+   <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/jeansg.png" style="width:100%;" onclick="onClick(this);document.getElementById('jeans_play').play(); return false;" alt="Jeans">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/pajamasg.png" style="width:100%;" onclick="onClick(this);document.getElementById('pajamas_play').play(); return false;" alt="Pajamas">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/sandalsg.png" style="width:100%;" onclick="onClick(this);document.getElementById('sandals_play').play(); return false;" alt="Sandals">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/slippers.png" style="width:100%;" onclick="onClick(this);document.getElementById('slippers_play').play(); return false;" alt="Slippers">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/sneakersg.png" style="width:100%;" onclick="onClick(this);document.getElementById('sneakers_play').play(); return false;" alt="Sneaker">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/swimsuit.png" style="width:100%;" onclick="onClick(this);document.getElementById('swimsuit_play').play(); return false;" alt="Swimsuit">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/tankg.png" style="width:100%;" onclick="onClick(this);document.getElementById('tanktop_play').play(); return false;" alt="Tank Top">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/sweater.jpg" style="width:100%;" onclick="onClick(this);document.getElementById('sweater_play').play(); return false;" alt="Sweater">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/shorts.jpg" style="width:100%;" onclick="onClick(this);document.getElementById('shorts_play').play(); return false;" alt="Shorts">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/skirt.jpg" style="width:100%;" onclick="onClick(this);document.getElementById('skirt_play').play(); return false;" alt="Skirt">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/panty.jpg" style="width:100%;" onclick="onClick(this);document.getElementById('panty_play').play(); return false;" alt="Panty">
+    </div>
+ 
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="/static/childgirl/blackshoes.png" style="width:100%;" onclick="onClick(this);document.getElementById('schoolshoes_play').play(); return  false;" alt="School Shoes">
+   </div>
+
+   
+
+    <audio id="schoolshoes_play">
+    <source src="/static/audio/schoolshoes.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="jeans_play">
+    <source src="/static/audio/jeans.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="blouse_play">
+    <source src="/static/audio/blouse.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="dress_play">
+    <source src="/static/audio/dress.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="pajamas_play">
+    <source src="/static/audio/pajamas.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="tanktop_play">
+    <source src="/static/audio/tanktop.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="shorts_play">
+    <source src="/static/audio/shorts.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="skirt_play">
+    <source src="/static/audio/skirt.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="panty_play">
+    <source src="/static/audio/panty.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="sweater_play">
+    <source src="/static/audio/sweater.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="swimsuit_play">
+    <source src="/static/audio/swimsuit.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="sandals_play">
+    <source src="/static/audio/sandals.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="slippers_play">
+    <source src="/static/audio/slippers.mp3" type="audio/ogg" />
+    </audio>
+    <audio id="sneakers_play">
+    <source src="/static/audio/sneakers.mp3" type="audio/ogg" />
+    </audio>
+
+
+    <!--<div class="w3-quarter">-->
+      <!--<img src= "{{ url_for('static', filename='image_name' ) }}">-->
+      <!--</div>-->
+
+
+
+  </div>
+
+    <!--<center><<button type="submit" href="edit_food.html">Edit</button></center>-->
+
+
+<!-- End page content -->
+</div>
+
+<!--<div id="upload-area">-->
+  <!--<div id="preview">-->
+    <!--<img width="100px" height="100px" src="/images/icons/128px/zurb.png" id="thumb">-->
+  <!--</div>-->
+
+  <!--<form action="/playground/ajax_upload" id="newHotnessForm">-->
+    <!--<label>Upload a Picture of Yourself</label>-->
+    <!--<input type="file" size="20" id="imageUpload" class=" ">-->
+    <!--<button class="button" type="submit">Save</button>-->
+  <!--</form>-->
+<!--</div>-->
+
+//Script for click counts
+    <!--<script type="text/javascript">-->
+            <!--function egg_clicks() {-->
+                <!---->
+                <!--egg++;-->
+                <!--alert(egg);-->
+                <!---->
+            <!--}-->
+            <!--function chicken_clicks() {-->
+                <!--chicken++;-->
+                <!--alert(chicken);-->
+            <!--}-->
+
+                <!--var egg = 0;-->
+                <!--var chicken = 0;-->
+            <!--}-->
+
+    <!--</script>-->
+// Script to open and close sidebar
+
+
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  var c_id = localStorage.getItem("c_id");
+  var d_image = document.getElementById('caption').getAttribute("src");
+  captionText.innerHTML = element.alt;
+
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  xhr = new XMLHttpRequest();
+    var url = "https://cryptic-fjord-60133.herokuapp.com/api/rec_logs";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText);
+        }
+    }
+
+     var json =JSON.stringify({"clicks": "1",'c_id':c_id, "log_date":date, "log_time":time, "category_type":"Clothes", "image_name":element.alt});
+    console.log(json)
+    xhr.send(json);
+}
+
+function logout(){
+    location = "login.html";
+ }
+
+  $(document).ready(function(){
+
+  var acc_id = localStorage.getItem('acc_id');
+    $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/v3/spec_categories/"+acc_id+"/Clothes-Girls",function(data){
+      var pictures='';
+      $.each(data,function(key,value){
+        
+        pictures += '<div class="col-md-6 col-lg-4"><img class="img-fluid mb-5 d-block mx-auto" src="'+value.img+'" style="width:100%; height: 84vh;" onclick="onClick(this); adiioplay(\''+value.aud+'\'); return false;" alt="'+value.image_name+'"></div>';
+
+      });
+      $('#loadpics').append(pictures);
+    });
+  });
+
+function adiioplay(val){
+  audio = new Audio(val);
+  audio.play();
+}
+
+
+</script>
+<script>
+  var acc_id = localStorage.getItem('acc_id');
+        function upload(){
+          localStorage.setItem('Cat_type', "Clothes-Girls");
+          location.href="/upload/"+acc_id;
+
+        }
+        function back(){
+          location = "categories.html";
+        }
+</script>
+
+</body>
+</html>

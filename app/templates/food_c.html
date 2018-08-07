@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<title>Food</title>
+<link rel="shortcut icon" href="/static/images/food.png" />
+<meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
+<link rel="stylesheet" href="static/css/font.css">
+<link rel="stylesheet" href="static/css/font-awesome.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="static/css/agency.min.css">
+
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
+
+
+<div class="w3-top">
+   <div class="w3-bar w3-large w3-teal w3-padding-8">
+     <a href = "/food_c"><img class="w3-center" src="/static/images/food.png" style="margin-left: 20%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="FOOD">
+     </a>
+     <a href = "/toys_c"><img class="w3-center" src="/static/images/toys.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="TOYS">
+     </a>
+     <a href = "/places_c"><img class="w3-center" src="/static/images/place.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="PLACES">
+     </a>
+     <a onclick="gender_bender()"><img class="w3-center" src="/static/images/clothes.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" alt="CLOTHES">
+     </a>
+   </div>
+   <script>
+                            function gender_bender(){
+                                var acc_id = localStorage.getItem('acc_id');
+                                var url  = "https://cryptic-fjord-60133.herokuapp.com/api/get_cprof/"+acc_id;
+                                var xhr  = new XMLHttpRequest()
+                                    xhr.open('GET', url, true)
+                                    xhr.onreadystatechange = function () { 
+                                        if (xhr.readyState == 4 && xhr.status == 200) {
+                                            var value = JSON.parse(xhr.responseText);
+                                            var gender = value.gender;
+                                        if(gender == ('M' || 'm')){
+                                            location.href = "/clothes_bc";
+                                            }else{
+                                            location.href = "/clothes_gc";
+                                            }  
+                                        }
+                                    }
+                                    xhr.send(null)
+                                }
+                        </script>
+ </div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright"></span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+
+
+  <!-- FOOD -->
+  <div class="container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
+    <div class="row hover" id="loadpics">
+        <!-- <img src="static/images/upload1.png" style="width:100%" onclick="upload()"> -->
+      <div class="col-md-6 col-lg-4">
+        <img class="img-fluid mb-5 d-block mx-auto" src="static/food/chicken.jpg" style="width:100%; height: auto;" id="friedchicken_img" onclick="onClick(this);document.getElementById('chicken_play').play()" alt="Fried Chicken">
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <img class="img-fluid mb-5 d-block mx-auto" src="static/food/marshmallow.jpg" style="width:100%; height: auto;" id="marshmallow_img" onclick="onClick(this);document.getElementById('marshmallow_play').play()" alt="Marshmallow">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/food/hotdog.jpg" style="width:100%; height: auto;" onclick="onClick(this);document.getElementById('hotdog_play').play(); hotdog_clicks(); return false;" alt="Hotdog">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/food/burger.jpg" style="width:100%" onclick="onClick(this);document.getElementById('burger_play').play(); burger_clicks(); return false;" alt="Burger">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/food/lollipop.jpg" style="width:100%" onclick="onClick(this);document.getElementById('lollipop_play').play(); lollipop_clicks(); return false;" alt="Lollipop">
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/food/pancakes.jpg" style="width:100%" onclick="onClick(this);document.getElementById('pancake_play').play(); pancakes_clicks(); return false;" alt="Pancakes">
+    </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/food/bbq.jpg" style="width:100%" onclick="onClick(this);document.getElementById('bbq_play').play(); bbq_clicks();  return false;" alt="Burger">
+    </div>
+
+      <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/food/icecream.jpg" style="width:100%" onclick="onClick(this);document.getElementById('icecream_play').play(); icecream_clicks(); return false;" alt="Burger">
+   </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/food/cookies.jpg" style="width:100%" onclick="onClick(this);document.getElementById('cookies_play').play(); cookies_clicks(); return false;" alt="Cookies">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/food/fries.jpg" style="width:100%" onclick="onClick(this);document.getElementById('fries_play').play(); fries_clicks(); return false;" alt="French Fries">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <img class="img-fluid mb-5 d-block mx-auto" src="static/food/halo.jpg" style="width:100%" onclick="onClick(this);document.getElementById('halo_play').play(); halo_clicks(); return false;" alt="Halo-halo">
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+        <img class="img-fluid mb-5 d-block mx-auto" src="static/food/eggs.jpg" style="width:100%" id="egg" onclick="onClick(this);document.getElementById('egg_play').play()" alt="Eggs">
+      </div>
+    </div>
+   </div>
+ </div>
+
+</div>
+
+
+
+
+   
+
+       <audio id="egg_play">
+    <source src="static/audio/egg.mp3"/>
+    </audio>
+    <audio id="chicken_play">
+    <source src="static/audio/chicken.mp3"/>
+    </audio>
+    <audio id="marshmallow_play">
+    <source src="static/audio/marshmallow.mp3"/>
+    </audio>
+    <audio id="hotdog_play">
+    <source src="static/audio/hotdog.mp3"/>
+    </audio>
+    <audio id="burger_play">
+    <source src="static/audio/burger.mp3"/>
+    </audio>
+    <audio id="lollipop_play">
+    <source src="static/audio/lollipop.mp3"/>
+    </audio>
+    <audio id="pancake_play">
+    <source src="static/audio/pancake.mp3"/>
+    </audio>
+    <audio id="bbq_play">
+    <source src="static/audio/barbecue.mp3"/>
+    </audio>
+    <audio id="icecream_play">
+    <source src="static/audio/ice_cream.mp3"/>
+    </audio>
+    <audio id="cookies_play">
+    <source src="static/audio/cookies.mp3"/>
+    </audio>
+    <audio id="fries_play">
+    <source src="static/audio/french_fries.mp3"/>
+    </audio>
+    <audio id="halo_play">
+    <source src="static/audio/halo-halo.mp3"/>
+    </audio>
+    <audio id="audio_play">
+    <source src="static/audio/audio1.mp3"/>
+    </audio>
+
+
+<!-- End page content -->
+</div>
+
+
+</body>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+
+<script>
+function adiioplay(val){
+  audio = new Audio(val);
+  audio.play();
+}
+
+  $(document).ready(function(){
+    
+    var acc_id = localStorage.getItem('acc_id');
+    $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/v3/spec_categories/"+acc_id+"/Food",function(data){
+
+      var pictures='';
+      $.each(data,function(key,value){
+
+        pictures += '<div class="col-md-6 col-lg-4"><img class="img-fluid mb-5 d-block mx-auto" src="'+value.img+'" style="width:100%; height: 84vh;" onclick="onClick(this); adiioplay(\''+value.aud+'\'); return false;" alt="'+value.image_name+'"></div>';
+
+      });
+      $('#loadpics').append(pictures);
+    });
+  });
+
+
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  var c_id = localStorage.getItem("c_id");
+  var d_image = document.getElementById('caption').getAttribute("src");
+  captionText.innerHTML = element.alt;
+
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  xhr = new XMLHttpRequest();
+    var url = "https://cryptic-fjord-60133.herokuapp.com/api/rec_logs";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText);
+        }
+    }
+    var json =JSON.stringify({"clicks": "1",'c_id':c_id, "log_date":date, "log_time":time, "category_type":"Food", "image_name":element.alt});
+    console.log(json)
+    xhr.send(json);
+
+
+     
+
+}
+
+
+ function logout(){
+    location = "login.html"
+ }
+</script>
+<script>
+  var acc_id = localStorage.getItem('acc_id');
+        function upload(){
+          localStorage.setItem('Cat_type', "Food");
+          location.href="/upload/"+acc_id;
+
+        }
+        function back(){
+          location = "categories.html";
+        }
+</script>
+
+</html>

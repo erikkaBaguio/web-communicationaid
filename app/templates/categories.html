@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<title>Categories</title>
+<link rel="shortcut icon" url="/static/images/PATicon1.png" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/css/w3.css">
+<link rel="stylesheet" href="/static/css/font.css">
+<link rel="stylesheet" href="/static/css/font-awesome.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="/static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="/static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="/static/css/agency.min.css">
+<style>
+
+body{
+    background-image: url('/static/images/map.jpg');
+    min-height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="w3-light-grey">
+
+<div class="w3-top">
+ <div class="w3-bar w3-right-align w3-large w3-teal w3-padding-16">
+    <a class="w3-bar-item w3-left-align w3-large w3-teal" style="font-size: 150%;">Categories</a>
+  <a href="/p_mode"><span style="float: right; padding-top:10px; padding-right: 15px; font-size:90%;">Back</span></a>
+  </a>
+ </div>
+</div>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Photo grid -->
+  <center><div class="w3-row" id = "nav" style="margin-top: 15%;">
+    <div class="w3-col l3">
+      <a href = "/food"><img src="/static/images/food.png" style="width:65%" onclick="onClick(this)" alt="FOOD">
+        <br>
+        <span style="color:black; font-size: 30px;">Food</span></a>
+    </div>
+    <div class="w3-col l3">
+      <a href = "/toys"><img src="/static/images/toys.png" style="width:65%" onclick="onClick(this)" alt="TOYS">
+        <br>
+        <span style="color:black; font-size: 30px;">Toys</span></a>
+    </div>   
+    <div class="w3-col l3">
+      <a href = "/places"><img src="/static/images/place.png" style="width:65%" onclick="onClick(this)" alt="PLACES">
+        <br>
+        <span style="color:black; font-size: 30px;">Places</span></a>
+    </div>
+    <div class="w3-col l3">  
+      <a href="#"><img src="/static/images/clothes.png" style="width:65%" onclick="gender_bender()" alt="CLOTHES">
+        <br>
+        <span style="color:black; font-size: 30px;">Clothes</span></a>
+    </div>
+   </div></center>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+<!-- End page content -->
+</div>
+
+<script>
+function gender_bender(){
+  var acc_id = localStorage.getItem('acc_id');
+  var url  = "https://cryptic-fjord-60133.herokuapp.com/api/get_cprof/"+acc_id;
+    var xhr  = new XMLHttpRequest()
+    xhr.open('GET', url, true)
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var value = JSON.parse(xhr.responseText);
+            var gender = value.gender;
+              if(gender == ('M' || 'm')){
+                location.href = "/clothes_b";
+              }else{
+                location.href = "/clothes_g";
+              }
+          
+          
+        }
+
+    }
+    xhr.send(null)
+
+
+
+}
+
+
+
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+// function onClick(element) {
+//   document.getElementById("img01").src = element.src;
+//   document.getElementById("modal01").style.display = "block";
+//   var captionText = document.getElementById("caption");
+//   captionText.innerHTML = element.alt;
+// }
+
+
+
+</script>
+
+
+</body>
+</html>

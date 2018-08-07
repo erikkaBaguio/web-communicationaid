@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<title>SHAPES</title>
+<link rel="shortcut icon" href="/static/images/shapes.png" />
+<meta charset="UTF-8"><link rel="stylesheet" href="/static/css/w3.css">
+<link rel="stylesheet" href="/static/css/font.css">
+<link rel="stylesheet" href="/static/css/font-awesome.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.css">
+<link rel="stylesheet" href="/static/bootstrap/js/bootstrap.bundle.js">
+<link rel="stylesheet" href="/static/bootstrap/js/bootstrap.js">
+<link rel="stylesheet" href="/static/css/agency.min.css">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-quarter img{margin-bottom: -6px; cursor: pointer}
+.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
+
+.w3-padding-16 {
+  padding-top: 5px !important;
+  padding-bottom: 12px !important;
+}
+</style>
+<body class="w3-light-grey">
+
+<!-- Sidebar/menu -->
+<!-- <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+  <a href="/navigation" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Categories</a>
+  <a href="/child" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Child</a>
+  <a href="/parent" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">The Parent</a>
+  <a href="/activity" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Child Activity: FOOD</a>
+  <a href="welcome.html" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Logout</a>
+</nav> -->
+
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-teal w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding" style="font-weight: 600; font-size: 26px; text-shadow: 2px 2px 2px black;" onclick="dasher()">
+  <img src="/static/images/shapes.png" alt="logo" width="50px" height="auto"/>SHAPES</span>
+  <script>
+        function dasher(){
+        var acc_id = localStorage.getItem('acc_id');
+        location.href = "/dashboard/teacher/"+acc_id;
+                      }
+  </script>
+    <!-- <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a> -->
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+  <!-- FOOD -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
+    <div class="w3-quarter hover">
+        <img src="/static/EDUCATIONAL/SHAPES/circle.png" style="width:100%" id="A" onclick="document.getElementById('circle_play').play();return false;" alt="A">
+        <img src="/static/EDUCATIONAL/SHAPES/square.png" style="width:100%" id="A" onclick="document.getElementById('square_play').play();return false;" alt="A">
+        <img src="/static/EDUCATIONAL/SHAPES/hexagon.png" style="width:100%" id="A" onclick="document.getElementById('hexagon_play').play();return false;" alt="A">
+   </div>
+
+   <div class="w3-quarter hover">
+        <img src="/static/EDUCATIONAL/SHAPES/oval.png" style="width:100%" id="I" onclick="document.getElementById('oval_play').play();return false;" alt="I">
+        <img src="/static/EDUCATIONAL/SHAPES/rectangle.png" style="width:100%" id="A" onclick="document.getElementById('rectangle_play').play();return false;" alt="A">
+        <img src="/static/EDUCATIONAL/SHAPES/octagon.png" style="width:100%" id="A" onclick="document.getElementById('octagon_play').play();return false;" alt="A">
+    </div>
+
+    <div class="w3-quarter hover">
+        <img src="/static/EDUCATIONAL/SHAPES/triangle.png" style="width:100%" id="Q" onclick="document.getElementById('triangle_play').play();return false;" alt="Q">
+        <img src="/static/EDUCATIONAL/SHAPES/pentagon.png" style="width:100%" id="A" onclick="document.getElementById('pentagon_play').play();return false;" alt="A">
+        <img src="/static/EDUCATIONAL/SHAPES/diamond.png" style="width:100%" id="A" onclick="document.getElementById('diamond_play').play();return false;" alt="A">
+    </div>
+
+    <div class="w3-quarter hover">
+        <img src="/static/EDUCATIONAL/SHAPES/star.png" style="width:100%" id="A" onclick="document.getElementById('star_play').play();return false;" alt="A">
+        <img src="/static/EDUCATIONAL/SHAPES/heart.png" style="width:100%" id="A" onclick="document.getElementById('heart_play').play();return false;" alt="A">
+        <img src="/static/EDUCATIONAL/SHAPES/arrow.png" style="width:100%" id="A" onclick="document.getElementById('arrow_play').play();return false;" alt="A">
+    </div>
+
+  </div>
+
+    <audio id="circle_play">
+    <source src="/static/audio/circle.mp3"/>
+    </audio>
+    <audio id="oval_play">
+    <source src="/static/audio/oval.mp3" />
+    </audio>
+    <audio id="triangle_play">
+    <source src="/static/audio/triangle.mp3" />
+    </audio>
+    <audio id="square_play">
+    <source src="/static/audio/square.mp3"/>
+    </audio>
+    <audio id="diamond_play">
+    <source src="/static/audio/diamond.mp3" />
+    </audio>
+    <audio id="pentagon_play">
+    <source src="/static/audio/pentagon.mp3"/>
+    </audio>
+    <audio id="hexagon_play">
+    <source src="/static/audio/hexagon.mp3"/>
+    </audio>
+    <audio id="octagon_play">
+    <source src="/static/audio/octagon.mp3"/>
+    </audio>
+    <audio id="star_play">
+    <source src="/static/audio/star.mp3"/>
+    </audio>
+    <audio id="heart_play">
+    <source src="/static/audio/heart.mp3"/>
+    </audio>
+    <audio id="arrow_play">
+    <source src="/static/audio/arrow.mp3"/>
+    </audio>
+    <audio id="rectangle_play">
+    <source src="/static/audio/rectangle.mp3"/>
+    </audio>
+  </div>
+
+    <!--<center><<button type="submit" href="edit_food.html">Edit</button></center>-->
+
+
+<!-- End page content -->
+</div>
+
+<!--<div id="upload-area">-->
+  <!--<div id="preview">-->
+    <!--<img width="100px" height="100px" src="/images/icons/128px/zurb.png" id="thumb">-->
+  <!--</div>-->
+
+  <!--<form action="/playground/ajax_upload" id="newHotnessForm">-->
+    <!--<label>Upload a Picture of Yourself</label>-->
+    <!--<input type="file" size="20" id="imageUpload" class=" ">-->
+    <!--<button class="button" type="submit">Save</button>-->
+  <!--</form>-->
+<!--</div>-->
+
+<!-- //Script for click counts -->
+    <!--<script type="text/javascript">-->
+            <!--function egg_clicks() {-->
+                <!---->
+                <!--egg++;-->
+                <!--alert(egg);-->
+                <!---->
+            <!--}-->
+            <!--function chicken_clicks() {-->
+                <!--chicken++;-->
+                <!--alert(chicken);-->
+            <!--}-->
+
+                <!--var egg = 0;-->
+                <!--var chicken = 0;-->
+            <!--}-->
+
+    <!--</script>-->
+<!-- // Script to open and close sidebar -->
+
+<script>
+
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+</script>
+
+ <script src="jQuery-2.1.4.min.js"></script>
+ <script src="/static/js/app.js"></script>
+
+
+</body>
+</html>
