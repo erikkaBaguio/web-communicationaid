@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/static/assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Pic-a-Talk</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="/static/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/static/assets/css/light-bootstrap-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="/static/assets/css/demo.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-image="/static/assets/img/sidebar-5.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a onclick="dash(this.id);" class="simple-text">
+                        <img src="/static/assets/img/logo.png" style="height: 60px;width:20vh; cursor: pointer;"/>
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" onclick="dasher()" style="cursor: pointer;">
+                            <i class="nc-icon nc-chart-pie-35"></i>
+                            <p>Dashboard</p>
+                        </a>
+                        <script>
+                            function dasher(){
+                                var acc_id = localStorage.getItem('acc_id');
+                                location.href = "/dashboard/parent/"+acc_id;
+                            }
+                        </script>
+                    </li>
+                    <li>
+                        <a onclick="childprog(this.id);" class="nav-link" style="cursor: pointer;" >
+                            <i class="nc-icon nc-notes"></i>
+                            <p>Child Progress</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="childact(this.id);" class="nav-link" style="cursor: pointer;" >
+                            <i class="nc-icon nc-paper-2"></i>
+                            <p>Child Activity</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="food(this.id);" class="nav-link" style="cursor: pointer;">
+                            <i class="nc-icon nc-apple"></i>
+                            <p>Food</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="gender_bender();" class="nav-link" style="cursor: pointer;">
+                            <i class="nc-icon nc-backpack"></i>
+                            <p>Clothes</p>
+                        </a>
+                        <script>
+                            function gender_bender(){
+                                var acc_id = localStorage.getItem('acc_id');
+                                var url  = "https://cryptic-fjord-60133.herokuapp.com/api/get_cprof/"+acc_id;
+                                var xhr  = new XMLHttpRequest()
+                                    xhr.open('GET', url, true)
+                                    xhr.onreadystatechange = function () { 
+                                        if (xhr.readyState == 4 && xhr.status == 200) {
+                                            var value = JSON.parse(xhr.responseText);
+                                            var gender = value.gender;
+                                        if(gender == ('M' || 'm')){
+                                            location.href = "/clothes_b";
+                                            }else{
+                                            location.href = "/clothes_g";
+                                            }  
+                                        }
+                                    }
+                                    xhr.send(null)
+                                }
+                        </script>
+                    </li>
+                    <li>
+                        <a onclick="place(this.id);" class="nav-link" style="cursor: pointer;">
+                            <i class="nc-icon nc-square-pin"></i>
+                            <p>Places</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a onclick="toys(this.id);" class="nav-link" style="cursor: pointer;">
+                            <i class="nc-icon nc-spaceship"></i>
+                            <p>Toys</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg" color-on-scroll="500">
+                <div class=" container-fluid  ">
+                    <a class="navbar-brand" href="#pablo" style="min-height: 20px;"> </a>
+                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                        <span class="navbar-toggler-bar burger-lines"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li>
+                                <div class="col-xs-8" style="padding-left:unset;">
+                                    <div class="container">
+                                        <div class="example" style="margin:auto;max-width:300px; margin-left: -40%;">
+                                          <input id="searching" style="width: 250px; border-radius: 5px; border: 1px solid black; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" type="text" placeholder="Search Keyword" name="search2">
+                                          <button onclick="search_forum()" class="w3-xlarge w3-teal" style="border: none; padding: 3px 13px; margin-top: 4px; padding-bottom: 7px; border-radius: 5px; cursor: pointer;"><i class="fa fa-search" style="padding-left: -4px; padding-top: 4px;"></i></button>
+                                        </div>
+                                    </div>
+                                  </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="no-icon">Profile</span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a onclick="p_prof()" class="dropdown-item" style="cursor: pointer;">User Profile</a>
+                                    <div class="divider"></div>
+                                    <a onclick="c_prof()" class="dropdown-item" style="cursor: pointer;">Child Profile</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a onclick="logout()" class="nav-link" style="cursor: pointer;">
+                                    <span class="no-icon">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+                {% block content %}{% endblock %}
+
+            <footer class="footer">
+                <div class="container">
+                    <nav>
+                        <p class="copyright text-center">
+                            ©
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            <a href="#">Pic-a-Talk</a>, made with love for a better world
+                        </p>
+                    </nav>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!--   -->
+    <div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+        <a href="#" data-toggle="dropdown">
+            <i class="fa fa-cog fa-2x"> </i>
+        </a>
+
+        <ul class="dropdown-menu">
+			<li class="header-title"> Sidebar Style</li>
+            <li class="adjustments-line" style="visibility: hidden;position: fixed;">
+                <a href="javascript:void(0)" class="switch-trigger">
+                    <p>Background Image</p>
+                    <label class="switch">
+                        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-animate bootstrap-switch-on" style="width: 72px;">
+                            <div class="bootstrap-switch-container" style="width: 122px; margin-left: -50px;">
+                        <span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width:50px;">ON</span>
+                        <span class="bootstrap-switch-label" style="width: 30px;">&nbsp;</span>
+                        <span class="bootstrap-switch-handle-off bootstrap-switch-primary" style="width:50px;">OFF</span>
+                        <input type="checkbox"data-toggle="switch" checked data-on-color="primary" data-off-color=/child/progress2/"primary"><span class="toggle"></span>
+                    </div>
+                </div>
+                    </label>
+                    <div class="clearfix"></div>
+                </a>
+
+            </li>
+            <li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger background-color">
+                    <p>Filters</p>
+                    <div class="pull-right">
+                        <span class="badge filter badge-black" data-color="black"></span>
+                        <span class="badge filter badge-azure" data-color="azure"></span>
+                        <span class="badge filter badge-green" data-color="green"></span>
+                        <span class="badge filter badge-orange" data-color="orange"></span>
+                        <span class="badge filter badge-red" data-color="red"></span>
+                        <span class="badge filter badge-purple active" data-color="purple"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+            <li class="header-title">Sidebar Images</li>
+
+            <li class="active">
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="/static/assets/img/sidebar-1.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="/static/assets/img/sidebar-3.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="/static/assets/img/sidebar-4.jpg" alt="" />
+                </a>
+            </li>
+            <li>
+                <a class="img-holder switch-trigger" href="javascript:void(0)">
+                    <img src="/static/assets/img/sidebar-5.jpg" alt="" />
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+
+    function logout(){
+      localStorage.clear();
+      window.location.href='/login';
+    }
+    function who(){
+      
+      location.href='/whoweare';
+    }
+    function p_prof(){
+      var acc_id = localStorage.getItem("acc_id");
+      location.href='/parent/profile/'+acc_id;
+    }
+
+    function c_prof(){
+      var acc_id = localStorage.getItem("acc_id");
+      location.href='/child/profile/'+acc_id;
+    }
+    
+    function childprog(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/child/progress2/"+acc_id;
+        }
+
+    function editnav(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/edit_categories/"+acc_id;
+        }        
+
+    function childact(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/activitylogs/"+acc_id;
+        } 
+
+    function childprofile(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href='/child/profile/'+acc_id;
+          
+        }
+
+    function forum(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/forum/"+acc_id;
+        } 
+
+    function parentprof(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/parent/profile/"+acc_id;
+        } 
+
+    function dash(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href = "/mode/"+acc_id;
+        }
+
+    function food(clicked_id){
+          
+          location.href="/food";
+        }
+        
+    function place(clicked_id){
+          
+          location.href="/places";
+        }        
+    function toys(clicked_id){
+          var acc_id = localStorage.getItem("acc_id");
+          location.href="/toys";
+        }
+ 
+</script>
+
+</body>
+
+<!--   Core JS Files   -->
+
+
+</html>

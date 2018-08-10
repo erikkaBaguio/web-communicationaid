@@ -160,3 +160,7 @@ function register_user(form,acc_type){
     
 
 }
+
+
+// var token = localStorage.getItem('token')
+// post)gldkfglkdsflkgkdlfkg /+acc_id+"/"+token;

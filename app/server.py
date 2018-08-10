@@ -80,7 +80,7 @@ def parentdashboard(acc_id):
 	name = data['fname_p'] +" "+ data['lname_p']
 	img = data['img']
 
-	return render_template('index.html',img=img,name=name)
+	return render_template('dashboard.html',img=img,name=name)
 
 @app.route('/whoweare')
 def whoweare():
@@ -251,7 +251,7 @@ def teacherdashboard(acc_id):
 	data = req.json()
 	name = data['fname_t'] +" "+ data['lname_t']
 	img = data['img']
-	return render_template('teacher_dashboard.html',name=name,img=img)
+	return render_template('dashboard2.html',name=name,img=img)
 
 @app.route('/parent/profile/edit/<int:acc_id>')
 def parentedit(acc_id):
