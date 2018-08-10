@@ -1,150 +1,13 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
 <html lang="en">
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="/static/assets/img/favicon.ico">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Pic-a-Talk</title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-    <!-- CSS Files -->
-    <link href="/static/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/static/assets/css/light-bootstrap-dashboard.css?v=2.0.1" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="/static/assets/css/demo.css" rel="stylesheet" />
-
     
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-</head>
 
-<body>
-    <div class="wrapper">
-        <div class="sidebar" data-image="/static/assets/img/sidebar-5.jpg">
-            <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
-        Tip 2: you can also add an image using data-image tag
-    -->
-            <div class="sidebar-wrapper">
-                <div class="logo">
-                    <a onclick="dash(this.id);" class="simple-text">
-                        <img src="/static/assets/img/logo.png" style="height: 60px;width:20vh;"/>
-                    </a>
-                </div>
-                <ul class="nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="dashboard.html">
-                            <i class="nc-icon nc-chart-pie-35"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a onclick="childprog(this.id);" class="nav-link" >
-                            <i class="nc-icon nc-notes"></i>
-                            <p>Child Progress</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a onclick="childact(this.id);" class="nav-link" >
-                            <i class="nc-icon nc-paper-2"></i>
-                            <p>Child Activity</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a onclick="food(this.id);" class="nav-link" >
-                            <i class="nc-icon nc-apple"></i>
-                            <p>Food</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a onclick="gender_bender();" class="nav-link" >
-                            <i class="nc-icon nc-backpack"></i>
-                            <p>Clothes</p>
-                        </a>
-                        <script>
-                            function gender_bender(){
-                                var acc_id = localStorage.getItem('acc_id');
-                                var url  = "https://cryptic-fjord-60133.herokuapp.com/api/get_cprof/"+acc_id;
-                                var xhr  = new XMLHttpRequest()
-                                    xhr.open('GET', url, true)
-                                    xhr.onreadystatechange = function () { 
-                                        if (xhr.readyState == 4 && xhr.status == 200) {
-                                            var value = JSON.parse(xhr.responseText);
-                                            var gender = value.gender;
-                                        if(gender == ('M' || 'm')){
-                                            location.href = "/clothes_b";
-                                            }else{
-                                            location.href = "/clothes_g";
-                                            }  
-                                        }
-                                    }
-                                    xhr.send(null)
-                                }
-                        </script>
-                    </li>
-                    <li>
-                        <a onclick="place(this.id);" class="nav-link" >
-                            <i class="nc-icon nc-square-pin"></i>
-                            <p>Places</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a onclick="toys(this.id);" class="nav-link" >
-                            <i class="nc-icon nc-spaceship"></i>
-                            <p>Toys</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="main-panel">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
-                <div class=" container-fluid  ">
-                    <a class="navbar-brand" href="#pablo" style="min-height: 20px;"> </a>
-                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-bar burger-lines"></span>
-                        <span class="navbar-toggler-bar burger-lines"></span>
-                        <span class="navbar-toggler-bar burger-lines"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <ul class="navbar-nav ml-auto">
-                            <li>
-                                <div class="col-xs-8" style="padding-left:unset;">
-                                    <div class="container">
-                                        <div class="example" style="margin:auto;max-width:300px; margin-left: -40%;">
-                                          <input id="searching" style="width: 250px; border-radius: 5px; border: 1px solid black; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" type="text" placeholder="Search Keyword" name="search2">
-                                          <button onclick="search_forum()" class="w3-xlarge w3-teal" style="border: none; padding: 3px 13px; margin-top: 4px; padding-bottom: 7px; border-radius: 5px;"><i class="fa fa-search" style="padding-left: -4px; padding-top: 4px;"></i></button>
-                                        </div>
-                                    </div>
-                                  </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="no-icon">Profile</span>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a onclick="p_prof()" class="dropdown-item" >User Profile</a>
-                                    <div class="divider"></div>
-                                    <a onclick="c_prof()" class="dropdown-item" >Child Profile</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a onclick="logout()" class="nav-link" >
-                                    <span class="no-icon">Log out</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- End Navbar -->
             <div class="content" style="background-color: #192838;">
                 <div class="container-fluid">
                     <div class="row">
@@ -542,3 +405,4 @@ function post(){
 </script>
 
 </html>
+{% endblock %}

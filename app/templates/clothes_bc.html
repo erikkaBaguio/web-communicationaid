@@ -1,74 +1,12 @@
-<!DOCTYPE html>
+{% extends "basecat.html" %}
+{% block content %}
 <html>
-<title>Clothes</title>
-<link rel="shortcut icon" href="/static/images/clothes.png" />
-<meta charset="UTF-8"><link rel="stylesheet" href="/static/css/w3.css">
-<link rel="stylesheet" href="/static/css/font.css">
-<link rel="stylesheet" href="/static/css/font-awesome.css">
-<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
-<link rel="stylesheet" href="/static/bootstrap/css/bootstrap-reboot.css">
-<link rel="stylesheet" href="/static/bootstrap/js/bootstrap.bundle.js">
-<link rel="stylesheet" href="/static/bootstrap/js/bootstrap.js">
-<link rel="stylesheet" href="/static/css/agency.min.css">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-.w3-quarter img{margin-bottom: -6px; cursor: pointer}
-.w3-quarter img:hover{opacity: 0.6; transition: 0.3s}
-</style>
-<body class="w3-light-grey">
+<head>
 
+{{ super() }}
+<title> Pic A Talk</title>
+</head>
 
-<div class="w3-top">
-   <div class="w3-bar w3-large w3-teal w3-padding-8">
-     <a href = "/food_c"><img class="w3-center" src="/static/images/food.png" style="margin-left: 20%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="FOOD">
-     </a>
-     <a href = "/toys_c"><img class="w3-center" src="/static/images/toys.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="TOYS">
-     </a>
-     <a href = "/places_c"><img class="w3-center" src="/static/images/place.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" onclick="onClick(this)" alt="PLACES">
-     </a>
-     <a onclick="gender_bender()"><img class="w3-center" src="/static/images/clothes.png" style="margin-left: 10%; height: 100%; width: 7%; cursor: pointer;" alt="CLOTHES">
-     </a>
-    </div>
-    <script>
-                            function gender_bender(){
-                                var acc_id = localStorage.getItem('acc_id');
-                                var url  = "https://cryptic-fjord-60133.herokuapp.com/api/get_cprof/"+acc_id;
-                                var xhr  = new XMLHttpRequest()
-                                    xhr.open('GET', url, true)
-                                    xhr.onreadystatechange = function () { 
-                                        if (xhr.readyState == 4 && xhr.status == 200) {
-                                            var value = JSON.parse(xhr.responseText);
-                                            var gender = value.gender;
-                                        if(gender == ('M' || 'm')){
-                                            location.href = "/clothes_bc";
-                                            }else{
-                                            location.href = "/clothes_gc";
-                                            }  
-                                        }
-                                    }
-                                    xhr.send(null)
-                                }
-                        </script>
-</div>
-
-
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main w3-content" style="max-width:1600px;margin-top:83px">
-
-  <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
-    <span class="w3-button w3-black w3-xlarge w3-display-topright"></span>
-    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
-      <p id="caption"></p>
-    </div>
-  </div>
-
-
-
-  <!-- FOOD -->
   <div class="container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="food">
     <div id="loadpics" class="row">
         
@@ -331,3 +269,5 @@ function adiioplay(val){
 
 </body>
 </html>
+
+{% endblock %}
