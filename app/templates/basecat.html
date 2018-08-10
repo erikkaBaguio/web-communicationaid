@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-<title>Food</title>
-<link rel="shortcut icon" href="/static/images/food.png" />
+<title>Pic A Talk</title>
 <meta charset="UTF-8"><link rel="stylesheet" href="static/css/w3.css">
+<link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="/static/assets/img/favicon.ico">
 <link rel="stylesheet" href="static/css/font.css">
 <link rel="stylesheet" href="static/css/font-awesome.css">
 <link rel="stylesheet" href="static/bootstrap/css/bootstrap.css">
@@ -36,6 +37,14 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
      </a>
    </div>
    <script>
+      var token = localStorage.getItem('token');
+    if (token == null){
+        location.href = "/";
+
+    }
+    else if (token == ''){
+        location.href = "/";
+    }
                             function gender_bender(){
                                 var acc_id = localStorage.getItem('acc_id');
                                 var url  = "https://cryptic-fjord-60133.herokuapp.com/api/get_cprof/"+acc_id;
@@ -54,8 +63,28 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                                     }
                                     xhr.send(null)
                                 }
+
+        var acc_id = localStorage.getItem('acc_id');
+        var token = localStorage.getItem('token');
+        xhr = new XMLHttpRequest();
+        var url = "https://cryptic-fjord-60133.herokuapp.com/api/checker/"+acc_id+"/"+token;
+        xhr.open("GET", url, true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            if (json.token !=token){
+                    alert(json.token);
+                    alert(token);
+                    location.href = "/";
+                }
+                else{
+                    alert("token")
+                }
+          }
+        }
+        xhr.send(null);
                         </script>
-  }
  </div>
 
 <!-- !PAGE CONTENT! -->

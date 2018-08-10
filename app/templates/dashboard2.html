@@ -162,8 +162,17 @@
 
 
 <script>
+    var token = localStorage.getItem('token');
+    if (token == null){
+        location.href = "/";
+
+    }
+    else if (token == ''){
+        location.href = "/";
+    }
 
         search_forum=function(){
+
                           
     var acc_id = localStorage.getItem('acc_id');
     var search = $('#searching').val();
@@ -356,6 +365,55 @@ function delete_comment(comid,forum_no){
     console.log(json)
     xhr.send(json);
 }
+
+        var acc_id = localStorage.getItem('acc_id');
+        var token = localStorage.getItem('token');
+        xhr = new XMLHttpRequest();
+        var url = "https://cryptic-fjord-60133.herokuapp.com/api/checker/"+acc_id+"/"+token;
+        xhr.open("GET", url, true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            if (json.token !=token){
+                    alert(json.token);
+                    alert(token);
+                    location.href = "/";
+                }
+                else{
+                    alert("token")
+                }
+          }
+        }
+        xhr.send(null);
+
+
+
+
+// $(document).ready(function(){
+//     var acc_id = localStorage.getItem('acc_id');
+//     var token = localStorage.getItem('token');
+//     $.ajax({"https://cryptic-fjord-60133.herokuapp.com/api/checker/"+acc_id+"/"+token,function(data){
+//     type:"GET",
+//         success:function(response){
+//             $.each(data,function(key,value){
+
+//                 if (value.token !=token){
+//                     alert(value.token);
+//                     alert(token);
+//                     location.href = "/";
+//                 }
+//                 else{
+//                     alert("token")
+//                 }
+//             });
+
+//         }
+//         $('#'+value.forum_no).append(forum);
+//     }
+// });
+
+
 </script>
 
 </html>

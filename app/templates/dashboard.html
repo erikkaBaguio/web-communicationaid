@@ -75,16 +75,22 @@
 
 
 <script>
+	    var token = localStorage.getItem('token');
+    if (token == null){
+        location.href = "/";
 
-	var token = localStorage.getItem('token');
+    }
+    else if (token == ''){
+        location.href = "/";
+    }
 
-    search_forum=function(){
+        search_forum=function(){
                           
     var acc_id = localStorage.getItem('acc_id');
     var search = $('#searching').val();
     alert(search);
       $.ajax({
-        url:"https://cryptic-fjord-60133.herokuapp.com/api/search_forum="+search+"/"+acc_id+"/"+token;
+        url:"https://cryptic-fjord-60133.herokuapp.com/api/search_forum="+search,
         
         type:"GET",
         error:function(err){
@@ -101,7 +107,7 @@
         var forum='';
         $.each(data,function(key,value){
           $(document).ready(function(){
-            $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/comment/"+value.forum_no+"/"+acc_id+"/"+token,function(data){
+            $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/comment/"+value.forum_no,function(data){
               var forum='';
               $.each(data,function(key,value){
                 forum+='<div class="col-md-10"><div class="card"><div class="card-header"><div class="row"><div class="col-md-1"><img src="'+value.image+'" style="height: 50px; width: 50px; border-radius:30%;"></div><div class="col-md-11"><h5 style="font-weight: 600; text-transform: uppercase; ">'+value.name+'</h5><h6 style="text-transform: none; font-weight: 5;">'+value.date+' Time:'+value.time+'</h6><button onclick="delete_comment('+value.comment_id+','+value.forum_no+')" class="w3-large w3-teal pull-right" style="border: none; padding: 3px 13px; margin-top: -60px; padding-bottom: 7px; border-radius: 5px; cursor: pointer;"><i class="fa fa-trash" style="padding-left: -4px; padding-top: 4px;"></i></button></div></div></div><div class="card-body"><div class="row" style="margin-top: 5px; margin-left: 50px;"><div class="col-md-11"><p>'+value.details+'</p></div><div class="col"></div></div></div></div></div>';
@@ -130,8 +136,8 @@
 
 
                         }
-                function back(){
-                var acc_id = localStorage.getItem("acc_id");
+                        function back(){
+                  var acc_id = localStorage.getItem("acc_id");
                 var acc_type = localStorage.getItem("acc_type");
                 if (acc_type == 1){
                     location.href = "/dashboard/parent/"+acc_id;
@@ -154,7 +160,7 @@ function post(){
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     
     xhr = new XMLHttpRequest();
-    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/post_forum/"+acc_id+"/"+token;
+    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/post_forum";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onreadystatechange = function () { 
@@ -172,7 +178,7 @@ function delete_forum(fornum){
     var acc_id = localStorage.getItem("acc_id");
 
     xhr = new XMLHttpRequest();
-    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/delete_forum/"+fornum+"/"+acc_id+"/"+token;
+    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/delete_forum/"+fornum+"/"+acc_id;
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onreadystatechange = function () { 
@@ -198,7 +204,7 @@ function delete_comment(comid,forum_no){
     var acc_id = localStorage.getItem("acc_id");
 
     xhr = new XMLHttpRequest();
-    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/delete_comment/"+comid+"/"+acc_id+"/"+token;
+    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/delete_comment/"+comid+"/"+acc_id;
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onreadystatechange = function () { 
@@ -225,7 +231,7 @@ function delete_comment(comid,forum_no){
         var forum='';
         $.each(data,function(key,value){
           $(document).ready(function(){
-            $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/comment/"+value.forum_no+"/"+acc_id+"/"+token,function(data){
+            $.getJSON("https://cryptic-fjord-60133.herokuapp.com/api/comment/"+value.forum_no,function(data){
               var forum='';
               $.each(data,function(key,value){
                 forum+='<div class="col-md-10"><div class="card"><div class="card-header"><div class="row"><div class="col-md-1"><img src="'+value.image+'" style="height: 50px; width: 50px; border-radius:30%;"></div><div class="col-md-11"><h5 style="font-weight: 600; text-transform: uppercase; ">'+value.name+'</h5><h6 style="text-transform: none; font-weight: 5;">'+value.date+' Time:'+value.time+'</h6><button onclick="delete_comment('+value.comment_id+','+value.forum_no+')" class="w3-large w3-teal pull-right" style="border: none; padding: 3px 13px; margin-top: -60px; padding-bottom: 7px; border-radius: 5px; cursor: pointer;"><i class="fa fa-trash" style="padding-left: -4px; padding-top: 4px;"></i></button></div></div></div><div class="card-body"><div class="row" style="margin-top: 5px; margin-left: 50px;"><div class="col-md-11"><p>'+value.details+'</p></div><div class="col"></div></div></div></div></div>';
@@ -252,7 +258,7 @@ function delete_comment(comid,forum_no){
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     
     xhr = new XMLHttpRequest();
-    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/webcomment/"+acc_id+"/"+token;
+    var url  = "https://cryptic-fjord-60133.herokuapp.com/api/webcomment";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onreadystatechange = function () { 
@@ -273,6 +279,31 @@ function delete_comment(comid,forum_no){
     console.log(json)
     xhr.send(json);
 }
+
+
+        var acc_id = localStorage.getItem('acc_id');
+        var token = localStorage.getItem('token');
+        xhr = new XMLHttpRequest();
+        var url = "https://cryptic-fjord-60133.herokuapp.com/api/checker/"+acc_id+"/"+token;
+        xhr.open("GET", url, true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            if (json.token !=token){
+                    alert(json.token);
+                    alert(token);
+                    location.href = "/";
+                }
+                else{
+                    alert("token")
+                }
+          }
+        }
+        xhr.send(null);
+
+
+
 </script>
 
 </html>

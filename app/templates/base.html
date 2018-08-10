@@ -234,6 +234,14 @@
 </div>
 
 <script>
+    var token = localStorage.getItem('token');
+    if (token == null){
+        location.href = "/";
+
+    }
+    else if (token == ''){
+        location.href = "/";
+    }
 
     function logout(){
       localStorage.clear();
@@ -303,6 +311,26 @@
           location.href="/toys";
         }
  
+        var acc_id = localStorage.getItem('acc_id');
+        var token = localStorage.getItem('token');
+        xhr = new XMLHttpRequest();
+        var url = "https://cryptic-fjord-60133.herokuapp.com/api/checker/"+acc_id+"/"+token;
+        xhr.open("GET", url, true);
+        xhr.setRequestHeader("Content-type", "application/json");
+        // xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var json = JSON.parse(xhr.responseText);
+            if (json.token !=token){
+                    alert(json.token);
+                    alert(token);
+                    location.href = "/";
+                }
+                else{
+                    alert("token")
+                }
+          }
+        
+        xhr.send(null);
 </script>
 
 </body>
