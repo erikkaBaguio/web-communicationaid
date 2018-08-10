@@ -20,30 +20,10 @@
  </head>   
 <div class="w3-top">
      <div class="w3-bar w3-right-align w3-large w3-teal">
-        <img class="w3-left" src="/static/images/PATicon1.png" style="margin-left: 5%; height: 100%; width: 13%;" alt="logo" onclick="dasher()"/>
-  <script>
-          function dasher(){
-          var acc_id = localStorage.getItem('acc_id');
-          location.href = "/dashboard/parent/"+acc_id;
-                     }
-  </script>
+        <img id="dasher" class="w3-left" src="/static/images/PATicon1.png" style="margin-left: 5%; height: 100%; width: 13%;" alt="logo"/>
     </div>
 </div>
      
-
-<script>
-        function back(){
-                
-              var acc_type = localStorage.getItem("acc_type");
-              if (acc_type == 1){
-                    location = "/dashboard/parent"
-               }
-                else if(acc_type == 2) {
-                    location = "/dashboard/teacher"
-               }  
-            }
-</script>
-
 <body style="background-color: #d0d1d3;">
     <center>
     <div class="bgimg container-fluid">
@@ -92,12 +72,10 @@
             });
             $('#directory_table').append(directory_data);
         });
+
+        $("#dasher").click(function(){
+            var acc_id = localStorage.getItem('acc_id');
+            location.href = "/dashboard/parent/"+acc_id;
+        });
     });
-    // var table = document.getElementById("directory_table"),rIndex;
-    // for(var i = 0; i < table.rows.length; i++){
-    //  table.rows[i].onclick = function(){
-    //      rIndex = this.rowIndex;
-    //      console.log(rIndex);
-    //  };
-    // }
 </script>
