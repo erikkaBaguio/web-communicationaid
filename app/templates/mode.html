@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <link rel="stylesheet" href="/static/css/w3.css"> -->
 <link rel="stylesheet" href="/static/css/font.css">
+<script type="text/javascript" src="/static/js/jQuery-2.1.4.min.js"></script>
 <link rel="stylesheet" href="/static/css/font-awesome.css">
 <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-grid.css">
@@ -23,7 +24,7 @@
 
   <img class="w3-center" src="/static/images/PATicon1.png" style="height: 20%; width: 40%; margin-left: 30%;">
   <div class="container" style="margin-left: 15%; margin-top: 8%;">
-    <div class="row" style="margin-left: 20%;">
+    <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 box blue" style="border-radius: 50px 50px 50px 50px; border: none; cursor: pointer;" id="pmode">
         <p style="font-family: 'Nunito', sans-serif; font-weight: 600;">Parent Mode</p>
       </div>
@@ -34,18 +35,9 @@
   </div>
 
 <script type="text/javascript">
-        var token = localStorage.getItem('token');
-    if (token == null){
-        location.href = "/";
-
-    }
-    else if (token == ''){
-        location.href = "/";
-    }
-  
     var acc_id = localStorage.getItem('acc_id', acc_id);
-    document.getElementById("cmode").onclick = function () {
-        
+    $(function(){
+      $("#cmode").click(function(){
         xhr = new XMLHttpRequest();
         var url = "https://cryptic-fjord-60133.herokuapp.com/api/get_cprof/"+acc_id;
         xhr.open("GET", url, true);
@@ -58,9 +50,9 @@
           }
         }
         xhr.send(null);
-    };
-    document.getElementById("pmode").onclick = function () {
-        
+      });
+
+      $("#pmode").click(function(){
         xhr = new XMLHttpRequest();
         var url = "https://cryptic-fjord-60133.herokuapp.com/api/parent/"+acc_id;
         xhr.open("GET", url, true);
@@ -73,27 +65,37 @@
           }
         }
         xhr.send(null);
-      };
-
-        var acc_id = localStorage.getItem('acc_id');
-        var token = localStorage.getItem('token');
-        xhr = new XMLHttpRequest();
-        var url = "https://cryptic-fjord-60133.herokuapp.com/api/checker/"+acc_id+"/"+token;
-        xhr.open("GET", url, true);
-        xhr.setRequestHeader("Content-type", "application/json");
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-            var json = JSON.parse(xhr.responseText);
-            if (json.token !=token){
-                    alert(json.token);
-                    alert(token);
-                    location.href = "/";
-                }
-                else{
-                    alert("token")
-                }
-          }
-        }
-        xhr.send(null);
+      });
+    });
+    // document.getElementById("cmode").onclick = function () {
+        
+        // xhr = new XMLHttpRequest();
+        // var url = "https://cryptic-fjord-60133.herokuapp.com/api/get_cprof/"+acc_id;
+        // xhr.open("GET", url, true);
+        // xhr.setRequestHeader("Content-type", "application/json");
+        // xhr.onreadystatechange = function () {
+        //   if (xhr.readyState == 4 && xhr.status == 200) {
+        //     var json = JSON.parse(xhr.responseText);
+        //     localStorage.setItem('c_id',json.c_id);
+        //     location.href = "/dashboard/child/"+acc_id;
+        //   }
+        // }
+        // xhr.send(null);
+    // };
+    // document.getElementById("pmode").onclick = function () {
+        
+      //   xhr = new XMLHttpRequest();
+      //   var url = "https://cryptic-fjord-60133.herokuapp.com/api/parent/"+acc_id;
+      //   xhr.open("GET", url, true);
+      //   xhr.setRequestHeader("Content-type", "application/json");
+      //   xhr.onreadystatechange = function () {
+      //     if (xhr.readyState == 4 && xhr.status == 200) {
+      //       var json = JSON.parse(xhr.responseText);
+      //       localStorage.setItem('p_id',json.p_id);
+      //       location.href = "/dashboard/parent/"+acc_id;
+      //     }
+      //   }
+      //   xhr.send(null);
+      // };
 </script>
 </body></html>
